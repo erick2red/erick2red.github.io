@@ -97,3 +97,27 @@ google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+
+mini_magick:
+  gallery_1_thumbnail:
+    source: images/galleries/gallery_1
+    destination: images/galleries/gallery_1/thumbs
+    commands:
+      - thumbnail: "140x140^"
+      - crop: "140x140-0x0"
+  gallery_1_medium:
+    source: images/galleries/gallery_1
+    destination: images/galleries/gallery_1/medium
+    commands:
+      - resize: "600x400"
+  gallery_2_thumbnail:
+    source: images/galleries/gallery_2
+    destination: images/galleries/gallery_2/thumbs
+    commands:
+      - thumbnail: "140x140^"
+      - crop: "140x140-0x0"
+  gallery_2_medium:
+    source: images/galleries/test
+    destination: images/galleries/gallery_2/medium
+    commands:
+      - resize: "200x200"

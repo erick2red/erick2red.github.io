@@ -1,0 +1,225 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JSON.parse and JSON.stringify - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="The Gnome Shell Extensions system is one mighty and powerful beast. Just yesterday I found myself wanting to have a simple list of stuff I wanted to &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">JSON.parse and JSON.stringify</h2>
+	<div class="entry-content"><p>The Gnome Shell Extensions system is one mighty and powerful beast. Just yesterday I found myself wanting to have a simple list of stuff I wanted to check later. After looking around a bit to storage components in Gnome Shell environment I decide I&#8217;ll use simple files with <a href="http://en.wikipedia.org/wiki/Json">JSON</a> strings inside.</p>
+
+<p>I started coding and in a while I got my <a href="http://erick2red.wordpress.com/my-projects/shell-extensions/#wish-list">wish-list</a> extension. The  beauty of this is what I learnt in the process. Two stuff I never tried, before:</p>
+
+<ul>
+<li><p>Hacking with autotools: This is the kind of things you should know once you decide to get involved in software development for Linux.</p></li>
+<li><p>How to hack a new kind of PopMenuItem for the Shell UI</p></li>
+</ul>
+
+
+<p>Since I have access to the facilities of JavaScript and GLib system from the extension I can do almost everything with it.
+I used a file as a back-end for my list of wishes and  use JSON.parse for reading and parsing the content back into an array and JSON.stringify to dumps the objects into the file. You can go down through the code later. Anyway there&#8217;s those two snippets</p>
+
+<p>Using GLib/Gio and JSON
+[sourcecode language=&#8221;javascript&#8221;]
+let dir = Gio.file_new_for_path(Main.ExtensionSystem.extensionMeta[UUID].path);
+let listFile = dir.get_child(&#8216;lists.json&#8217;);</p>
+
+<p>let raw = listFile.replace(null, false,</p>
+
+<pre><code>                Gio.FileCreateFlags.NONE,
+                null);
+</code></pre>
+
+<p>let out = Gio.BufferedOutputStream.new_sized (raw, 4096);
+Shell.write_string_to_stream (out, JSON.stringify(this.list));
+out.close(null)
+[/sourcecode]</p>
+
+<p>Instantiating PopupMenuItem
+[sourcecode language=&#8221;javascript&#8221;]
+PopupEntryMenuItem.prototype = {</p>
+
+<pre><code>__proto__: PopupMenu.PopupBaseMenuItem.prototype,
+
+_init: function (style) {
+    PopupMenu.PopupBaseMenuItem.prototype._init.call(this, { activate: false });
+
+    this.entry = new St.Entry({ style_class: style });
+
+    this.entry.clutter_text.connect('key-press-event', Lang.bind(this, this._onKeyPress));
+    this.addActor(this.entry, { span: -1, expand: true });
+
+    this.actor.add_style_class_name('menu-entry');
+}
+</code></pre>
+
+<p>}
+Signals.addSignalMethods(PopupEntryMenuItem.prototype)
+[/sourcecode]
+The page is linked above. See you around.</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-31T12:51:56-04:00" pubdate data-updated="true">May 31<span>st</span>, 2011</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/news/'>News</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

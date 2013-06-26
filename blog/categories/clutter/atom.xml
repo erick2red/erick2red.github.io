@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Clutter | Builder's notes]]></title>
+  <link href="http://erick2red.github.com/erick2red/blog/categories/clutter/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/erick2red/"/>
+  <updated>2013-06-26T16:21:36-04:00</updated>
+  <id>http://erick2red.github.com/erick2red/</id>
+  <author>
+    <name><![CDATA[Erick Pérez Castellanos]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Getting warnings out of Clutter]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter/"/>
+    <updated>2012-04-28T23:59:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter</id>
+    <content type="html"><![CDATA[<p>It's been a while since I blogged anything. Well, I actually did some ranting
+about starting this new blog. But that really doesn't count. I should make a
+post saying what I've been up to. But I'm lazy. I've been:</p>
+
+<ul>
+<li>Learning some Qt (and I doesn't like it, maybe I tell something about this
+later)</li>
+<li>Using <a href="https://github.com/fritzy/SleekXMPP">SleekXMPP</a> python library</li>
+<li>Learning ruby (Did I said this already ?)</li>
+<li>Learning <a href="http://www.clutter-project.org">Clutter</a>, and here we stop.</li>
+</ul>
+
+
+<p>While I was trying to pull some code using Clutter and Gtk+, before you ask, I
+was trying to put GtkWidget inside Clutter Actors to get some fancy animation, I
+got into some minor troubles, which I think those newbies like me out there
+should know.</p>
+
+<p>First, if you read the blog of the might Emmanuele Bassi (Clutter's author and
+main developer) you then came across this post
+<a href="http://blogs.gnome.org/ebassi/2012/03/17/had-a-dream/">Had a dream</a>. I did, and I wanted to get
+those warning they talk about so my code would need to be modified pretty much
+anything when those API get deprecated. Well, I didn't, I mean I used
+deprecated API and my compiler wasn't throwing me warnings. Someone told me
+that I needed to use a decent set of compilers flags, and I tried, nah, still
+nothing. I went into IRC, I found help there and after a while, I was told to
+add this to my compiler options
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-DCLUTTER_VERSION_MIN_REQUIRED=CLUTTER_VERSION_1_10</span></code></pre></td></tr></table></div></figure></notextile></div>
+This finally solved the issue and I'm having pretty warnings  every time I use
+an old method which should be destroyed in a couple of months.</p>
+]]></content>
+  </entry>
+  
+</feed>

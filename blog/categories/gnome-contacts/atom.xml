@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Gnome Contacts | Builder's notes]]></title>
+  <link href="http://erick2red.github.com/erick2red/blog/categories/gnome-contacts/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/erick2red/"/>
+  <updated>2013-06-26T16:21:36-04:00</updated>
+  <id>http://erick2red.github.com/erick2red/</id>
+  <author>
+    <name><![CDATA[Erick Pérez Castellanos]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[New Link Dialog into gnome-contacts]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/02/13/new-link-dialog-into-gnome-contacts/"/>
+    <updated>2012-02-13T23:45:24-05:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/02/13/new-link-dialog-into-gnome-contacts</id>
+    <content type="html"><![CDATA[<p>Well, it seems I'm fully contributing to gnome-contacts now.</p>
+
+<p>... that was the start of this blog post a few weeks ago, the work got me in the middle and the post got stuck at draft stage til today. So</p>
+
+<p>In these previous weeks, I got the new link dialog mockups made by <a href="http://afaikblog.wordpress.com">Allan Day</a> into the code. After some hacking to the undo part well. I uploaded the patches into bugzilla for review. Here's the mandatory screenshot</p>
+
+<p><a href="http://erick2red.files.wordpress.com/2012/02/link-to-other-contact.png"><img src="http://erick2red.files.wordpress.com/2012/02/link-to-other-contact.png?w=300" alt="" /></a></p>
+
+<p>After that I went into getting crop support for setting an avatar for a contact. Here I had to came up with some design, since Alex and Allan have not agreed anything on these. I took the crop widget from gnome-control-center code, and tweaked the vapi file to load the widget. Now when you use a picture with more than 128 x 128 pixels as avatar the crop widget come up to allow you to select what you want of that pics. The crop widget only allow for square crop. Here the screenshot is this one:</p>
+
+<p><a href="http://erick2red.files.wordpress.com/2012/02/contacts-crop.png"><img src="http://erick2red.files.wordpress.com/2012/02/contacts-crop.png?w=225" alt="" /></a></p>
+
+<p>Right, now, I'm kinda frozen. There's still a lot of stuff to be done. We'll set to it soon.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Undo support goes into gnome-contacts]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2011/12/19/undo-support-into-gnome-contacts/"/>
+    <updated>2011-12-19T11:27:10-05:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2011/12/19/undo-support-into-gnome-contacts</id>
+    <content type="html"><![CDATA[<p>As of today I uploaded a patch to gnome-contacts to support undo for delete operation.</p>
+
+<p>After a bunch a fixes and reviews from contacts developer Alexander Larsson the patch went up to master. The notification looks good, tough it can become even better, I've already saw two mockups with ways to improve it a little bit. Here's a picture:</p>
+
+<p><img src="http://imgpaste.com/1fXU.png" alt="" /></p>
+
+<p>This shot shows the new Contact.Pane design work of Alex &amp; Allan.</p>
+
+<p>So, I have to thxs Alex and Allan, and a bunch of people who's been helping me to get this out, eve people from Gtk, Benjamin Otte, Emmanuele Bassi and others.</p>
+
+<p>Hope this contribution don't be the last one. And really hope the notification widget would be included into others gnome apps.</p>
+]]></content>
+  </entry>
+  
+</feed>

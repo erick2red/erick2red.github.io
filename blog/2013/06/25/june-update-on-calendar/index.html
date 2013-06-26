@@ -1,0 +1,221 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>June update on Calendar - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="I&#8217;ve made a commitment with myself of posting updates of the stuff I&#8217;m working
+once a week. This one is the first, and I expected to be &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">June Update on Calendar</h2>
+	<div class="entry-content"><p>I&#8217;ve made a commitment with myself of posting updates of the stuff I&#8217;m working
+once a week. This one is the first, and I expected to be out by Monday, but an
+<a href="https://github.com/imathis/octopress">octopress</a> update and a plugin installation for handling image galleries
+kept me from doing it.</p>
+
+<p>By now, I&#8217;m a little tired of writing, therefore I&#8217;ll be quick about it.</p>
+
+<p>A few weeks ago I restarted the work on <a href="https://live.gnome.org/Design/Apps/Calendar">Calendar</a> with the hope of adding a
+bunch of new features in <strong>Gtk+</strong> to the project. I started by creating a
+new branch, since I was sure the build would break a lot times in between, and
+didn&#8217;t want to spoil <strong>master</strong></p>
+
+<p>I&#8217;d set for myself a bunch of points I want to accomplish by rewriting the UI and
+some of them has been done, some others, not yet. That&#8217;s the main reason why I keep
+the branch still around. As soon as I feel the work is done, I&#8217;ll come back to work
+on <strong>master</strong></p>
+
+<p>I wanted to:</p>
+
+<ol>
+<li>Ditch <strong>clutter</strong> dependency. Use only Gtk+ widgets.</li>
+<li>Include <a href="https://developer.gnome.org/gtk3/3.9/GtkSearchBar.html">GtkSearchBar</a>, <a href="https://developer.gnome.org/gtk3/3.9/GtkStack.html">GtkStack</a> and some of the latest Gnome UI guidelines</li>
+<li>Use <a href="https://developer.gnome.org/gtk3/3.9/GtkBuilder.html">GtkBuilder</a>&#8217;s ui files as much as I can</li>
+<li>Rework week-view to use <a href="https://developer.gnome.org/gtk3/3.9/GtkOverlay.html">GtkOverlay</a> instead of my own solution</li>
+</ol>
+
+
+<p>So far 1, 2 and 3 has been accomplished. Point number 4 is going well since I manage to
+craft a day-view with the same requirements of week-view that does not need to
+use <strong>GtkOverlay</strong>.</p>
+
+<p>Some of the work done is showcased below</p>
+
+<p><a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-day-view.png" rel="shadowbox" title="calendar-day-view"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-day-view.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-new-menu.png" rel="shadowbox" title="calendar-new-menu"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-new-menu.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-search.png" rel="shadowbox" title="calendar-search"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-search.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-updated.png" rel="shadowbox" title="calendar-updated"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-updated.png" /></a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-25T21:19:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/calendar/'>Calendar</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://erick2red.github.com/erick2red/blog/2013/06/25/june-update-on-calendar/';
+        var disqus_url = 'http://erick2red.github.com/erick2red/blog/2013/06/25/june-update-on-calendar/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

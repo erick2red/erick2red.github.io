@@ -1,0 +1,218 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Getting warnings out of Clutter - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="It&#8217;s been a while since I blogged anything. Well, I actually did some ranting
+about starting this new blog. But that really doesn&#8217;t count &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Getting Warnings Out of Clutter</h2>
+	<div class="entry-content"><p>It&#8217;s been a while since I blogged anything. Well, I actually did some ranting
+about starting this new blog. But that really doesn&#8217;t count. I should make a
+post saying what I&#8217;ve been up to. But I&#8217;m lazy. I&#8217;ve been:</p>
+
+<ul>
+<li>Learning some Qt (and I doesn&#8217;t like it, maybe I tell something about this
+later)</li>
+<li>Using <a href="https://github.com/fritzy/SleekXMPP">SleekXMPP</a> python library</li>
+<li>Learning ruby (Did I said this already ?)</li>
+<li>Learning <a href="http://www.clutter-project.org">Clutter</a>, and here we stop.</li>
+</ul>
+
+
+<p>While I was trying to pull some code using Clutter and Gtk+, before you ask, I
+was trying to put GtkWidget inside Clutter Actors to get some fancy animation, I
+got into some minor troubles, which I think those newbies like me out there
+should know.</p>
+
+<p>First, if you read the blog of the might Emmanuele Bassi (Clutter&#8217;s author and
+main developer) you then came across this post
+<a href="http://blogs.gnome.org/ebassi/2012/03/17/had-a-dream/">Had a dream</a>. I did, and I wanted to get
+those warning they talk about so my code would need to be modified pretty much
+anything when those API get deprecated. Well, I didn&#8217;t, I mean I used
+deprecated API and my compiler wasn&#8217;t throwing me warnings. Someone told me
+that I needed to use a decent set of compilers flags, and I tried, nah, still
+nothing. I went into IRC, I found help there and after a while, I was told to
+add this to my compiler options</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-DCLUTTER_VERSION_MIN_REQUIRED=CLUTTER_VERSION_1_10</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This finally solved the issue and I&#8217;m having pretty warnings  every time I use
+an old method which should be destroyed in a couple of months.</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-28T23:59:00-04:00" pubdate data-updated="true">Apr 28<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/clutter/'>Clutter</a>, <a class='category' href='/blog/categories/code/'>Code</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter/';
+        var disqus_url = 'http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

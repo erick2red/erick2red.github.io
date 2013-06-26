@@ -1,0 +1,210 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Updates to gnome-calendar - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="It&#8217;s been long time since I published any stuff, errr. I&#8217;ve
+been busy. So, to the point. Calendar is moving forward, slower than I would &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Updates to Gnome-calendar</h2>
+	<div class="entry-content"><p>It&#8217;s been long time since I published any stuff, errr. I&#8217;ve
+been busy. So, to the point.</p>
+
+<p>Calendar is moving forward, slower than I would like, but is moving. From the
+last time, I&#8217;ve started the implementation of the event-view, and I say started
+cause there&#8217;s missing functionality yet, but the widgets part is almost done.
+For now, it deletes your events, so be careful, that&#8217;s the only button that
+really works. I&#8217;ve set in-place some code to enable notifications, but that will
+have to wait a little yet. The toolbar has got some changes,
+mostly added behavior to the change between views, and some internal
+refactoring.</p>
+
+<p>The most important stuff is: the screenshots you&#8217;ll see below will
+show you one thing, the event-view need some redesign to occupy all that empty
+space. There&#8217;s host/guest part still missing implementation, but I know it won&#8217;t
+fill all the space. On the other hand, I&#8217;ll need some symbolic icon for the
+reminders, to show in the views (monthly, daily, etc.). There&#8217;s still the issue
+of the navigation controls presentation, which I don&#8217;t like been shown by
+pressing <Ctrl>, but that will come eventually.</p>
+
+<p>This work is pretty skeleton-like, there&#8217;s a bunch of stuff that needs to be
+retouched, so, any thing you find, feel free to reach me.</p>
+
+<p>Now the shots:
+The first one is the month-view, the only one working right now, and the others
+are of the event-view.</p>
+
+<p><a class="fancybox" href="/images/galleries/calendar_aug_2012/edit-event.png" rel="shadowbox" title="edit-event"><img src="/images/galleries/calendar_aug_2012/thumbs/edit-event.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_aug_2012/month-view-showing-sources.png" rel="shadowbox" title="month-view-showing-sources"><img src="/images/galleries/calendar_aug_2012/thumbs/month-view-showing-sources.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_aug_2012/view-event.png" rel="shadowbox" title="view-event"><img src="/images/galleries/calendar_aug_2012/thumbs/view-event.png" /></a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-03T16:00:00-04:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://erick2red.github.com/erick2red/blog/2012/07/03/updates-to-gnome-calendar/';
+        var disqus_url = 'http://erick2red.github.com/erick2red/blog/2012/07/03/updates-to-gnome-calendar/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

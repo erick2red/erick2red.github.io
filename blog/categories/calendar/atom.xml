@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Calendar | Builder's notes]]></title>
+  <link href="http://erick2red.github.com/erick2red/blog/categories/calendar/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/erick2red/"/>
+  <updated>2013-06-26T16:21:36-04:00</updated>
+  <id>http://erick2red.github.com/erick2red/</id>
+  <author>
+    <name><![CDATA[Erick Pérez Castellanos]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[June update on Calendar]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2013/06/25/june-update-on-calendar/"/>
+    <updated>2013-06-25T21:19:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2013/06/25/june-update-on-calendar</id>
+    <content type="html"><![CDATA[<p>I've made a commitment with myself of posting updates of the stuff I'm working
+once a week. This one is the first, and I expected to be out by Monday, but an
+<a href="https://github.com/imathis/octopress">octopress</a> update and a plugin installation for handling image galleries
+kept me from doing it.</p>
+
+<p>By now, I'm a little tired of writing, therefore I'll be quick about it.</p>
+
+<p>A few weeks ago I restarted the work on <a href="https://live.gnome.org/Design/Apps/Calendar">Calendar</a> with the hope of adding a
+bunch of new features in <strong>Gtk+</strong> to the project. I started by creating a
+new branch, since I was sure the build would break a lot times in between, and
+didn't want to spoil <strong>master</strong></p>
+
+<p>I'd set for myself a bunch of points I want to accomplish by rewriting the UI and
+some of them has been done, some others, not yet. That's the main reason why I keep
+the branch still around. As soon as I feel the work is done, I'll come back to work
+on <strong>master</strong></p>
+
+<p>I wanted to:</p>
+
+<ol>
+<li>Ditch <strong>clutter</strong> dependency. Use only Gtk+ widgets.</li>
+<li>Include <a href="https://developer.gnome.org/gtk3/3.9/GtkSearchBar.html">GtkSearchBar</a>, <a href="https://developer.gnome.org/gtk3/3.9/GtkStack.html">GtkStack</a> and some of the latest Gnome UI guidelines</li>
+<li>Use <a href="https://developer.gnome.org/gtk3/3.9/GtkBuilder.html">GtkBuilder</a>'s ui files as much as I can</li>
+<li>Rework week-view to use <a href="https://developer.gnome.org/gtk3/3.9/GtkOverlay.html">GtkOverlay</a> instead of my own solution</li>
+</ol>
+
+
+<p>So far 1, 2 and 3 has been accomplished. Point number 4 is going well since I manage to
+craft a day-view with the same requirements of week-view that does not need to
+use <strong>GtkOverlay</strong>.</p>
+
+<p>Some of the work done is showcased below</p>
+
+<p><a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-day-view.png" rel="shadowbox" title="calendar-day-view"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-day-view.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-new-menu.png" rel="shadowbox" title="calendar-new-menu"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-new-menu.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-search.png" rel="shadowbox" title="calendar-search"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-search.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-updated.png" rel="shadowbox" title="calendar-updated"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-updated.png" /></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Software updates]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/11/30/software-updates/"/>
+    <updated>2012-11-30T23:40:00-05:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/11/30/software-updates</id>
+    <content type="html"><![CDATA[<p>It's been a very long time since I posted anything.
+You might not know, I live in <a href="http://en.wikipedia.org/wiki/Santiago_de_Cuba">Santiago de Cuba</a>, Cuba, one of the cities trashed by the <a href="http://en.wikipedia.org/wiki/Hurricane_Sandy">hurricane
+Sandy</a>. That left us a bunch of loses and lack of communication for weeks. We went
+without power for at least 14 days, so you can imagine why I was not posting updates. Some time has
+passed and the city is growing back from its ashes.</p>
+
+<p>I've been working on <a href="https://live.gnome.org/Design/Apps/Calendar"><strong>Calendar</strong></a>, trying to get some minimal functioning
+application, to get something out for you to use, and then I can continue
+improving the rest. For now, I've focused on enable a fully working the "Event Details"
+dialog. The thing is kinda clunky yet, but it works. It needs more polish
+and heavy testing, though.</p>
+
+<p>I also went and made a year-view implementation, which is almost fully
+functional. This one was easy, was almost copy/paste from the old month-view
+implementation.
+The month-view also received a full face-lift. The previous version had some
+super-rough edges when months didn't fit in a 35 cells grid. That has been
+fixed, our designers pulled some rabbits out of their hats. The new design,
+which is already implemented suggest a scrolling
+animation, but I want to be sure it works before going into it.</p>
+
+<p>I'm trying to get <strong>Calendar</strong> in beta
+shape for 3.8 release. I'm still need to implement three views: list-view,
+day-view and week-view, and the search mechanism, with the results showing.
+For the week-view I have an implementation which have scrolling issues,
+I have to take care of.</p>
+
+<p>Some minor mojo I don't want to pass unnoticed:</p>
+
+<ul>
+<li>Squared buttons in the toolbar, thxs to Debarshy Ray for the suggestion and Cosimo's libgd for the hack.</li>
+<li>We added a proper use of <code>g_clear_object</code></li>
+<li>Simple keyboard shortcuts, for <strong>Quit</strong> and change amount views.</li>
+</ul>
+
+
+<p>Now some screenshots</p>
+
+<p><a class="fancybox" href="/images/galleries/calendar_dec_2012/edit-event-dialog.png" rel="shadowbox" title="edit-event-dialog"><img src="/images/galleries/calendar_dec_2012/thumbs/edit-event-dialog.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_dec_2012/month-35-cell.png" rel="shadowbox" title="month-35-cell"><img src="/images/galleries/calendar_dec_2012/thumbs/month-35-cell.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_dec_2012/month-42-cell.png" rel="shadowbox" title="month-42-cell"><img src="/images/galleries/calendar_dec_2012/thumbs/month-42-cell.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_dec_2012/year-view-first.png" rel="shadowbox" title="year-view-first"><img src="/images/galleries/calendar_dec_2012/thumbs/year-view-first.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_dec_2012/year-view-second.png" rel="shadowbox" title="year-view-second"><img src="/images/galleries/calendar_dec_2012/thumbs/year-view-second.png" /></a></p>
+]]></content>
+  </entry>
+  
+</feed>

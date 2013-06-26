@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: News | Builder's notes]]></title>
+  <link href="http://erick2red.github.com/erick2red/blog/categories/news/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/erick2red/"/>
+  <updated>2013-06-26T16:21:36-04:00</updated>
+  <id>http://erick2red.github.com/erick2red/</id>
+  <author>
+    <name><![CDATA[Erick Pérez Castellanos]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[JSON.parse and JSON.stringify]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2011/05/31/json-parse-and-json-stringify/"/>
+    <updated>2011-05-31T12:51:56-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2011/05/31/json-parse-and-json-stringify</id>
+    <content type="html"><![CDATA[<p>The Gnome Shell Extensions system is one mighty and powerful beast. Just yesterday I found myself wanting to have a simple list of stuff I wanted to check later. After looking around a bit to storage components in Gnome Shell environment I decide I'll use simple files with <a href="http://en.wikipedia.org/wiki/Json">JSON</a> strings inside.</p>
+
+<p>I started coding and in a while I got my <a href="http://erick2red.wordpress.com/my-projects/shell-extensions/#wish-list">wish-list</a> extension. The  beauty of this is what I learnt in the process. Two stuff I never tried, before:</p>
+
+<ul>
+<li><p>Hacking with autotools: This is the kind of things you should know once you decide to get involved in software development for Linux.</p></li>
+<li><p>How to hack a new kind of PopMenuItem for the Shell UI</p></li>
+</ul>
+
+
+<p>Since I have access to the facilities of JavaScript and GLib system from the extension I can do almost everything with it.
+I used a file as a back-end for my list of wishes and  use JSON.parse for reading and parsing the content back into an array and JSON.stringify to dumps the objects into the file. You can go down through the code later. Anyway there's those two snippets</p>
+
+<p>Using GLib/Gio and JSON
+[sourcecode language="javascript"]
+let dir = Gio.file_new_for_path(Main.ExtensionSystem.extensionMeta[UUID].path);
+let listFile = dir.get_child('lists.json');</p>
+
+<p>let raw = listFile.replace(null, false,</p>
+
+<pre><code>                Gio.FileCreateFlags.NONE,
+                null);
+</code></pre>
+
+<p>let out = Gio.BufferedOutputStream.new_sized (raw, 4096);
+Shell.write_string_to_stream (out, JSON.stringify(this.list));
+out.close(null)
+[/sourcecode]</p>
+
+<p>Instantiating PopupMenuItem
+[sourcecode language="javascript"]
+PopupEntryMenuItem.prototype = {</p>
+
+<pre><code>__proto__: PopupMenu.PopupBaseMenuItem.prototype,
+
+_init: function (style) {
+    PopupMenu.PopupBaseMenuItem.prototype._init.call(this, { activate: false });
+
+    this.entry = new St.Entry({ style_class: style });
+
+    this.entry.clutter_text.connect('key-press-event', Lang.bind(this, this._onKeyPress));
+    this.addActor(this.entry, { span: -1, expand: true });
+
+    this.actor.add_style_class_name('menu-entry');
+}
+</code></pre>
+
+<p>}
+Signals.addSignalMethods(PopupEntryMenuItem.prototype)
+[/sourcecode]
+The page is linked above. See you around.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Morning Echoes]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2011/05/30/morning-echoes/"/>
+    <updated>2011-05-30T08:34:52-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2011/05/30/morning-echoes</id>
+    <content type="html"><![CDATA[<p>Here goes some of the morning news you can find around:</p>
+
+<ul>
+<li><p><a href="http://goo.gl/eS8It">Gnome-Shell vs Unity vs Others</a></p></li>
+<li><p>The <a href="http://open-build-service.org/">OBS</a> will need a look, since it's kinda a useful service for you providing packages for others distros.</p></li>
+<li><p>Great <a href="http://goo.gl/tUqPs">Linux version bump</a> is coming ?</p></li>
+<li><p><a href="http://goo.gl/rfIV5">Firefox 5</a> on the way</p></li>
+</ul>
+
+
+<p>Some tech now:</p>
+
+<ul>
+<li><p>Intel building chips for <a href="http://goo.gl/eV3hM">Apple ?</a></p></li>
+<li><p><a href="http://goo.gl/IAEXj">AMD going for tablets</a>. Still a rumor</p></li>
+</ul>
+
+
+<p>And some jokes wouldn't kill anyone:</p>
+
+<ul>
+<li><a href="http://xkcd.com/905/">Homeownership</a></li>
+</ul>
+
+
+<p>So, monday is kinda slow day, or at least at this time in the morning.</p>
+
+<p>I'll bring you back tomorrow or the day after that.</p>
+]]></content>
+  </entry>
+  
+</feed>

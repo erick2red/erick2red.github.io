@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Linux | Builder's notes]]></title>
+  <link href="http://erick2red.github.com/erick2red/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/erick2red/"/>
+  <updated>2013-06-26T16:21:36-04:00</updated>
+  <id>http://erick2red.github.com/erick2red/</id>
+  <author>
+    <name><![CDATA[Erick Pérez Castellanos]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A challenge of locales]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/10/09/a-challenge-of-locales/"/>
+    <updated>2012-10-09T09:41:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/10/09/a-challenge-of-locales</id>
+    <content type="html"><![CDATA[<p>When developing an application aiming for everyone worldwide to use, there are certain challenges
+you will face. Right now, mine is fighting laziness and locales.</p>
+
+<p>I'm developing some widget for specifying a date and I've been struggling with date formats across locales
+So, after reading a huge number of manpages, source-code, and so on I stumble on this code.</p>
+
+<pre><code>#include &lt;langinfo.h&gt;
+#include &lt;locale.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int
+main(int argc, char *argv[])
+{
+  setlocale(LC_ALL,"");
+  printf("%s\n",nl_langinfo(D_FMT));
+  exit(EXIT_SUCCESS);
+}
+</code></pre>
+
+<p>This will show me your date format according to your locale.
+What I will ask, compile and run this code in your pc, and post the answer here along with your locales.</p>
+
+<p>See you around.</p>
+
+<p><em>Update</em>: Thxs for the comments. Two things: I've just updated the code, thxs to Tom, adding <strong>setlocale</strong> line made the code works. Second: Thxs to Tommi (first comment). That was the info I was looking for.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Moving to Fedora]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/08/21/moving-to-fedora/"/>
+    <updated>2012-08-21T12:40:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/08/21/moving-to-fedora</id>
+    <content type="html"><![CDATA[<p>I've been using <a href="http://www.archlinux.org/">Archlinux</a> for about 4 years now, and I've been pretty happy
+about it. The thing is, as I become more involved in Gnome development, I've feel
+the best distro for such a purpose is <a href="http://fedoraproject.org/">Fedora</a>.</p>
+
+<p>Now,  you can argue a bunch of
+powerful reasons, but the people who package Gnome in Fedora knows
+Gnome internals, so the chance you'll end up getting a better experience is
+higher. I should tell Gnome packagers in Archlinux to stay a little bit
+closer to upstream Gnome developers. Another reason for staying with Arch would
+have been to test Gnome across different distros, and I know that would help,
+but I felt I needed a change.</p>
+
+<p>There's another point, since I'm dedicating more time now to develop stuff, I
+spent less time configuring stuff and tweaking my system, I'm starting to see my
+laptop as a tool for development, not the toy it used to be. The only thing I
+require of a distro right now is:</p>
+
+<ul>
+<li>Having a package of vim. I'll install the plugins myself.</li>
+<li>Having gcc/g++ and the man pages of those. Which I found yesterday I don't
+have in Fedora.</li>
+<li>Having devhelp, and GLib/Gtk+ docs.</li>
+<li>Ohh, and not having <strong>KDE</strong> installed by default.</li>
+</ul>
+
+
+<p>So, by now, I've been on Fedora for almost a month according to <em>last</em>, and I'm
+pretty happy with it.</p>
+
+<p>See you soon, to let u know some Calendar advances.</p>
+]]></content>
+  </entry>
+  
+</feed>

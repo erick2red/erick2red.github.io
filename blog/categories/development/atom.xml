@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Development | Builder's notes]]></title>
+  <link href="http://erick2red.github.com/erick2red/blog/categories/development/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/erick2red/"/>
+  <updated>2013-06-26T16:21:36-04:00</updated>
+  <id>http://erick2red.github.com/erick2red/</id>
+  <author>
+    <name><![CDATA[Erick Pérez Castellanos]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git on steroids]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2011/07/16/git-on-steroids/"/>
+    <updated>2011-07-16T12:29:48-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2011/07/16/git-on-steroids</id>
+    <content type="html"><![CDATA[<p>Since I've started developing for a company business I've been using version control systems and for my own projects I choose for git.</p>
+
+<p>Why choose git over others, for was a bunch of simple reason:</p>
+
+<ul>
+<li><p>I needed to have a full record of the project, and git is a distributed revision control system, that's fits.</p></li>
+<li><p>I tried subversion before, and the branchs management in subversion is lousy, actually there's no branch management, there's just copy to other place, then overwrite/merge. Git branch management is wonderful.</p></li>
+<li><p>Lastly, I had to decide between bazaar, Ubuntu's child, mercurial, and git. This was an easy one, who uses git, <a href="http://git.gnome.org/">Gnome Project</a> the <a href="http://git.kernel.org">linux kernel</a>, and <a href="http://www.github.com">github.com</a>, the mighty Octocat, that's a big win for git.</p></li>
+</ul>
+
+
+<p>So far, I haven't regretted on my choice, and I don't think I ever will.</p>
+
+<p>Tips and Links</p>
+
+<ul>
+<li><p><a href="http://en.wikipedia.org/wiki/Comparison_of_revision_control_software">Wikipedia comparison of revision control systems</a></p></li>
+<li><p><a href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html">Git Users Manual</a></p></li>
+<li><p>and <a href="http://blog.fournova.com/2011/06/git-cheat-sheet/">Git Cheat Sheet</a> (although you may find a bunch of this)</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Open source software is green]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2011/07/01/open-source-software-is-green/"/>
+    <updated>2011-07-01T08:54:56-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2011/07/01/open-source-software-is-green</id>
+    <content type="html"><![CDATA[<p>A few days ago I read post about FOSS being green or not. Since open source is about reusing/improving stuff made by others you could surely say, yes, FOSS is green indeed.</p>
+
+<p>Then I found this, what a better prove !!!</p>
+
+<p>[sourcecode language="cpp"]
+gnome_bluetooth_headers_to_scan_for_enums = bluetooth-enums.h</p>
+
+<h1>Generate the enums source code, with glib-mkenums:</h1>
+
+<h1>This is based on the same Makefile.am stuff in pango:</h1>
+
+<p>gnome_bluetooth_built_headers = gnome-bluetooth-enum-types.h
+gnome_bluetooth_built_cfiles = gnome-bluetooth-enum-types.c</p>
+
+<p>gnome-bluetooth-enum-types.h: $(gnome_bluetooth_headers_to_scan_for_enums) Makefile</p>
+
+<pre><code>$(AM_V_GEN) (cd $(srcdir) &amp;&amp; glib-mkenums \
+        --fhead "#ifndef __GNOME_BLUETOOTH_ENUM_TYPES_H__\n#define __GNOME_BLUETOOTH_ENUM_TYPES_H__\n\n#include \n\nG_BEGIN_DECLS\n" \
+        --fprod "/* enumerations from \"@filename@\" */\n" \
+        --vhead "GType @enum_name@_get_type (void);\n#define BLUETOOTH_TYPE_@ENUMSHORT@ (@enum_name@_get_type())\n"     \
+        --ftail "G_END_DECLS\n\n#endif /* __GNOME_BLUETOOTH_ENUM_TYPES_H__ */" \
+    $(gnome_bluetooth_headers_to_scan_for_enums)) &gt; $@
+</code></pre>
+
+<p>gnome-bluetooth-enum-types.c: $(gnome_bluetooth_headers_to_scan_for_enums) Makefile gnome-bluetooth-enum-types.h</p>
+
+<pre><code>$(AM_V_GEN) (cd $(srcdir) &amp;&amp; glib-mkenums \
+        --fhead "#include \n" \
+        --fhead "#include \"gnome-bluetooth-enum-types.h\"\n" \
+        --fhead "#include " \
+            --fprod "\n/* enumerations from \"@filename@\" */" \
+        --vhead "GType\n@enum_name@_get_type (void)\n{\n  static GType etype = 0;\n  if (etype == 0) {\n    static const G@Type@Value values[] = {"     \
+        --vprod "      { @VALUENAME@, \"@VALUENAME@\", \"@valuenick@\" }," \
+        --vtail "      { 0, NULL, NULL }\n    };\n    etype = g_@type@_register_static (\"@EnumName@\", values);\n  }\n  return etype;\n}\n" \
+    $(gnome_bluetooth_headers_to_scan_for_enums)) &gt; $@
+</code></pre>
+
+<p>[/sourcecode]</p>
+
+<p>I found myself using this, so my comments after this goes:</p>
+
+<blockquote><p>This is based on the same Makefile.am stuff gnome-bluetooth,
+which is based on the same stuff in pango</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Developing for Gtk/Glib]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2011/06/28/developing-for-gtkglib/"/>
+    <updated>2011-06-28T13:13:41-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2011/06/28/developing-for-gtkglib</id>
+    <content type="html"><![CDATA[<p>Hi everyone. It's been a while since I blogged something. Been busy day-to-day work.</p>
+
+<p>Yesterday something started to bug me, a new project like, a new toy application. After some modeling/sketching on a page I decided to start writing some demo code.</p>
+
+<p>It took me a while to notice that I'm far from setting a GObject development environment fast. I'm using <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-cc-linux-developers-includes-incubating-components/indigor">Eclipse IDE for C/C++ Linux Developers</a>, and valgrind and the usual tools in my Archlinux. There's, by the way, a package group in pacman called base-devel, I always had installed first hand.</p>
+
+<p>Anyway I'll talk about the main three issues I found in my way to set up start and star coding some mockups and early designs of my toy app.</p>
+
+<p><strong>Autotools packaging</strong></p>
+
+<p>I'm not the guy who lined up with cmake cause autotools is old, and should be improved, although I think it needs some improvements [1]. The main issue with autotools is that it is hard to learn, the existent documentation is little and somewhat cryptic, and that makes the learning curve steep. After read some things on the web, and been this not first time I stand before the issues, I did what I think everyone should, I made my own sample-autootols project which keeps a minimal configuration of what I need to develop a Gtk application. I included tips from <a href="http://blogs.gnome.org/jjardon/2010/01/25/modernize-your-autotools-build-system/">this post</a> about improving and modernizing the autotools configuration, and some others about using <a href="http://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00599.html">xz compression instead of gz</a>. The project is in <a href="https://github.com/erick2red/autotools-sample">github</a>, and I'm planning to improve it with several configurations for several kinds of builds. Anyway, that for point one, I will keep my template at hand, but I think for new developers, and for the good of the platform, Gnome should make something like Ubuntu Quickly. Note: I've tried to use anjuta, really tried, but it doesn't feel right or stable, and this is not for the developers to take it personal, it just my experience with it had been bad.</p>
+
+<p><strong>GObject based C class</strong></p>
+
+<p>This is so simple is really a shame it had taken me so long to pass this point. I needed some GObject based class, to handle some  internals structures of my application, and then I found myself copying parts of devhelp tutorials to headers and sources files to build the class, this code is all templates, is the same over and over for every class I had and have to make. I just want some script that make me the files after I provide the name of the class I want. If I had the time to learn howto make Eclipse plugins I'll make the Eclipse Template for those files header and source file for  a GObject based class. I tried vala before and I know it does, one possible solution is for vala to print the translation into some pretty formatted code. If I can't find any solution soon, I'll make some awk script that output the files with the required boilerplate needed.</p>
+
+<p><strong>Valgrind debugging</strong></p>
+
+<p>Finally, the third point is the fair beginner one, I have to say this pretty much my first time doing C development of Gtk/Glib applications. Until now I've used some vala, and some JavaScript, and some C++, but C, nope, so I think this is mainly why I found this obstacles in my path. After having some windows running and some buttons doings it's work I felt it was time to profile the memory usage I was using. I used valgrind since the Eclipse bring with support for it included, and I notice I need a suppression file for Gtk/Glib <em>possible memory lost</em>, which isn't real. Digged a little on the web, actually digged nothing this was the first results that pops out: <a href="https://live.gnome.org/Valgrind">Valgrind at live.gnome.org</a>, and I went after the suppression file, just to learn that the file was missing or something else (I'm getting some internal error, which I now realize I have to tell the maintainers of the wiki). After that I decided I have to do it by myself. I think that the gnome developers should have a file like that somewhere, but I'm to shy to ask for it, so I'll take the time to do one for me, someday.</p>
+
+<p>Again I think that, in order to promote the platform, is necessary to publish things like this, The new look of <a href="http://developer.gnome.org/">developer.gnome.org</a> and the samples in there helps to that purpose, but still feel more work in that direction is missing.</p>
+
+<p>[1] Autotools needs to handle parallel configure, since parallel <em>make</em> is handled by the <em>-j</em> flag.</p>
+]]></content>
+  </entry>
+  
+</feed>

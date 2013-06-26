@@ -1,0 +1,242 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DBus in Gjs and Gnome Shell - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="The Story Last few days I’ve got a bunch of ideas about Gnome Shell extensions. Gnome 3 platform has made the development of Gnome really close to &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">DBus in Gjs and Gnome Shell</h2>
+	<div class="entry-content"><h6>The Story</h6>
+
+<p>Last few days I’ve got a bunch of ideas about Gnome Shell extensions. Gnome 3 platform has made the development of Gnome really close to the public, more than anything by using JavaScript to made the Shell.</p>
+
+<p>The use of JavaScript has lower the barrier for making contributions for Gnome Desktop, because JavaScript it&#8217;s a well known language in the web development world an it’s a easier language to learn than the typical C/C++ and even Python. There’s still some things to address about the use of JavaScript, the definition and standardization of an engine for use in the gnome development (look at this discussion about the use of <a href="http://live.gnome.org/Seed">Seed</a> or <a href="http://live.gnome.org/Gjs">Gjs</a> [1]), the stabilization of some interfaces in the actual engines, but there’s a lot of way made already.</p>
+
+<p>About standardization and stabilization of interfaces goes this post. <a href="http://dbus.freedesktop.org">DBus</a> is a clever way of communication between process that has become almost a must have for every desktop application for providing services and hooks to internals API, the JavaScript engine powering Gnome Shell then, needs a DBus interface and here comes the problem.</p>
+
+<p>When I realize of my need of using DBus when writing some Gnome-Shell extension I go through the process of selecting which DBus interface I will use. First I decide to use GLib <a href="http://developer.gnome.org/gio/2.26/gdbus.html">GDBus</a> interface since it goes inside GLib, so no matters which JavaScript engine you use, as long as it has GLib bindings it should work. I avoid the low-level interfaces, and I got the Devhelp documentation to work with so, It just left start coding.</p>
+
+<p>After a while I realize that not everything worked as I thought, first and the biggest problem I had was the need of using GLib.Variant in JavaScript to define the signature of the methods you call over DBus and the fact the Gjs not implement GLib.Variant support or at least as long as I can find. I tried with almost every method declared in the GLib-2.0.gir file which is suppose to provide the introspection data, no one works. After asking in the JavaScript mailing list, and got no answer, I decide I should give up and use DBus interface provided by Gjs.</p>
+
+<h6>The Code</h6>
+
+<p>After looking around, I decide to go the only way, reading Gnome Shell code.</p>
+
+<p>For calling a method exported over DBus using Gjs the first is import (include, load the code) the unit containing the DBus interface</p>
+
+<pre><code>&lt;span class="kwrd"&gt;const&lt;/span&gt; DBus = imports.dbus;
+</code></pre>
+
+<p>This code loads the JavaScript file dbus.js. After that you need to declare the interface you’re trying to reach and the signature of the methods you’re planning to call</p>
+
+<pre><code>&lt;span class="kwrd"&gt;const&lt;/span&gt; NotificationRemoteInterface = {
+    name: &lt;span class="str"&gt;'org.freedesktop.Notifications'&lt;/span&gt;, &lt;span class="rem"&gt;//interface name&lt;/span&gt;
+    methods: [
+        {    &lt;span class="rem"&gt;//method name and signature&lt;/span&gt;
+            name: &lt;span class="str"&gt;'Notify'&lt;/span&gt;,
+            inSignature: &lt;span class="str"&gt;'susssasa{sv}i'&lt;/span&gt;,
+            outSignature: &lt;span class="str"&gt;'u'&lt;/span&gt;
+        }
+    ]
+};
+</code></pre>
+
+<p>Now it comes the Gjs-DBus implementation magic, you need to call this method from DBus object tha makes a class of the proxy object you’ll need to instantiate</p>
+
+<pre><code>let NotificationProxy = DBus.makeProxyClass(NotificationRemoteInterface);
+</code></pre>
+
+<p>After that you’ll be ready to get the proxy object and and call its method, or at least the ones you declared.</p>
+
+<pre><code>    let notification_proxy = &lt;span class="kwrd"&gt;new&lt;/span&gt; NotificationProxy(DBus.session,
+                                                    &lt;span class="str"&gt;'org.freedesktop.Notifications'&lt;/span&gt;,
+                                                    &lt;span class="str"&gt;'/org/freedesktop/Notifications'&lt;/span&gt;);
+    notification_proxy.NotifyRemote(&lt;span class="str"&gt;'my_app_sample'&lt;/span&gt;,    &lt;span class="rem"&gt;//these are the params of the method called&lt;/span&gt;
+                                    0,
+                                    &lt;span class="str"&gt;'dialog-info'&lt;/span&gt;,
+                                    &lt;span class="str"&gt;'Summary of the notification'&lt;/span&gt;,
+                                    &lt;span class="str"&gt;'Big Body of the sample Notification'&lt;/span&gt;,
+                                    [],
+                                    {},
+                                    120,
+                                    &lt;span class="kwrd"&gt;function&lt;/span&gt;(result, err){
+                                        log(&lt;span class="str"&gt;'This is the result: '&lt;/span&gt; + result);
+                                        log(&lt;span class="str"&gt;'This is the error: '&lt;/span&gt; + err);
+    });
+</code></pre>
+
+<p>Well, and that’s it. After that you called the method and you have the callback set there, so you can what you want with the returned values.</p>
+
+<h6>The conclusion</h6>
+
+<p>I know there still a bunch of stuff you can make with DBus, but this is a start. There’re still watching for a bus name, and watching for signals and properties changes. It will come soon, I hope.</p>
+
+<hr />
+
+<p>[1] <a href="http://mail.gnome.org/archives/desktop-devel-list/2011-April/msg00147.html">Gjs vs Seed</a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-28T21:52:58-04:00" pubdate data-updated="true">May 28<span>th</span>, 2011</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/coding-samples/'>Coding Samples</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

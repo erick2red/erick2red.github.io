@@ -1,0 +1,227 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Software updates - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="It&#8217;s been a very long time since I posted anything.
+You might not know, I live in Santiago de Cuba, Cuba, one of the cities trashed by the &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Software Updates</h2>
+	<div class="entry-content"><p>It&#8217;s been a very long time since I posted anything.
+You might not know, I live in <a href="http://en.wikipedia.org/wiki/Santiago_de_Cuba">Santiago de Cuba</a>, Cuba, one of the cities trashed by the <a href="http://en.wikipedia.org/wiki/Hurricane_Sandy">hurricane
+Sandy</a>. That left us a bunch of loses and lack of communication for weeks. We went
+without power for at least 14 days, so you can imagine why I was not posting updates. Some time has
+passed and the city is growing back from its ashes.</p>
+
+<p>I&#8217;ve been working on <a href="https://live.gnome.org/Design/Apps/Calendar"><strong>Calendar</strong></a>, trying to get some minimal functioning
+application, to get something out for you to use, and then I can continue
+improving the rest. For now, I&#8217;ve focused on enable a fully working the &#8220;Event Details&#8221;
+dialog. The thing is kinda clunky yet, but it works. It needs more polish
+and heavy testing, though.</p>
+
+<p>I also went and made a year-view implementation, which is almost fully
+functional. This one was easy, was almost copy/paste from the old month-view
+implementation.
+The month-view also received a full face-lift. The previous version had some
+super-rough edges when months didn&#8217;t fit in a 35 cells grid. That has been
+fixed, our designers pulled some rabbits out of their hats. The new design,
+which is already implemented suggest a scrolling
+animation, but I want to be sure it works before going into it.</p>
+
+<p>I&#8217;m trying to get <strong>Calendar</strong> in beta
+shape for 3.8 release. I&#8217;m still need to implement three views: list-view,
+day-view and week-view, and the search mechanism, with the results showing.
+For the week-view I have an implementation which have scrolling issues,
+I have to take care of.</p>
+
+<p>Some minor mojo I don&#8217;t want to pass unnoticed:</p>
+
+<ul>
+<li>Squared buttons in the toolbar, thxs to Debarshy Ray for the suggestion and Cosimo&#8217;s libgd for the hack.</li>
+<li>We added a proper use of <code>g_clear_object</code></li>
+<li>Simple keyboard shortcuts, for <strong>Quit</strong> and change amount views.</li>
+</ul>
+
+
+<p>Now some screenshots</p>
+
+<p><a class="fancybox" href="/images/galleries/calendar_dec_2012/edit-event-dialog.png" rel="shadowbox" title="edit-event-dialog"><img src="/images/galleries/calendar_dec_2012/thumbs/edit-event-dialog.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_dec_2012/month-35-cell.png" rel="shadowbox" title="month-35-cell"><img src="/images/galleries/calendar_dec_2012/thumbs/month-35-cell.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_dec_2012/month-42-cell.png" rel="shadowbox" title="month-42-cell"><img src="/images/galleries/calendar_dec_2012/thumbs/month-42-cell.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_dec_2012/year-view-first.png" rel="shadowbox" title="year-view-first"><img src="/images/galleries/calendar_dec_2012/thumbs/year-view-first.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_dec_2012/year-view-second.png" rel="shadowbox" title="year-view-second"><img src="/images/galleries/calendar_dec_2012/thumbs/year-view-second.png" /></a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-30T23:40:00-05:00" pubdate data-updated="true">Nov 30<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/calendar/'>Calendar</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://erick2red.github.com/erick2red/blog/2012/11/30/software-updates/';
+        var disqus_url = 'http://erick2red.github.com/erick2red/blog/2012/11/30/software-updates/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

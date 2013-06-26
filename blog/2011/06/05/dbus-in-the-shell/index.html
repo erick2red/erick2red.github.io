@@ -1,0 +1,272 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DBus in the Shell - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="As a companion of the post I made before on connecting to DBus exported objects on Gjs JavaScript runtime over the Shell, should be other post &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com/erick2red">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">DBus in the Shell</h2>
+	<div class="entry-content"><p>As a companion of the post <a href="http://erick2red.wordpress.com/2011/05/28/dbus-in-gjs-and-gnome-shell/">I made before</a> on connecting to DBus exported objects on Gjs JavaScript runtime over the Shell, should be other post talking as how to export object over DBus inside Shell JavaScript environment. More or less this one is about that.</p>
+
+<p>The code I will show here isn&#8217;t mine, even I think I contribute some part to it, the main architecture of the thing was already made by the time the code get to me. That part of thanks for the help, and the guidance should go to Vamsi Krishna Brahmajosyula.</p>
+
+<p>So, let’s get our hands dirty</p>
+
+<p>First you need to create the interface you will export, similar to the way you made before for getting proxy objects.</p>
+
+<p>[sourcecode language=&#8221;javascript&#8221;]
+const LoggerIface = {</p>
+
+<pre><code>name: 'org.gnome.Logger',
+methods: [{
+            name: 'log',
+            inSignature: 's',
+            outSignature: ''
+          }
+       ],
+signals: [{
+            name: 'added',
+            inSignature: 's'
+        }],
+properties: []
+</code></pre>
+
+<p>};
+[/sourcecode]</p>
+
+<p>As you can see, we&#8217;ll planning to create an object exporting one method &#8216;Logger::log&#8217; and one signal &#8216;Logger::added&#8217;. The method has one parameter and no return value, and the signal has one arguments, in both cases the argument/parameters is the same, the message log sent. So, our objects will have and array of log messages sent to him, and for every time you call its method &#8216;log&#8217; it emit the signal added. Very simple.</p>
+
+<p>Now we&#8217;ll create the object conforming the interface we defined before.</p>
+
+<p>[sourcecode language=&#8221;javascript&#8221;]
+function Logger() {</p>
+
+<pre><code>this._init();
+</code></pre>
+
+<p>}</p>
+
+<p>Logger.prototype = {</p>
+
+<pre><code>_init: function() {
+    this.logs = [];
+    DBus.session.exportObject('/org/gnome/Logger', this);
+},
+
+log: function(message) {
+    this.logs.push(message);
+    global.log('Received: ' + message);
+    this._emitAdded(message);
+},
+
+_emitAdded: function(message) {
+    DBus.session.emit_signal('/org/gnome/Logger',
+                             'org.gnome.Logger',
+                             'Added', 's',
+                             [message]);
+}
+</code></pre>
+
+<p>};
+[/sourcecode]</p>
+
+<p>As you see we defined a method with the same name we did in the interface and the same signature. And now we&#8217;ll pass to see the Gjs DBus magic:</p>
+
+<p>[sourcecode language=&#8221;javascript&#8221;]
+DBus.session.exportObject(&#8216;/org/gnome/Logger&#8217;, this);
+[/sourcecode]</p>
+
+<p>This was called inside our _init method, and that’s the method of the Gjs telling DBus, this is the object we want to export. And, later on this one is the one telling DBus to check if our class/prototype conforms the interface we said it conforms:</p>
+
+<p>[sourcecode language=&#8221;javascript&#8221;]
+DBus.conformExport(Logger.prototype, LoggerIface);
+[/sourcecode]</p>
+
+<p>Finally the extension entry point. Ohh wait I didn’t said that before, we’re reviewing an extension, as this is a so easy way to test Gnome 3 stuff. So the entry point, the main function.</p>
+
+<p>[sourcecode language=&#8221;javascript&#8221;]
+function main() {</p>
+
+<pre><code>// I did this to get the object after the extension code run
+Main.logger = new Logger()
+
+//this was the missing instruction
+DBus.session.acquire_name('org.gnome.Logger', 0, null, null);
+</code></pre>
+
+<p>}
+[/sourcecode]</p>
+
+<p>And here is a great trick, you see that line saying &#8220;this was the missing instruction&#8221;, yeah I had all the code written and reviewed like a thousand times, and still doesn&#8217;t worked, I keep testing but nothing the object wasn&#8217;t there. I opened Looking Glass, and typed Main.logger and the object was create, but it wasn&#8217;t receiving any notice when I called the method, actually I was getting errors cause that method doesn&#8217;t existed at all. After some back and forward between DBus documentation, and Gnome Shell source code, I figured out. The missing part was, of course, I’ve should known, the part when your object grab the DBus name it want to publish. So first I went to <strong>DBus.session.own_name</strong> but that is not a function, and then I tried this one <strong>DBus.session.acquire_name</strong>, with doesn&#8217;t exist at all in the devhelp documentation but it seems is the wrapper of Gjs for the <strong>own_name</strong> GDBus method.</p>
+
+<p>So, that’s all for now. I know I’m still missing some things. I want to learn how catch a signal emit over DBus, and how to handle exported object properties, make some samples and toy with it a bit.</p>
+
+<p>But that will be later. Keep in touch.</p>
+
+<p>BTW: I&#8217;m still figuring out how to publish the full examples, but I will do it, sometime</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-05T01:09:27-04:00" pubdate data-updated="true">Jun 5<span>th</span>, 2011</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/coding-samples/'>Coding Samples</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

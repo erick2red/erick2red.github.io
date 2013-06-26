@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Web | Builder's notes]]></title>
+  <link href="http://erick2red.github.com/erick2red/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/erick2red/"/>
+  <updated>2013-06-26T16:21:36-04:00</updated>
+  <id>http://erick2red.github.com/erick2red/</id>
+  <author>
+    <name><![CDATA[Erick Pérez Castellanos]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Initial Commit]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/04/30/initial-commit/"/>
+    <updated>2012-04-30T14:07:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/04/30/initial-commit</id>
+    <content type="html"><![CDATA[<p>As you can see, the migration to octopress started with the right foot. The blog
+is up and running, and I just have to try three times. That was an easy one. The
+first time I installed gentoo, took me about ten times to get it right.</p>
+
+<p>I had some help, some guy named <em>zanshin</em> in <a href="irc://irc.freenode.net#octopress">#octopress at
+freenode</a>, and the docs at
+<a href="http://octopress.org">Octopress.org</a>. Now I've installed a new theme, added my
+tweets stream, and I'm on the way to migrate my content from the previous
+<a href="http://erick2red.wordpress.com">wordpress blog</a>. I have found a tool named
+<a href="https://github.com/thomasf/exitwp">exitwp</a> in some post of another guy in the
+same situation, and will test it soon.</p>
+
+<p>You know what's missing ? You probably have see all those sites where you make
+an account for yourself, and they ask you for an URL, like your site. Well,
+I've been putting the wordpress site there. My bad, that should be set on a
+central place, now I have to go changing that address everywhere. Maybe I should
+make a redirect page in the wordpress blog, although I have to say, I've never
+had too many readers.</p>
+
+<p>Ohh, there's other stuff missing, one that I probably miss a lot. wordpress.com
+have a spell checking utility, well, octopress hasn't one. It's up to my vim,
+and I'm pretty lazy. Since english isn't my mother tongue. I'll have to look out
+for error and typos.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Blogging from Github with Octopress]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/04/28/blogging-from-github-with-octopress/"/>
+    <updated>2012-04-28T19:41:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/04/28/blogging-from-github-with-octopress</id>
+    <content type="html"><![CDATA[<p>Today I've been looking finally at how to deploy an
+<a href="http://octopress.org">Octopress</a> based blog into <a href="http://github.com">Github</a>.
+It's been a while since I saw octopress, and I always liked the motto,
+it goes something like: blogging for hackers, and it sounds cool. I do have to
+say I don't think of myself as a hacker, I'm more the guy who look to dig in
+the code of every piece of software I use, even when I know I don't the time to.</p>
+
+<p>Anyway, after a big while, and my request of my wordpress blog inclusion in
+<a href="http://planet.gnome.org">Planet Gnome</a> went stalled. I decided to go using
+Octopress, first I emailed the guys in Github since I have my doubts about
+using their system for ranting about stuff not related with ruby/rails and
+stuff. But they said they're fine with that. I do have to say I've been learning
+some ruby these past days, there's this <a href="http://rubymonk.com">RubyMonk</a> site
+which is pretty cool, and I found out
+<a href="http://www.google.com/search?q=rubykoans">RubyKoans</a> too which are pretty
+impressive too, although my lack of some supercharged environment is killing my
+advance there. Well after all that I think is pretty logic to try this move.</p>
+
+<h6>Here ends the drafting part</h6>
+]]></content>
+  </entry>
+  
+</feed>

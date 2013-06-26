@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Builder's notes]]></title>
+  <link href="http://erick2red.github.com/erick2red/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/erick2red/"/>
+  <updated>2013-06-26T16:21:36-04:00</updated>
+  <id>http://erick2red.github.com/erick2red/</id>
+  <author>
+    <name><![CDATA[Erick Pérez Castellanos]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[June update on Calendar]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2013/06/25/june-update-on-calendar/"/>
+    <updated>2013-06-25T21:19:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2013/06/25/june-update-on-calendar</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve made a commitment with myself of posting updates of the stuff I&#8217;m working
+once a week. This one is the first, and I expected to be out by Monday, but an
+<a href="https://github.com/imathis/octopress">octopress</a> update and a plugin installation for handling image galleries
+kept me from doing it.</p>
+
+<p>By now, I&#8217;m a little tired of writing, therefore I&#8217;ll be quick about it.</p>
+
+<p>A few weeks ago I restarted the work on <a href="https://live.gnome.org/Design/Apps/Calendar">Calendar</a> with the hope of adding a
+bunch of new features in <strong>Gtk+</strong> to the project. I started by creating a
+new branch, since I was sure the build would break a lot times in between, and
+didn&#8217;t want to spoil <strong>master</strong></p>
+
+<p>I&#8217;d set for myself a bunch of points I want to accomplish by rewriting the UI and
+some of them has been done, some others, not yet. That&#8217;s the main reason why I keep
+the branch still around. As soon as I feel the work is done, I&#8217;ll come back to work
+on <strong>master</strong></p>
+
+<p>I wanted to:</p>
+
+<ol>
+<li>Ditch <strong>clutter</strong> dependency. Use only Gtk+ widgets.</li>
+<li>Include <a href="https://developer.gnome.org/gtk3/3.9/GtkSearchBar.html">GtkSearchBar</a>, <a href="https://developer.gnome.org/gtk3/3.9/GtkStack.html">GtkStack</a> and some of the latest Gnome UI guidelines</li>
+<li>Use <a href="https://developer.gnome.org/gtk3/3.9/GtkBuilder.html">GtkBuilder</a>&#8217;s ui files as much as I can</li>
+<li>Rework week-view to use <a href="https://developer.gnome.org/gtk3/3.9/GtkOverlay.html">GtkOverlay</a> instead of my own solution</li>
+</ol>
+
+
+<p>So far 1, 2 and 3 has been accomplished. Point number 4 is going well since I manage to
+craft a day-view with the same requirements of week-view that does not need to
+use <strong>GtkOverlay</strong>.</p>
+
+<p>Some of the work done is showcased below</p>
+
+<p><a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_june_2013/calendar-day-view.png" rel="shadowbox" title="calendar-day-view"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_june_2013/thumbs/calendar-day-view.png" /></a>
+<a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_june_2013/calendar-new-menu.png" rel="shadowbox" title="calendar-new-menu"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_june_2013/thumbs/calendar-new-menu.png" /></a>
+<a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_june_2013/calendar-search.png" rel="shadowbox" title="calendar-search"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_june_2013/thumbs/calendar-search.png" /></a>
+<a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_june_2013/calendar-updated.png" rel="shadowbox" title="calendar-updated"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_june_2013/thumbs/calendar-updated.png" /></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Software updates]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/11/30/software-updates/"/>
+    <updated>2012-11-30T23:40:00-05:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/11/30/software-updates</id>
+    <content type="html"><![CDATA[<p>It&#8217;s been a very long time since I posted anything.
+You might not know, I live in <a href="http://en.wikipedia.org/wiki/Santiago_de_Cuba">Santiago de Cuba</a>, Cuba, one of the cities trashed by the <a href="http://en.wikipedia.org/wiki/Hurricane_Sandy">hurricane
+Sandy</a>. That left us a bunch of loses and lack of communication for weeks. We went
+without power for at least 14 days, so you can imagine why I was not posting updates. Some time has
+passed and the city is growing back from its ashes.</p>
+
+<p>I&#8217;ve been working on <a href="https://live.gnome.org/Design/Apps/Calendar"><strong>Calendar</strong></a>, trying to get some minimal functioning
+application, to get something out for you to use, and then I can continue
+improving the rest. For now, I&#8217;ve focused on enable a fully working the &#8220;Event Details&#8221;
+dialog. The thing is kinda clunky yet, but it works. It needs more polish
+and heavy testing, though.</p>
+
+<p>I also went and made a year-view implementation, which is almost fully
+functional. This one was easy, was almost copy/paste from the old month-view
+implementation.
+The month-view also received a full face-lift. The previous version had some
+super-rough edges when months didn&#8217;t fit in a 35 cells grid. That has been
+fixed, our designers pulled some rabbits out of their hats. The new design,
+which is already implemented suggest a scrolling
+animation, but I want to be sure it works before going into it.</p>
+
+<p>I&#8217;m trying to get <strong>Calendar</strong> in beta
+shape for 3.8 release. I&#8217;m still need to implement three views: list-view,
+day-view and week-view, and the search mechanism, with the results showing.
+For the week-view I have an implementation which have scrolling issues,
+I have to take care of.</p>
+
+<p>Some minor mojo I don&#8217;t want to pass unnoticed:</p>
+
+<ul>
+<li>Squared buttons in the toolbar, thxs to Debarshy Ray for the suggestion and Cosimo&#8217;s libgd for the hack.</li>
+<li>We added a proper use of <code>g_clear_object</code></li>
+<li>Simple keyboard shortcuts, for <strong>Quit</strong> and change amount views.</li>
+</ul>
+
+
+<p>Now some screenshots</p>
+
+<p><a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_dec_2012/edit-event-dialog.png" rel="shadowbox" title="edit-event-dialog"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_dec_2012/thumbs/edit-event-dialog.png" /></a>
+<a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_dec_2012/month-35-cell.png" rel="shadowbox" title="month-35-cell"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_dec_2012/thumbs/month-35-cell.png" /></a>
+<a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_dec_2012/month-42-cell.png" rel="shadowbox" title="month-42-cell"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_dec_2012/thumbs/month-42-cell.png" /></a>
+<a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_dec_2012/year-view-first.png" rel="shadowbox" title="year-view-first"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_dec_2012/thumbs/year-view-first.png" /></a>
+<a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_dec_2012/year-view-second.png" rel="shadowbox" title="year-view-second"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_dec_2012/thumbs/year-view-second.png" /></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A challenge of locales]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/10/09/a-challenge-of-locales/"/>
+    <updated>2012-10-09T09:41:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/10/09/a-challenge-of-locales</id>
+    <content type="html"><![CDATA[<p>When developing an application aiming for everyone worldwide to use, there are certain challenges
+you will face. Right now, mine is fighting laziness and locales.</p>
+
+<p>I&#8217;m developing some widget for specifying a date and I&#8217;ve been struggling with date formats across locales
+So, after reading a huge number of manpages, source-code, and so on I stumble on this code.</p>
+
+<pre><code>#include &lt;langinfo.h&gt;
+#include &lt;locale.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int
+main(int argc, char *argv[])
+{
+  setlocale(LC_ALL,"");
+  printf("%s\n",nl_langinfo(D_FMT));
+  exit(EXIT_SUCCESS);
+}
+</code></pre>
+
+<p>This will show me your date format according to your locale.
+What I will ask, compile and run this code in your pc, and post the answer here along with your locales.</p>
+
+<p>See you around.</p>
+
+<p><em>Update</em>: Thxs for the comments. Two things: I&#8217;ve just updated the code, thxs to Tom, adding <strong>setlocale</strong> line made the code works. Second: Thxs to Tommi (first comment). That was the info I was looking for.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Making you own widget]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/08/21/making-you-own-widget/"/>
+    <updated>2012-08-21T13:53:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/08/21/making-you-own-widget</id>
+    <content type="html"><![CDATA[<p>A few days ago, I was in <a href="irc://irc.gnome.org/gtk+">gtk+ irc channel</a> and there was someone making the
+kind of question I&#8217;ve done myself like a hundred times. Thankfully the guys
+in the channel hasn&#8217;t got tired of me, yet. They are pretty helpful once they
+realize you&#8217;ve done your homework.</p>
+
+<p>Once you start hacking around with Gtk+, the next thing you&#8217;ll want to do
+is to make your own widgets. And for that there&#8217;s little to none documentation,
+guides or tutorial. There&#8217;s a huge amount of knowledge in Gtk+ source itself, but most
+people doesn&#8217;t like to read code, or doesn&#8217;t know how to. They should, <a href="http://www.codinghorror.com/blog/2012/04/learn-to-read-the-source-luke.html" title="Read the Source, Luke">though</a></p>
+
+<p>Here I&#8217;ll try to show, from the newbie point, how Gtk+ draw things,
+and what&#8217;s the guidelines to accomplish certain tasks when making
+widgets for Gtk+. This is, as well, a reminder for myself, since most times I
+need to go into IRC to ask the same things all over again.</p>
+
+<p>I will split the post in three main sections which corresponds to the important
+parts in a widget lifetime.</p>
+
+<h4>Size handling</h4>
+
+<p>One of the thing you need when you&#8217;re making widgets is knowing the
+dimensions everything will have inside. Size requisition and allocation is the
+step where this happens.</p>
+
+<p>Explanations of this process appears here in <a href="http://developer.gnome.org/gtk3/stable/GtkWidget.html#GtkWidget.description">GtkWidget&#8217;s documentation</a>.
+It includes most of the size requisition process and geometry management.</p>
+
+<p>Gtk+ widgets are arranged in a hierarchy where container widgets pack others
+and handle its size and allocation. The widget containing yours will ask the
+natural and minimal size you want to have, and after making some internal
+calculations will assign your widget a size and allocation. The first
+part is called <em>size requisition</em> and the second <em>size allocation</em>. The
+virtual methods you need to implement here are:</p>
+
+<ul>
+<li><p><em>For size requisition</em></p>
+
+<ul>
+<li><a href="http://developer.gnome.org/gtk3/stable/GtkWidget.html#gtk-widget-get-preferred-width"><code>gtk_widget_get_preferred_width</code></a></li>
+<li><a href="http://developer.gnome.org/gtk3/stable/GtkWidget.html#gtk-widget-get-preferred-width-for-height"><code>gtk_widget_get_preferred_width_for_height</code></a></li>
+<li><a href="http://developer.gnome.org/gtk3/stable/GtkWidget.html#gtk-widget-get-preferred-height"><code>gtk_widget_get_preferred_height</code></a></li>
+<li><a href="http://developer.gnome.org/gtk3/stable/GtkWidget.html#gtk-widget-size-allocate"><code>gtk_widget_get_preferred_height_for_width</code></a></li>
+</ul>
+</li>
+<li><p><em>For size allocation</em>:</p>
+
+<ul>
+<li><a href="http://developer.gnome.org/gtk3/stable/GtkWidget.html#gtk-widget-size-allocate"><code>gtk_widget_size_allocate</code></a></li>
+</ul>
+</li>
+</ul>
+
+
+<p>Now, what to do on each one of these methods ?, Calculate what size you want for
+the widget, and return it. Let&#8217;s say you have a widget which have a text saying
+<strong>&#8220;Hello&#8221;</strong> inside, then, you need to ask <a href="http://developer.gnome.org/platform-overview/stable/pango">Pango</a> to calculate the width and
+height for you, add the margins and padding (if you want to take those into
+account) and return the size accordingly.</p>
+
+<p>What&#8217;s width-for-height and height-for-width methods for ?, Widget have by
+definition one request-mode, its width depends on its height or the other way
+around. This is totally decided by you, accordingly to the type of widget you&#8217;re
+creating. The purpose of these methods is to retrieve these measures, the width
+of a widget given a specified height, and viceversa. About this part,
+read carefully the docs above and go asking in the IRC for more help if stuck.</p>
+
+<p>One thing to keep in mind is that the allocated size to your widget, could be
+not the same you requested in the <code>get_preferred</code> methods, so the widget should
+work with the given allocation instead of any other measure.</p>
+
+<p><em>Rule of thumb</em>: Implement the four methods of size requisition almost always,
+and the size-allocate one if needed.</p>
+
+<h4>Drawing stuff</h4>
+
+<p>This is the core of the matter, but there&#8217;s no much to tell in here. Use
+<a href="http://developer.gnome.org/platform-overview/stable/cairo">cairo</a> to draw, the API is pretty simple. Use cairo primitives to draw
+inside the implementation of <code>draw</code> virtual method. There, is given a context
+which is clipped from one of the <code>GdkWindow</code> of the widget, you should draw
+in that context. Other than this, here are some remarks:</p>
+
+<ul>
+<li><p>How to draw an icon from the theme into the <code>cairo_context_t</code> ?. Obtain a
+<code>GdkPixbuf</code> from the icon with <a href="http://developer.gnome.org/gtk/stable/GtkIconTheme.html#gtk-icon-theme-load-icon"><code>gtk_icon_theme_load_icon</code></a> or
+<a href="http://developer.ginome.org/gtk/stable/GtkIconTheme.html#gtk-icon-info-load-symbolic"><code>gtk_icon_info_load_symbolic</code></a> depending on the icon, and draw it to the
+context with <a href="http://developer.gnome.org/gdk/stable/gdk-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf"><code>gdk_cairo_set_source_pixbuf</code></a></p></li>
+<li><p>How do I get my lines subpixel thin ?. Turns out that cairo can draw lines
+thinner than one pixel, but for that to happen you need to place the cairo
+starting point in the middle of the pixel, so the drawing can be made, and look
+just like you want.</p>
+
+<pre><code>/* a vertical 0.3 pixel line */
+cairo_set_line_width (cr, 0.3);
+cairo_move_to (cr, 10, 10.4);
+cairo_rel_line_to (cr, 0, 10);
+cairo_stroke (cr);
+</code></pre></li>
+</ul>
+
+
+<p>Finally, use whenever you need <a href="http://developer.gnome.org/gtk3/stable/GtkStyleContext.html#gtk-render-background"><code>gtk_render_background</code></a>,
+<a href="http://developer.gnome.org/gtk3/stable/GtkStyleContext.html#gtk-render-frame"><code>gtk_render_frame</code></a> family and friends over any alternative drawing you
+could think of doing. These functions will get colors and border size
+and radius from the CSS theming engine, therefore you&#8217;re spared a bunch of work.</p>
+
+<h4>Processing events</h4>
+
+<p>How to receive and handle mouse, touch and button events. My first attempt
+to catching and handling event was to implement virtual method <code>button_press</code>
+and <code>button_release</code>, that didn&#8217;t worked. Not that easily.</p>
+
+<p>For catching input events in your custom widget, you will need a <code>GdkWindow</code>
+suited for those purposes. The preferred idiom here is:</p>
+
+<ul>
+<li>In your <code>realize</code> method, create a <code>GdkWindow</code> with <a href="http://developer.gnome.org/gdk/stable/gdk-Windows.html#gdk-window-new"><code>gdk_window_new</code></a> and
+set its type to <code>GDK_WINDOW_CHILD</code>, this would assure to catch the input events if
+they occur inside you window. After created the window, call
+<a href="http://developer.gnome.org/gdk/stable/gdk-Windows.html#gdk-window-show"><code>gdk_window_show</code></a> to show it. You will use
+<a href="http://developer.gnome.org/gdk/stable/gdk-Windows.html#gdk-window-set-user-data"><code>gdk_window_set_user_data</code></a> to relate the window with your widget.</li>
+<li>In your <code>size_allocate</code> method, you need to place the window where it should,
+by using <a href="http://developer.gnome.org/gdk/stable/gdk-Windows.html#gdk-window-move-resize"><code>gdk_window_move_resize</code></a>.</li>
+<li>Now, you can implement <code>button_press</code> and the likes of them to handle your
+events.</li>
+</ul>
+
+
+<p>There are virtual methods for handling mouse button presses, and a releases,
+but no for high-level actions as click and double-click, you need to detect those
+by detecting sequences of presses and releases. Nonetheless, for double-click the
+<code>GdkEventButton</code> will have the type field set to <code>GDK_2BUTTON_PRESS</code> which will
+certainly help. For key-press/release events, I have to say, I haven&#8217;t
+had nothing to do with those yet. So, that will be left to the next time.</p>
+
+<h4>Putting things together</h4>
+
+<p>I won&#8217;t paste the code entirely, I&#8217;ll just describe the order in which the above
+mentioned steps will most likely occur.</p>
+
+<p>Usually, as you must have guessed by now, the first thing your widget will
+receive is a request for its preferred size using
+<code>gtk_widget_get_preferred_width</code> and friends. After that, the
+parent will follow to allocate the size, there your implementation of
+<code>size_allocate</code> will run, and then, the painting will happen.
+About the <code>realize</code> part, it will happens almost anytime,
+the only thing you can be sure of is: it will happens before your widget had to
+paint itself. One thing worth mentioning is that a widget could be allocated a
+bunch of times before it ever gets to the painting part.</p>
+
+<p>About a full example of code, one the simplest widgets for showing all
+of this is <code>GtkButton</code>. You can read the source of in the Gtk+ tree. Here&#8217;s
+the header: <a href="http://git.gnome.org/browse/gtk+/tree/gtk/gtkbutton.h"><code>gtkbutton.h</code></a> and the source <a href="http://git.gnome.org/browse/gtk+/tree/gtk/gtkbutton.c"><code>gtkbutton.c</code></a>. As I said
+above, reaching into Gtk+ internals is the best way to learn to use the toolkit
+and the framework.</p>
+
+<h4>Conclusion</h4>
+
+<p>Obviously this a pretty simple post about some of the
+more common tasks you&#8217;ll meet with when making a custom widget. There are
+several more complex widgets which are far from this, but those are left for
+later.</p>
+
+<p>Hope it helps, and if you find any mistake, please contact me immediately so I can
+fix it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Moving to Fedora]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/08/21/moving-to-fedora/"/>
+    <updated>2012-08-21T12:40:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/08/21/moving-to-fedora</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve been using <a href="http://www.archlinux.org/">Archlinux</a> for about 4 years now, and I&#8217;ve been pretty happy
+about it. The thing is, as I become more involved in Gnome development, I&#8217;ve feel
+the best distro for such a purpose is <a href="http://fedoraproject.org/">Fedora</a>.</p>
+
+<p>Now,  you can argue a bunch of
+powerful reasons, but the people who package Gnome in Fedora knows
+Gnome internals, so the chance you&#8217;ll end up getting a better experience is
+higher. I should tell Gnome packagers in Archlinux to stay a little bit
+closer to upstream Gnome developers. Another reason for staying with Arch would
+have been to test Gnome across different distros, and I know that would help,
+but I felt I needed a change.</p>
+
+<p>There&#8217;s another point, since I&#8217;m dedicating more time now to develop stuff, I
+spent less time configuring stuff and tweaking my system, I&#8217;m starting to see my
+laptop as a tool for development, not the toy it used to be. The only thing I
+require of a distro right now is:</p>
+
+<ul>
+<li>Having a package of vim. I&#8217;ll install the plugins myself.</li>
+<li>Having gcc/g++ and the man pages of those. Which I found yesterday I don&#8217;t
+have in Fedora.</li>
+<li>Having devhelp, and GLib/Gtk+ docs.</li>
+<li>Ohh, and not having <strong>KDE</strong> installed by default.</li>
+</ul>
+
+
+<p>So, by now, I&#8217;ve been on Fedora for almost a month according to <em>last</em>, and I&#8217;m
+pretty happy with it.</p>
+
+<p>See you soon, to let u know some Calendar advances.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Updates to gnome-calendar]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/07/03/updates-to-gnome-calendar/"/>
+    <updated>2012-07-03T16:00:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/07/03/updates-to-gnome-calendar</id>
+    <content type="html"><![CDATA[<p>It&#8217;s been long time since I published any stuff, errr. I&#8217;ve
+been busy. So, to the point.</p>
+
+<p>Calendar is moving forward, slower than I would like, but is moving. From the
+last time, I&#8217;ve started the implementation of the event-view, and I say started
+cause there&#8217;s missing functionality yet, but the widgets part is almost done.
+For now, it deletes your events, so be careful, that&#8217;s the only button that
+really works. I&#8217;ve set in-place some code to enable notifications, but that will
+have to wait a little yet. The toolbar has got some changes,
+mostly added behavior to the change between views, and some internal
+refactoring.</p>
+
+<p>The most important stuff is: the screenshots you&#8217;ll see below will
+show you one thing, the event-view need some redesign to occupy all that empty
+space. There&#8217;s host/guest part still missing implementation, but I know it won&#8217;t
+fill all the space. On the other hand, I&#8217;ll need some symbolic icon for the
+reminders, to show in the views (monthly, daily, etc.). There&#8217;s still the issue
+of the navigation controls presentation, which I don&#8217;t like been shown by
+pressing <Ctrl>, but that will come eventually.</p>
+
+<p>This work is pretty skeleton-like, there&#8217;s a bunch of stuff that needs to be
+retouched, so, any thing you find, feel free to reach me.</p>
+
+<p>Now the shots:
+The first one is the month-view, the only one working right now, and the others
+are of the event-view.</p>
+
+<p><a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_aug_2012/edit-event.png" rel="shadowbox" title="edit-event"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_aug_2012/thumbs/edit-event.png" /></a>
+<a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_aug_2012/month-view-showing-sources.png" rel="shadowbox" title="month-view-showing-sources"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_aug_2012/thumbs/month-view-showing-sources.png" /></a>
+<a class="fancybox" href="http://erick2red.github.com/erick2red/images/galleries/calendar_aug_2012/view-event.png" rel="shadowbox" title="view-event"><img src="http://erick2red.github.com/erick2red/images/galleries/calendar_aug_2012/thumbs/view-event.png" /></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Calendar]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/06/01/introducing-calendar/"/>
+    <updated>2012-06-01T09:56:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/06/01/introducing-calendar</id>
+    <content type="html"><![CDATA[<p>This should be old news for some, but good news for community I hope. About a
+week I uploaded the firsts bits of Gnome Calendar application as sketched
+<a href="https://live.gnome.org/Design/Apps/Calendar">here</a>. It just do very few stuff, but it&#8217;s a start. The main design is done,
+and I&#8217;ll keep working on it.</p>
+
+<p>The code was uploaded to github at first, but after talking with gnome&#8217;s servers
+sysadmins we agree the code could be hosted in <a href="http://git.gnome.org/browse/gnome-calendar">git.gnome.org</a>.</p>
+
+<p>I&#8217;m very happy of getting the project live, I know there&#8217;s a lot of work ahead,
+and I&#8217;ll be on it alternating with Gnome Contacts&#8217; work, which is mostly done by
+Alex.</p>
+
+<p>I have to thanks all the gnome hackers for its great response.</p>
+
+<p>Keep in touch.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[I'm on Planet Gnome]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/05/16/im-on-planet-gnome/"/>
+    <updated>2012-05-16T22:44:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/05/16/im-on-planet-gnome</id>
+    <content type="html"><![CDATA[<p>Since last Friday I&#8217;m a proud member of <a href="http://planet.gnome.org">Planet Gnome</a>.
+I notice my last two post on Planet Gnome feed, and was a huge joy. After the
+initial excitement I realize what a great responsibility encloses the fact of
+being able of publish there, and certain fear went deep into my bones.</p>
+
+<p>Anyway, and introduction is mandatory. My name is: Erick Pérez Castellanos, and
+I&#8217;m a software developer from Cuba. I studied Computer Science like 4 years ago
+or so, and I&#8217;ve been using Linux since for ever it seems. I became involved with
+Gnome last year, after wanting to for a very long time. I&#8217;ve been contributing
+to Contacts, as you can see here in the archive of the blog, and I&#8217;m planning to
+keep on. So, till next time, I&#8217;ll see you around.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Finished migration]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/05/03/finished-migration/"/>
+    <updated>2012-05-03T10:51:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/05/03/finished-migration</id>
+    <content type="html"><![CDATA[<p>I can say the migration is finished. There&#8217;s till my blog online <a href="http://wordpress.com">Wordpress.com</a>
+but that could be left for later. I think on putting a redirect there, or just
+taking it down.</p>
+
+<p>The thing is that octopress is a pretty comfortable scheme. It allows me to
+write and sanitize my blog at home, or wherever I have my laptop, no matter if
+I&#8217;m online or not. The point is I can do a bunch of stuff in my pc without
+internet connection, which is a very rare affair in under-developed countries.</p>
+
+<p>There&#8217;s still stuff missing, and I&#8217;ll try to add it on the way. I would like update my twitter
+stream with my posts automatically from <strong>rake deploy</strong> task, but since Twitter
+now uses OAuth, that became a mess, and I don&#8217;t understand OAuth scheme yet, so
+I&#8217;ll have to let it be for a while. I was concern at first for my spelling, but
+now anymore, my vim has spell checking, and after change <strong>rake new_post</strong> task
+to launch vim with spell checking set on, it&#8217;s way better than Wordpress
+correction system.</p>
+
+<p>So, as you can see, so far so good, I like this pretty much, and think is easier
+and better than Wordpress. I encourage you people to join.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Initial Commit]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/04/30/initial-commit/"/>
+    <updated>2012-04-30T14:07:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/04/30/initial-commit</id>
+    <content type="html"><![CDATA[<p>As you can see, the migration to octopress started with the right foot. The blog
+is up and running, and I just have to try three times. That was an easy one. The
+first time I installed gentoo, took me about ten times to get it right.</p>
+
+<p>I had some help, some guy named <em>zanshin</em> in <a href="irc://irc.freenode.net#octopress">#octopress at
+freenode</a>, and the docs at
+<a href="http://octopress.org">Octopress.org</a>. Now I&#8217;ve installed a new theme, added my
+tweets stream, and I&#8217;m on the way to migrate my content from the previous
+<a href="http://erick2red.wordpress.com">wordpress blog</a>. I have found a tool named
+<a href="https://github.com/thomasf/exitwp">exitwp</a> in some post of another guy in the
+same situation, and will test it soon.</p>
+
+<p>You know what&#8217;s missing ? You probably have see all those sites where you make
+an account for yourself, and they ask you for an URL, like your site. Well,
+I&#8217;ve been putting the wordpress site there. My bad, that should be set on a
+central place, now I have to go changing that address everywhere. Maybe I should
+make a redirect page in the wordpress blog, although I have to say, I&#8217;ve never
+had too many readers.</p>
+
+<p>Ohh, there&#8217;s other stuff missing, one that I probably miss a lot. wordpress.com
+have a spell checking utility, well, octopress hasn&#8217;t one. It&#8217;s up to my vim,
+and I&#8217;m pretty lazy. Since english isn&#8217;t my mother tongue. I&#8217;ll have to look out
+for error and typos.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Getting warnings out of Clutter]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter/"/>
+    <updated>2012-04-28T23:59:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter</id>
+    <content type="html"><![CDATA[<p>It&#8217;s been a while since I blogged anything. Well, I actually did some ranting
+about starting this new blog. But that really doesn&#8217;t count. I should make a
+post saying what I&#8217;ve been up to. But I&#8217;m lazy. I&#8217;ve been:</p>
+
+<ul>
+<li>Learning some Qt (and I doesn&#8217;t like it, maybe I tell something about this
+later)</li>
+<li>Using <a href="https://github.com/fritzy/SleekXMPP">SleekXMPP</a> python library</li>
+<li>Learning ruby (Did I said this already ?)</li>
+<li>Learning <a href="http://www.clutter-project.org">Clutter</a>, and here we stop.</li>
+</ul>
+
+
+<p>While I was trying to pull some code using Clutter and Gtk+, before you ask, I
+was trying to put GtkWidget inside Clutter Actors to get some fancy animation, I
+got into some minor troubles, which I think those newbies like me out there
+should know.</p>
+
+<p>First, if you read the blog of the might Emmanuele Bassi (Clutter&#8217;s author and
+main developer) you then came across this post
+<a href="http://blogs.gnome.org/ebassi/2012/03/17/had-a-dream/">Had a dream</a>. I did, and I wanted to get
+those warning they talk about so my code would need to be modified pretty much
+anything when those API get deprecated. Well, I didn&#8217;t, I mean I used
+deprecated API and my compiler wasn&#8217;t throwing me warnings. Someone told me
+that I needed to use a decent set of compilers flags, and I tried, nah, still
+nothing. I went into IRC, I found help there and after a while, I was told to
+add this to my compiler options</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-DCLUTTER_VERSION_MIN_REQUIRED=CLUTTER_VERSION_1_10</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This finally solved the issue and I&#8217;m having pretty warnings  every time I use
+an old method which should be destroyed in a couple of months.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Blogging from Github with Octopress]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/04/28/blogging-from-github-with-octopress/"/>
+    <updated>2012-04-28T19:41:00-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/04/28/blogging-from-github-with-octopress</id>
+    <content type="html"><![CDATA[<p>Today I&#8217;ve been looking finally at how to deploy an
+<a href="http://octopress.org">Octopress</a> based blog into <a href="http://github.com">Github</a>.
+It&#8217;s been a while since I saw octopress, and I always liked the motto,
+it goes something like: blogging for hackers, and it sounds cool. I do have to
+say I don&#8217;t think of myself as a hacker, I&#8217;m more the guy who look to dig in
+the code of every piece of software I use, even when I know I don&#8217;t the time to.</p>
+
+<p>Anyway, after a big while, and my request of my wordpress blog inclusion in
+<a href="http://planet.gnome.org">Planet Gnome</a> went stalled. I decided to go using
+Octopress, first I emailed the guys in Github since I have my doubts about
+using their system for ranting about stuff not related with ruby/rails and
+stuff. But they said they&#8217;re fine with that. I do have to say I&#8217;ve been learning
+some ruby these past days, there&#8217;s this <a href="http://rubymonk.com">RubyMonk</a> site
+which is pretty cool, and I found out
+<a href="http://www.google.com/search?q=rubykoans">RubyKoans</a> too which are pretty
+impressive too, although my lack of some supercharged environment is killing my
+advance there. Well after all that I think is pretty logic to try this move.</p>
+
+<h6>Here ends the drafting part</h6>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gnome Foundation Membership Accepted]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/03/06/gnome-foundation-membership-accepted/"/>
+    <updated>2012-03-06T15:41:38-05:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/03/06/gnome-foundation-membership-accepted</id>
+    <content type="html"><![CDATA[<p>I&#8217;m the proud owner of a Gnome Foundation membership. That sounded awfull, anyway. It&#8217;s true , today the Gnome Fundation Comitee approved my application, and I set up my mail alias.</p>
+
+<p>This is a great news to me, and I think it would be to anyone. There&#8217;s point you can&#8217;t miss though, this means more responsibilty doing a good job to make <a href="http://www.gnome.org">Gnome Project</a> great.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gnome Account Application]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/03/02/gnome-account-application/"/>
+    <updated>2012-03-02T11:49:36-05:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/03/02/gnome-account-application</id>
+    <content type="html"><![CDATA[<p>Yesterday, while I was talking with the Gnome Contacts developer came up the issue of me having an account. I wasn&#8217;t familiar with the process, he point me to the <a href="https://live.gnome.org/NewAccounts">page in question</a>, and I filled the application for the account. The process took a day, this morning while I was solving another bug in Gnome Contact the mails reached my inbox telling me about the new account being setup in an hour or so. I finished the work in the patch. Went right to the instruction for using Git as the Gnome standards requires and <a href="http://git.gnome.org/browse/gnome-contacts/commit/?id=3eae3e0501539c1d3de7c062abaaa591f79ba1d9">pushed the patch</a> by my own. Now I have a few commits already in <a href="http://git.gnome.org/browse/gnome-contacts">git.gnome.org/gnome-contacts</a> but this one is the first one I make myself.</p>
+
+<p>Now I&#8217;m still waiting for the Gnome Foundation decision on my application to be a member yet, this is huge joy. I&#8217;m looking forward to contribue more to Gnome, it&#8217;s an amazing world with amazing people and great programmers, and I&#8217;m pretty happy to be prt of it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Applying for Gnome Foundation Membership]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/02/27/applying-for-gnome-foundation-membership/"/>
+    <updated>2012-02-27T12:34:48-05:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/02/27/applying-for-gnome-foundation-membership</id>
+    <content type="html"><![CDATA[<p>Today, I fill my application for a <a href="http://www.gnome.org/foundation/membership/apply/">Gnome Foundation Membership</a>, since they&#8217;re not adding blogs to<a href="http://planet.gnome.org"> Planet Gnome</a> without a membership, it&#8217;s kinda forced. My point is not that I don&#8217;t want, is that sometimes I think I&#8217;m not worthy of a membership yet. I&#8217;ve done too little in my opinion.<br/>
+So, let&#8217;s see how it goes.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New Link Dialog into gnome-contacts]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2012/02/13/new-link-dialog-into-gnome-contacts/"/>
+    <updated>2012-02-13T23:45:24-05:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2012/02/13/new-link-dialog-into-gnome-contacts</id>
+    <content type="html"><![CDATA[<p>Well, it seems I&#8217;m fully contributing to gnome-contacts now.</p>
+
+<p>&#8230; that was the start of this blog post a few weeks ago, the work got me in the middle and the post got stuck at draft stage til today. So</p>
+
+<p>In these previous weeks, I got the new link dialog mockups made by <a href="http://afaikblog.wordpress.com">Allan Day</a> into the code. After some hacking to the undo part well. I uploaded the patches into bugzilla for review. Here&#8217;s the mandatory screenshot</p>
+
+<p><a href="http://erick2red.files.wordpress.com/2012/02/link-to-other-contact.png"><img src="http://erick2red.files.wordpress.com/2012/02/link-to-other-contact.png?w=300" alt="" /></a></p>
+
+<p>After that I went into getting crop support for setting an avatar for a contact. Here I had to came up with some design, since Alex and Allan have not agreed anything on these. I took the crop widget from gnome-control-center code, and tweaked the vapi file to load the widget. Now when you use a picture with more than 128 x 128 pixels as avatar the crop widget come up to allow you to select what you want of that pics. The crop widget only allow for square crop. Here the screenshot is this one:</p>
+
+<p><a href="http://erick2red.files.wordpress.com/2012/02/contacts-crop.png"><img src="http://erick2red.files.wordpress.com/2012/02/contacts-crop.png?w=225" alt="" /></a></p>
+
+<p>Right, now, I&#8217;m kinda frozen. There&#8217;s still a lot of stuff to be done. We&#8217;ll set to it soon.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Undo support goes into gnome-contacts]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2011/12/19/undo-support-into-gnome-contacts/"/>
+    <updated>2011-12-19T11:27:10-05:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2011/12/19/undo-support-into-gnome-contacts</id>
+    <content type="html"><![CDATA[<p>As of today I uploaded a patch to gnome-contacts to support undo for delete operation.</p>
+
+<p>After a bunch a fixes and reviews from contacts developer Alexander Larsson the patch went up to master. The notification looks good, tough it can become even better, I&#8217;ve already saw two mockups with ways to improve it a little bit. Here&#8217;s a picture:</p>
+
+<p><img src="http://imgpaste.com/1fXU.png" alt="" /></p>
+
+<p>This shot shows the new Contact.Pane design work of Alex &amp; Allan.</p>
+
+<p>So, I have to thxs Alex and Allan, and a bunch of people who&#8217;s been helping me to get this out, eve people from Gtk, Benjamin Otte, Emmanuele Bassi and others.</p>
+
+<p>Hope this contribution don&#8217;t be the last one. And really hope the notification widget would be included into others gnome apps.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git on steroids]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2011/07/16/git-on-steroids/"/>
+    <updated>2011-07-16T12:29:48-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2011/07/16/git-on-steroids</id>
+    <content type="html"><![CDATA[<p>Since I&#8217;ve started developing for a company business I&#8217;ve been using version control systems and for my own projects I choose for git.</p>
+
+<p>Why choose git over others, for was a bunch of simple reason:</p>
+
+<ul>
+<li><p>I needed to have a full record of the project, and git is a distributed revision control system, that&#8217;s fits.</p></li>
+<li><p>I tried subversion before, and the branchs management in subversion is lousy, actually there&#8217;s no branch management, there&#8217;s just copy to other place, then overwrite/merge. Git branch management is wonderful.</p></li>
+<li><p>Lastly, I had to decide between bazaar, Ubuntu&#8217;s child, mercurial, and git. This was an easy one, who uses git, <a href="http://git.gnome.org/">Gnome Project</a> the <a href="http://git.kernel.org">linux kernel</a>, and <a href="http://www.github.com">github.com</a>, the mighty Octocat, that&#8217;s a big win for git.</p></li>
+</ul>
+
+
+<p>So far, I haven&#8217;t regretted on my choice, and I don&#8217;t think I ever will.</p>
+
+<p>Tips and Links</p>
+
+<ul>
+<li><p><a href="http://en.wikipedia.org/wiki/Comparison_of_revision_control_software">Wikipedia comparison of revision control systems</a></p></li>
+<li><p><a href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html">Git Users Manual</a></p></li>
+<li><p>and <a href="http://blog.fournova.com/2011/06/git-cheat-sheet/">Git Cheat Sheet</a> (although you may find a bunch of this)</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Open source software is green]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2011/07/01/open-source-software-is-green/"/>
+    <updated>2011-07-01T08:54:56-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2011/07/01/open-source-software-is-green</id>
+    <content type="html"><![CDATA[<p>A few days ago I read post about FOSS being green or not. Since open source is about reusing/improving stuff made by others you could surely say, yes, FOSS is green indeed.</p>
+
+<p>Then I found this, what a better prove !!!</p>
+
+<p>[sourcecode language=&#8221;cpp&#8221;]
+gnome_bluetooth_headers_to_scan_for_enums = bluetooth-enums.h</p>
+
+<h1>Generate the enums source code, with glib-mkenums:</h1>
+
+<h1>This is based on the same Makefile.am stuff in pango:</h1>
+
+<p>gnome_bluetooth_built_headers = gnome-bluetooth-enum-types.h
+gnome_bluetooth_built_cfiles = gnome-bluetooth-enum-types.c</p>
+
+<p>gnome-bluetooth-enum-types.h: $(gnome_bluetooth_headers_to_scan_for_enums) Makefile</p>
+
+<pre><code>$(AM_V_GEN) (cd $(srcdir) &amp;&amp; glib-mkenums \
+        --fhead "#ifndef __GNOME_BLUETOOTH_ENUM_TYPES_H__\n#define __GNOME_BLUETOOTH_ENUM_TYPES_H__\n\n#include \n\nG_BEGIN_DECLS\n" \
+        --fprod "/* enumerations from \"@filename@\" */\n" \
+        --vhead "GType @enum_name@_get_type (void);\n#define BLUETOOTH_TYPE_@ENUMSHORT@ (@enum_name@_get_type())\n"     \
+        --ftail "G_END_DECLS\n\n#endif /* __GNOME_BLUETOOTH_ENUM_TYPES_H__ */" \
+    $(gnome_bluetooth_headers_to_scan_for_enums)) &gt; $@
+</code></pre>
+
+<p>gnome-bluetooth-enum-types.c: $(gnome_bluetooth_headers_to_scan_for_enums) Makefile gnome-bluetooth-enum-types.h</p>
+
+<pre><code>$(AM_V_GEN) (cd $(srcdir) &amp;&amp; glib-mkenums \
+        --fhead "#include \n" \
+        --fhead "#include \"gnome-bluetooth-enum-types.h\"\n" \
+        --fhead "#include " \
+            --fprod "\n/* enumerations from \"@filename@\" */" \
+        --vhead "GType\n@enum_name@_get_type (void)\n{\n  static GType etype = 0;\n  if (etype == 0) {\n    static const G@Type@Value values[] = {"     \
+        --vprod "      { @VALUENAME@, \"@VALUENAME@\", \"@valuenick@\" }," \
+        --vtail "      { 0, NULL, NULL }\n    };\n    etype = g_@type@_register_static (\"@EnumName@\", values);\n  }\n  return etype;\n}\n" \
+    $(gnome_bluetooth_headers_to_scan_for_enums)) &gt; $@
+</code></pre>
+
+<p>[/sourcecode]</p>
+
+<p>I found myself using this, so my comments after this goes:</p>
+
+<blockquote><p>This is based on the same Makefile.am stuff gnome-bluetooth,
+which is based on the same stuff in pango</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Developing for Gtk/Glib]]></title>
+    <link href="http://erick2red.github.com/erick2red/blog/2011/06/28/developing-for-gtkglib/"/>
+    <updated>2011-06-28T13:13:41-04:00</updated>
+    <id>http://erick2red.github.com/erick2red/blog/2011/06/28/developing-for-gtkglib</id>
+    <content type="html"><![CDATA[<p>Hi everyone. It&#8217;s been a while since I blogged something. Been busy day-to-day work.</p>
+
+<p>Yesterday something started to bug me, a new project like, a new toy application. After some modeling/sketching on a page I decided to start writing some demo code.</p>
+
+<p>It took me a while to notice that I&#8217;m far from setting a GObject development environment fast. I&#8217;m using <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-cc-linux-developers-includes-incubating-components/indigor">Eclipse IDE for C/C++ Linux Developers</a>, and valgrind and the usual tools in my Archlinux. There&#8217;s, by the way, a package group in pacman called base-devel, I always had installed first hand.</p>
+
+<p>Anyway I&#8217;ll talk about the main three issues I found in my way to set up start and star coding some mockups and early designs of my toy app.</p>
+
+<p><strong>Autotools packaging</strong></p>
+
+<p>I&#8217;m not the guy who lined up with cmake cause autotools is old, and should be improved, although I think it needs some improvements [1]. The main issue with autotools is that it is hard to learn, the existent documentation is little and somewhat cryptic, and that makes the learning curve steep. After read some things on the web, and been this not first time I stand before the issues, I did what I think everyone should, I made my own sample-autootols project which keeps a minimal configuration of what I need to develop a Gtk application. I included tips from <a href="http://blogs.gnome.org/jjardon/2010/01/25/modernize-your-autotools-build-system/">this post</a> about improving and modernizing the autotools configuration, and some others about using <a href="http://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00599.html">xz compression instead of gz</a>. The project is in <a href="https://github.com/erick2red/autotools-sample">github</a>, and I&#8217;m planning to improve it with several configurations for several kinds of builds. Anyway, that for point one, I will keep my template at hand, but I think for new developers, and for the good of the platform, Gnome should make something like Ubuntu Quickly. Note: I&#8217;ve tried to use anjuta, really tried, but it doesn&#8217;t feel right or stable, and this is not for the developers to take it personal, it just my experience with it had been bad.</p>
+
+<p><strong>GObject based C class</strong></p>
+
+<p>This is so simple is really a shame it had taken me so long to pass this point. I needed some GObject based class, to handle some  internals structures of my application, and then I found myself copying parts of devhelp tutorials to headers and sources files to build the class, this code is all templates, is the same over and over for every class I had and have to make. I just want some script that make me the files after I provide the name of the class I want. If I had the time to learn howto make Eclipse plugins I&#8217;ll make the Eclipse Template for those files header and source file for  a GObject based class. I tried vala before and I know it does, one possible solution is for vala to print the translation into some pretty formatted code. If I can&#8217;t find any solution soon, I&#8217;ll make some awk script that output the files with the required boilerplate needed.</p>
+
+<p><strong>Valgrind debugging</strong></p>
+
+<p>Finally, the third point is the fair beginner one, I have to say this pretty much my first time doing C development of Gtk/Glib applications. Until now I&#8217;ve used some vala, and some JavaScript, and some C++, but C, nope, so I think this is mainly why I found this obstacles in my path. After having some windows running and some buttons doings it&#8217;s work I felt it was time to profile the memory usage I was using. I used valgrind since the Eclipse bring with support for it included, and I notice I need a suppression file for Gtk/Glib <em>possible memory lost</em>, which isn&#8217;t real. Digged a little on the web, actually digged nothing this was the first results that pops out: <a href="https://live.gnome.org/Valgrind">Valgrind at live.gnome.org</a>, and I went after the suppression file, just to learn that the file was missing or something else (I&#8217;m getting some internal error, which I now realize I have to tell the maintainers of the wiki). After that I decided I have to do it by myself. I think that the gnome developers should have a file like that somewhere, but I&#8217;m to shy to ask for it, so I&#8217;ll take the time to do one for me, someday.</p>
+
+<p>Again I think that, in order to promote the platform, is necessary to publish things like this, The new look of <a href="http://developer.gnome.org/">developer.gnome.org</a> and the samples in there helps to that purpose, but still feel more work in that direction is missing.</p>
+
+<p>[1] Autotools needs to handle parallel configure, since parallel <em>make</em> is handled by the <em>-j</em> flag.</p>
+]]></content>
+  </entry>
+  
+</feed>

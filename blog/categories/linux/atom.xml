@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Linux | Builder's notes]]></title>
-  <link href="http://erick2red.github.com/erick2red/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://erick2red.github.com/erick2red/"/>
-  <updated>2013-06-26T16:21:36-04:00</updated>
-  <id>http://erick2red.github.com/erick2red/</id>
+  <link href="http://erick2red.github.com/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/"/>
+  <updated>2013-06-26T16:55:49-04:00</updated>
+  <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[A challenge of locales]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/10/09/a-challenge-of-locales/"/>
+    <link href="http://erick2red.github.com/blog/2012/10/09/a-challenge-of-locales/"/>
     <updated>2012-10-09T09:41:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/10/09/a-challenge-of-locales</id>
+    <id>http://erick2red.github.com/blog/2012/10/09/a-challenge-of-locales</id>
     <content type="html"><![CDATA[<p>When developing an application aiming for everyone worldwide to use, there are certain challenges
 you will face. Right now, mine is fighting laziness and locales.</p>
 
@@ -49,9 +49,9 @@ What I will ask, compile and run this code in your pc, and post the answer here 
   
   <entry>
     <title type="html"><![CDATA[Moving to Fedora]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/08/21/moving-to-fedora/"/>
+    <link href="http://erick2red.github.com/blog/2012/08/21/moving-to-fedora/"/>
     <updated>2012-08-21T12:40:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/08/21/moving-to-fedora</id>
+    <id>http://erick2red.github.com/blog/2012/08/21/moving-to-fedora</id>
     <content type="html"><![CDATA[<p>I've been using <a href="http://www.archlinux.org/">Archlinux</a> for about 4 years now, and I've been pretty happy
 about it. The thing is, as I become more involved in Gnome development, I've feel
 the best distro for such a purpose is <a href="http://fedoraproject.org/">Fedora</a>.</p>

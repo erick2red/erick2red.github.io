@@ -1,137 +1,123 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2011/05/25/going-online/</loc>
+        <loc>http://erick2red.github.com/blog/2011/05/25/going-online/</loc>
+        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://erick2red.github.com/blog/2011/05/28/dbus-in-gjs-and-gnome-shell/</loc>
+        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://erick2red.github.com/blog/2011/05/30/morning-echoes/</loc>
+        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://erick2red.github.com/blog/2011/05/31/json-parse-and-json-stringify/</loc>
+        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://erick2red.github.com/blog/2011/06/05/dbus-in-the-shell/</loc>
+        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://erick2red.github.com/blog/2011/06/28/developing-for-gtkglib/</loc>
+        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://erick2red.github.com/blog/2011/07/01/open-source-software-is-green/</loc>
+        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://erick2red.github.com/blog/2011/07/16/git-on-steroids/</loc>
+        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://erick2red.github.com/blog/2011/12/19/undo-support-into-gnome-contacts/</loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
         <loc>
-            http://erick2red.github.com/erick2red/blog/2011/05/28/dbus-in-gjs-and-gnome-shell/
-        </loc>
-        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2011/05/30/morning-echoes/</loc>
-        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://erick2red.github.com/erick2red/blog/2011/05/31/json-parse-and-json-stringify/
-        </loc>
-        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2011/06/05/dbus-in-the-shell/</loc>
-        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2011/06/28/developing-for-gtkglib/</loc>
-        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://erick2red.github.com/erick2red/blog/2011/07/01/open-source-software-is-green/
-        </loc>
-        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2011/07/16/git-on-steroids/</loc>
-        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://erick2red.github.com/erick2red/blog/2011/12/19/undo-support-into-gnome-contacts/
-        </loc>
-        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://erick2red.github.com/erick2red/blog/2012/02/13/new-link-dialog-into-gnome-contacts/
+            http://erick2red.github.com/blog/2012/02/13/new-link-dialog-into-gnome-contacts/
         </loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
         <loc>
-            http://erick2red.github.com/erick2red/blog/2012/02/27/applying-for-gnome-foundation-membership/
+            http://erick2red.github.com/blog/2012/02/27/applying-for-gnome-foundation-membership/
+        </loc>
+        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://erick2red.github.com/blog/2012/03/02/gnome-account-application/</loc>
+        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://erick2red.github.com/blog/2012/03/06/gnome-foundation-membership-accepted/
         </loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
         <loc>
-            http://erick2red.github.com/erick2red/blog/2012/03/02/gnome-account-application/
+            http://erick2red.github.com/blog/2012/04/28/blogging-from-github-with-octopress/
         </loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://erick2red.github.com/erick2red/blog/2012/03/06/gnome-foundation-membership-accepted/
-        </loc>
+        <loc>http://erick2red.github.com/blog/2012/04/28/getting-warnings-out-of-clutter/</loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://erick2red.github.com/erick2red/blog/2012/04/28/blogging-from-github-with-octopress/
-        </loc>
+        <loc>http://erick2red.github.com/blog/2012/04/30/initial-commit/</loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter/
-        </loc>
+        <loc>http://erick2red.github.com/blog/2012/05/03/finished-migration/</loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2012/04/30/initial-commit/</loc>
+        <loc>http://erick2red.github.com/blog/2012/05/16/im-on-planet-gnome/</loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2012/05/03/finished-migration/</loc>
+        <loc>http://erick2red.github.com/blog/2012/06/01/introducing-calendar/</loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2012/05/16/im-on-planet-gnome/</loc>
-        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2012/06/01/introducing-calendar/</loc>
-        <lastmod>2013-06-25T17:28:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://erick2red.github.com/erick2red/blog/2012/07/03/updates-to-gnome-calendar/
-        </loc>
+        <loc>http://erick2red.github.com/blog/2012/07/03/updates-to-gnome-calendar/</loc>
         <lastmod>2013-06-25T22:34:58-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2012/08/21/moving-to-fedora/</loc>
+        <loc>http://erick2red.github.com/blog/2012/08/21/moving-to-fedora/</loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2012/08/21/making-you-own-widget/</loc>
+        <loc>http://erick2red.github.com/blog/2012/08/21/making-you-own-widget/</loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2012/10/09/a-challenge-of-locales/</loc>
+        <loc>http://erick2red.github.com/blog/2012/10/09/a-challenge-of-locales/</loc>
         <lastmod>2013-06-25T17:28:00-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2012/11/30/software-updates/</loc>
+        <loc>http://erick2red.github.com/blog/2012/11/30/software-updates/</loc>
         <lastmod>2013-06-25T23:18:55-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/blog/2013/06/25/june-update-on-calendar/</loc>
+        <loc>http://erick2red.github.com/blog/2013/06/25/june-update-on-calendar/</loc>
         <lastmod>2013-06-26T13:52:54-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/blog/archives/</loc>
+        <loc>http://erick2red.github.com/blog/archives/</loc>
         <lastmod>2013-06-26T13:52:54-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/robots.txt</loc>
+        <loc>http://erick2red.github.com/robots.txt</loc>
         <lastmod>2013-06-25T15:30:13-04:00</lastmod>
     </url>
     <url>
-        <loc>http://erick2red.github.com/erick2red/</loc>
+        <loc>http://erick2red.github.com/</loc>
         <lastmod>2013-06-26T13:52:54-04:00</lastmod>
     </url>
 </urlset>

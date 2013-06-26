@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Coding Samples | Builder's notes]]></title>
-  <link href="http://erick2red.github.com/erick2red/blog/categories/coding-samples/atom.xml" rel="self"/>
-  <link href="http://erick2red.github.com/erick2red/"/>
-  <updated>2013-06-26T16:21:36-04:00</updated>
-  <id>http://erick2red.github.com/erick2red/</id>
+  <link href="http://erick2red.github.com/blog/categories/coding-samples/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/"/>
+  <updated>2013-06-26T16:55:49-04:00</updated>
+  <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[DBus in the Shell]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2011/06/05/dbus-in-the-shell/"/>
+    <link href="http://erick2red.github.com/blog/2011/06/05/dbus-in-the-shell/"/>
     <updated>2011-06-05T01:09:27-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2011/06/05/dbus-in-the-shell</id>
+    <id>http://erick2red.github.com/blog/2011/06/05/dbus-in-the-shell</id>
     <content type="html"><![CDATA[<p>As a companion of the post <a href="http://erick2red.wordpress.com/2011/05/28/dbus-in-gjs-and-gnome-shell/">I made before</a> on connecting to DBus exported objects on Gjs JavaScript runtime over the Shell, should be other post talking as how to export object over DBus inside Shell JavaScript environment. More or less this one is about that.</p>
 
 <p>The code I will show here isn't mine, even I think I contribute some part to it, the main architecture of the thing was already made by the time the code get to me. That part of thanks for the help, and the guidance should go to Vamsi Krishna Brahmajosyula.</p>
@@ -121,9 +121,9 @@ DBus.session.acquire_name('org.gnome.Logger', 0, null, null);
   
   <entry>
     <title type="html"><![CDATA[DBus in Gjs and Gnome Shell]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2011/05/28/dbus-in-gjs-and-gnome-shell/"/>
+    <link href="http://erick2red.github.com/blog/2011/05/28/dbus-in-gjs-and-gnome-shell/"/>
     <updated>2011-05-28T21:52:58-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2011/05/28/dbus-in-gjs-and-gnome-shell</id>
+    <id>http://erick2red.github.com/blog/2011/05/28/dbus-in-gjs-and-gnome-shell</id>
     <content type="html"><![CDATA[<h6>The Story</h6>
 
 <p>Last few days I’ve got a bunch of ideas about Gnome Shell extensions. Gnome 3 platform has made the development of Gnome really close to the public, more than anything by using JavaScript to made the Shell.</p>

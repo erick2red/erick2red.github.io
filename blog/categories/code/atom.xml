@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Code | Builder's notes]]></title>
-  <link href="http://erick2red.github.com/erick2red/blog/categories/code/atom.xml" rel="self"/>
-  <link href="http://erick2red.github.com/erick2red/"/>
-  <updated>2013-06-26T16:21:36-04:00</updated>
-  <id>http://erick2red.github.com/erick2red/</id>
+  <link href="http://erick2red.github.com/blog/categories/code/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/"/>
+  <updated>2013-06-26T16:55:49-04:00</updated>
+  <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[A challenge of locales]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/10/09/a-challenge-of-locales/"/>
+    <link href="http://erick2red.github.com/blog/2012/10/09/a-challenge-of-locales/"/>
     <updated>2012-10-09T09:41:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/10/09/a-challenge-of-locales</id>
+    <id>http://erick2red.github.com/blog/2012/10/09/a-challenge-of-locales</id>
     <content type="html"><![CDATA[<p>When developing an application aiming for everyone worldwide to use, there are certain challenges
 you will face. Right now, mine is fighting laziness and locales.</p>
 
@@ -49,9 +49,9 @@ What I will ask, compile and run this code in your pc, and post the answer here 
   
   <entry>
     <title type="html"><![CDATA[Making you own widget]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/08/21/making-you-own-widget/"/>
+    <link href="http://erick2red.github.com/blog/2012/08/21/making-you-own-widget/"/>
     <updated>2012-08-21T13:53:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/08/21/making-you-own-widget</id>
+    <id>http://erick2red.github.com/blog/2012/08/21/making-you-own-widget</id>
     <content type="html"><![CDATA[<p>A few days ago, I was in <a href="irc://irc.gnome.org/gtk+">gtk+ irc channel</a> and there was someone making the
 kind of question I've done myself like a hundred times. Thankfully the guys
 in the channel hasn't got tired of me, yet. They are pretty helpful once they
@@ -221,9 +221,9 @@ fix it.</p>
   
   <entry>
     <title type="html"><![CDATA[Getting warnings out of Clutter]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter/"/>
+    <link href="http://erick2red.github.com/blog/2012/04/28/getting-warnings-out-of-clutter/"/>
     <updated>2012-04-28T23:59:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter</id>
+    <id>http://erick2red.github.com/blog/2012/04/28/getting-warnings-out-of-clutter</id>
     <content type="html"><![CDATA[<p>It's been a while since I blogged anything. Well, I actually did some ranting
 about starting this new blog. But that really doesn't count. I should make a
 post saying what I've been up to. But I'm lazy. I've been:</p>

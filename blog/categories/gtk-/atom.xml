@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Gtk+ | Builder's notes]]></title>
-  <link href="http://erick2red.github.com/erick2red/blog/categories/gtk-/atom.xml" rel="self"/>
-  <link href="http://erick2red.github.com/erick2red/"/>
-  <updated>2013-06-26T16:21:36-04:00</updated>
-  <id>http://erick2red.github.com/erick2red/</id>
+  <link href="http://erick2red.github.com/blog/categories/gtk-/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/"/>
+  <updated>2013-06-26T16:55:49-04:00</updated>
+  <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Making you own widget]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/08/21/making-you-own-widget/"/>
+    <link href="http://erick2red.github.com/blog/2012/08/21/making-you-own-widget/"/>
     <updated>2012-08-21T13:53:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/08/21/making-you-own-widget</id>
+    <id>http://erick2red.github.com/blog/2012/08/21/making-you-own-widget</id>
     <content type="html"><![CDATA[<p>A few days ago, I was in <a href="irc://irc.gnome.org/gtk+">gtk+ irc channel</a> and there was someone making the
 kind of question I've done myself like a hundred times. Thankfully the guys
 in the channel hasn't got tired of me, yet. They are pretty helpful once they

@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://erick2red.github.com/erick2red/sitemap.xml 
+Sitemap: http://erick2red.github.com/sitemap.xml 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Gnome | Builder's notes]]></title>
-  <link href="http://erick2red.github.com/erick2red/blog/categories/gnome/atom.xml" rel="self"/>
-  <link href="http://erick2red.github.com/erick2red/"/>
-  <updated>2013-06-26T16:21:36-04:00</updated>
-  <id>http://erick2red.github.com/erick2red/</id>
+  <link href="http://erick2red.github.com/blog/categories/gnome/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/"/>
+  <updated>2013-06-26T16:55:49-04:00</updated>
+  <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[June update on Calendar]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2013/06/25/june-update-on-calendar/"/>
+    <link href="http://erick2red.github.com/blog/2013/06/25/june-update-on-calendar/"/>
     <updated>2013-06-25T21:19:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2013/06/25/june-update-on-calendar</id>
+    <id>http://erick2red.github.com/blog/2013/06/25/june-update-on-calendar</id>
     <content type="html"><![CDATA[<p>I've made a commitment with myself of posting updates of the stuff I'm working
 once a week. This one is the first, and I expected to be out by Monday, but an
 <a href="https://github.com/imathis/octopress">octopress</a> update and a plugin installation for handling image galleries
@@ -60,9 +60,9 @@ use <strong>GtkOverlay</strong>.</p>
   
   <entry>
     <title type="html"><![CDATA[Software updates]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/11/30/software-updates/"/>
+    <link href="http://erick2red.github.com/blog/2012/11/30/software-updates/"/>
     <updated>2012-11-30T23:40:00-05:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/11/30/software-updates</id>
+    <id>http://erick2red.github.com/blog/2012/11/30/software-updates</id>
     <content type="html"><![CDATA[<p>It's been a very long time since I posted anything.
 You might not know, I live in <a href="http://en.wikipedia.org/wiki/Santiago_de_Cuba">Santiago de Cuba</a>, Cuba, one of the cities trashed by the <a href="http://en.wikipedia.org/wiki/Hurricane_Sandy">hurricane
 Sandy</a>. That left us a bunch of loses and lack of communication for weeks. We went
@@ -111,9 +111,9 @@ I have to take care of.</p>
   
   <entry>
     <title type="html"><![CDATA[I'm on Planet Gnome]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/05/16/im-on-planet-gnome/"/>
+    <link href="http://erick2red.github.com/blog/2012/05/16/im-on-planet-gnome/"/>
     <updated>2012-05-16T22:44:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/05/16/im-on-planet-gnome</id>
+    <id>http://erick2red.github.com/blog/2012/05/16/im-on-planet-gnome</id>
     <content type="html"><![CDATA[<p>Since last Friday I'm a proud member of <a href="http://planet.gnome.org">Planet Gnome</a>.
 I notice my last two post on Planet Gnome feed, and was a huge joy. After the
 initial excitement I realize what a great responsibility encloses the fact of
@@ -130,9 +130,9 @@ keep on. So, till next time, I'll see you around.</p>
   
   <entry>
     <title type="html"><![CDATA[Getting warnings out of Clutter]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter/"/>
+    <link href="http://erick2red.github.com/blog/2012/04/28/getting-warnings-out-of-clutter/"/>
     <updated>2012-04-28T23:59:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/04/28/getting-warnings-out-of-clutter</id>
+    <id>http://erick2red.github.com/blog/2012/04/28/getting-warnings-out-of-clutter</id>
     <content type="html"><![CDATA[<p>It's been a while since I blogged anything. Well, I actually did some ranting
 about starting this new blog. But that really doesn't count. I should make a
 post saying what I've been up to. But I'm lazy. I've been:</p>
@@ -169,9 +169,9 @@ an old method which should be destroyed in a couple of months.</p>
   
   <entry>
     <title type="html"><![CDATA[Gnome Foundation Membership Accepted]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/03/06/gnome-foundation-membership-accepted/"/>
+    <link href="http://erick2red.github.com/blog/2012/03/06/gnome-foundation-membership-accepted/"/>
     <updated>2012-03-06T15:41:38-05:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/03/06/gnome-foundation-membership-accepted</id>
+    <id>http://erick2red.github.com/blog/2012/03/06/gnome-foundation-membership-accepted</id>
     <content type="html"><![CDATA[<p>I'm the proud owner of a Gnome Foundation membership. That sounded awfull, anyway. It's true , today the Gnome Fundation Comitee approved my application, and I set up my mail alias.</p>
 
 <p>This is a great news to me, and I think it would be to anyone. There's point you can't miss though, this means more responsibilty doing a good job to make <a href="http://www.gnome.org">Gnome Project</a> great.</p>

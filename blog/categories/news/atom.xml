@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: News | Builder's notes]]></title>
-  <link href="http://erick2red.github.com/erick2red/blog/categories/news/atom.xml" rel="self"/>
-  <link href="http://erick2red.github.com/erick2red/"/>
-  <updated>2013-06-26T16:21:36-04:00</updated>
-  <id>http://erick2red.github.com/erick2red/</id>
+  <link href="http://erick2red.github.com/blog/categories/news/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/"/>
+  <updated>2013-06-26T16:55:49-04:00</updated>
+  <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[JSON.parse and JSON.stringify]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2011/05/31/json-parse-and-json-stringify/"/>
+    <link href="http://erick2red.github.com/blog/2011/05/31/json-parse-and-json-stringify/"/>
     <updated>2011-05-31T12:51:56-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2011/05/31/json-parse-and-json-stringify</id>
+    <id>http://erick2red.github.com/blog/2011/05/31/json-parse-and-json-stringify</id>
     <content type="html"><![CDATA[<p>The Gnome Shell Extensions system is one mighty and powerful beast. Just yesterday I found myself wanting to have a simple list of stuff I wanted to check later. After looking around a bit to storage components in Gnome Shell environment I decide I'll use simple files with <a href="http://en.wikipedia.org/wiki/Json">JSON</a> strings inside.</p>
 
 <p>I started coding and in a while I got my <a href="http://erick2red.wordpress.com/my-projects/shell-extensions/#wish-list">wish-list</a> extension. The  beauty of this is what I learnt in the process. Two stuff I never tried, before:</p>
@@ -74,9 +74,9 @@ The page is linked above. See you around.</p>
   
   <entry>
     <title type="html"><![CDATA[Morning Echoes]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2011/05/30/morning-echoes/"/>
+    <link href="http://erick2red.github.com/blog/2011/05/30/morning-echoes/"/>
     <updated>2011-05-30T08:34:52-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2011/05/30/morning-echoes</id>
+    <id>http://erick2red.github.com/blog/2011/05/30/morning-echoes</id>
     <content type="html"><![CDATA[<p>Here goes some of the morning news you can find around:</p>
 
 <ul>

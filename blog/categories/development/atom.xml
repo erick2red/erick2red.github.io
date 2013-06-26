@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Development | Builder's notes]]></title>
-  <link href="http://erick2red.github.com/erick2red/blog/categories/development/atom.xml" rel="self"/>
-  <link href="http://erick2red.github.com/erick2red/"/>
-  <updated>2013-06-26T16:21:36-04:00</updated>
-  <id>http://erick2red.github.com/erick2red/</id>
+  <link href="http://erick2red.github.com/blog/categories/development/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/"/>
+  <updated>2013-06-26T16:55:49-04:00</updated>
+  <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git on steroids]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2011/07/16/git-on-steroids/"/>
+    <link href="http://erick2red.github.com/blog/2011/07/16/git-on-steroids/"/>
     <updated>2011-07-16T12:29:48-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2011/07/16/git-on-steroids</id>
+    <id>http://erick2red.github.com/blog/2011/07/16/git-on-steroids</id>
     <content type="html"><![CDATA[<p>Since I've started developing for a company business I've been using version control systems and for my own projects I choose for git.</p>
 
 <p>Why choose git over others, for was a bunch of simple reason:</p>
@@ -44,9 +44,9 @@
   
   <entry>
     <title type="html"><![CDATA[Open source software is green]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2011/07/01/open-source-software-is-green/"/>
+    <link href="http://erick2red.github.com/blog/2011/07/01/open-source-software-is-green/"/>
     <updated>2011-07-01T08:54:56-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2011/07/01/open-source-software-is-green</id>
+    <id>http://erick2red.github.com/blog/2011/07/01/open-source-software-is-green</id>
     <content type="html"><![CDATA[<p>A few days ago I read post about FOSS being green or not. Since open source is about reusing/improving stuff made by others you could surely say, yes, FOSS is green indeed.</p>
 
 <p>Then I found this, what a better prove !!!</p>
@@ -95,9 +95,9 @@ which is based on the same stuff in pango</p></blockquote>
   
   <entry>
     <title type="html"><![CDATA[Developing for Gtk/Glib]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2011/06/28/developing-for-gtkglib/"/>
+    <link href="http://erick2red.github.com/blog/2011/06/28/developing-for-gtkglib/"/>
     <updated>2011-06-28T13:13:41-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2011/06/28/developing-for-gtkglib</id>
+    <id>http://erick2red.github.com/blog/2011/06/28/developing-for-gtkglib</id>
     <content type="html"><![CDATA[<p>Hi everyone. It's been a while since I blogged something. Been busy day-to-day work.</p>
 
 <p>Yesterday something started to bug me, a new project like, a new toy application. After some modeling/sketching on a page I decided to start writing some demo code.</p>

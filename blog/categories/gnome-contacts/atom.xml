@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Gnome Contacts | Builder's notes]]></title>
-  <link href="http://erick2red.github.com/erick2red/blog/categories/gnome-contacts/atom.xml" rel="self"/>
-  <link href="http://erick2red.github.com/erick2red/"/>
-  <updated>2013-06-26T16:21:36-04:00</updated>
-  <id>http://erick2red.github.com/erick2red/</id>
+  <link href="http://erick2red.github.com/blog/categories/gnome-contacts/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/"/>
+  <updated>2013-06-26T16:55:49-04:00</updated>
+  <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[New Link Dialog into gnome-contacts]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/02/13/new-link-dialog-into-gnome-contacts/"/>
+    <link href="http://erick2red.github.com/blog/2012/02/13/new-link-dialog-into-gnome-contacts/"/>
     <updated>2012-02-13T23:45:24-05:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/02/13/new-link-dialog-into-gnome-contacts</id>
+    <id>http://erick2red.github.com/blog/2012/02/13/new-link-dialog-into-gnome-contacts</id>
     <content type="html"><![CDATA[<p>Well, it seems I'm fully contributing to gnome-contacts now.</p>
 
 <p>... that was the start of this blog post a few weeks ago, the work got me in the middle and the post got stuck at draft stage til today. So</p>
@@ -36,9 +36,9 @@
   
   <entry>
     <title type="html"><![CDATA[Undo support goes into gnome-contacts]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2011/12/19/undo-support-into-gnome-contacts/"/>
+    <link href="http://erick2red.github.com/blog/2011/12/19/undo-support-into-gnome-contacts/"/>
     <updated>2011-12-19T11:27:10-05:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2011/12/19/undo-support-into-gnome-contacts</id>
+    <id>http://erick2red.github.com/blog/2011/12/19/undo-support-into-gnome-contacts</id>
     <content type="html"><![CDATA[<p>As of today I uploaded a patch to gnome-contacts to support undo for delete operation.</p>
 
 <p>After a bunch a fixes and reviews from contacts developer Alexander Larsson the patch went up to master. The notification looks good, tough it can become even better, I've already saw two mockups with ways to improve it a little bit. Here's a picture:</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Web | Builder's notes]]></title>
-  <link href="http://erick2red.github.com/erick2red/blog/categories/web/atom.xml" rel="self"/>
-  <link href="http://erick2red.github.com/erick2red/"/>
-  <updated>2013-06-26T16:21:36-04:00</updated>
-  <id>http://erick2red.github.com/erick2red/</id>
+  <link href="http://erick2red.github.com/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/"/>
+  <updated>2013-06-26T16:55:49-04:00</updated>
+  <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Initial Commit]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/04/30/initial-commit/"/>
+    <link href="http://erick2red.github.com/blog/2012/04/30/initial-commit/"/>
     <updated>2012-04-30T14:07:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/04/30/initial-commit</id>
+    <id>http://erick2red.github.com/blog/2012/04/30/initial-commit</id>
     <content type="html"><![CDATA[<p>As you can see, the migration to octopress started with the right foot. The blog
 is up and running, and I just have to try three times. That was an easy one. The
 first time I installed gentoo, took me about ten times to get it right.</p>
@@ -46,9 +46,9 @@ for error and typos.</p>
   
   <entry>
     <title type="html"><![CDATA[Blogging from Github with Octopress]]></title>
-    <link href="http://erick2red.github.com/erick2red/blog/2012/04/28/blogging-from-github-with-octopress/"/>
+    <link href="http://erick2red.github.com/blog/2012/04/28/blogging-from-github-with-octopress/"/>
     <updated>2012-04-28T19:41:00-04:00</updated>
-    <id>http://erick2red.github.com/erick2red/blog/2012/04/28/blogging-from-github-with-octopress</id>
+    <id>http://erick2red.github.com/blog/2012/04/28/blogging-from-github-with-octopress</id>
     <content type="html"><![CDATA[<p>Today I've been looking finally at how to deploy an
 <a href="http://octopress.org">Octopress</a> based blog into <a href="http://github.com">Github</a>.
 It's been a while since I saw octopress, and I always liked the motto,

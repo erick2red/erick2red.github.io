@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gnome | Builder's notes]]></title>
   <link href="http://erick2red.github.com/blog/categories/gnome/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2013-06-26T16:55:49-04:00</updated>
+  <updated>2013-07-16T08:59:18-04:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A week for releasing]]></title>
+    <link href="http://erick2red.github.com/blog/2013/07/16/a-week-for-releasing/"/>
+    <updated>2013-07-16T08:16:00-04:00</updated>
+    <id>http://erick2red.github.com/blog/2013/07/16/a-week-for-releasing</id>
+    <content type="html"><![CDATA[<p>I've set a deadline for doing a weekly post. Well, last week, I missed. It was a really busy week.
+I was building a web-page, and I haven't done that in like 10 months or something so I had a lot to
+catch up. It was fun, though. I'm right now looking forward to start playing around with <a href="http://weblog.rubyonrails.org/2013/6/25/Rails-4-0-final/">Rails 4</a></p>
+
+<p>On the other side my Gnome duties caught up with me. I've been acting as Contacts maintainer with Alex for
+a while now. But so far, he was doing the releasing part. I, usually, implemented new stuff, reviewed patches,
+fixed bugs, but no more. This past week since Alex is on vacation I had to fill in doing the release.</p>
+
+<p>I was prompted by Matthias Clasen for doing a release of gnome-contacts for the 3.9.4 development release of <a href="http://permalink.gmane.org/gmane.comp.gnome.devel.announce/339">Gnome</a>.
+In the process, I realized I cant' log into master.gnome.org for the purposes of uploading the packages. So,
+Mathias kindly offered himself to upload the package. Later I got my account authorized, and I was able to release
+gnome-contacts-3.8.3. This latter one, I was surprised to see it packaged this morning into Archlinux.</p>
+
+<p>These two releases are only bug fixes, yet there nasty bugs fixed there. You can read the <a href="https://git.gnome.org/browse/gnome-contacts/tree/NEWS">NEWS</a> file, or
+the <a href="https://git.gnome.org/browse/gnome-contacts/log/">commit log</a> to find about.</p>
+
+<p>What's next on Contacts ? I want to implement New Contact flow inline and get rid of dialog, and close a
+bunch of bugs around it. Also, yesterday I got a bug from Allan about updating a bit the selection pattern, and I
+would like to work on it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[June update on Calendar]]></title>
@@ -164,17 +191,6 @@ add this to my compiler options
 </pre></td><td class='code'><pre><code class=''><span class='line'>-DCLUTTER_VERSION_MIN_REQUIRED=CLUTTER_VERSION_1_10</span></code></pre></td></tr></table></div></figure></notextile></div>
 This finally solved the issue and I'm having pretty warnings  every time I use
 an old method which should be destroyed in a couple of months.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Gnome Foundation Membership Accepted]]></title>
-    <link href="http://erick2red.github.com/blog/2012/03/06/gnome-foundation-membership-accepted/"/>
-    <updated>2012-03-06T15:41:38-05:00</updated>
-    <id>http://erick2red.github.com/blog/2012/03/06/gnome-foundation-membership-accepted</id>
-    <content type="html"><![CDATA[<p>I'm the proud owner of a Gnome Foundation membership. That sounded awfull, anyway. It's true , today the Gnome Fundation Comitee approved my application, and I set up my mail alias.</p>
-
-<p>This is a great news to me, and I think it would be to anyone. There's point you can't miss though, this means more responsibilty doing a good job to make <a href="http://www.gnome.org">Gnome Project</a> great.</p>
 ]]></content>
   </entry>
   

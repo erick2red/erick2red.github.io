@@ -4,7 +4,7 @@
   <title><![CDATA[Builder's notes]]></title>
   <link href="http://erick2red.github.com/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2013-06-26T16:55:49-04:00</updated>
+  <updated>2013-07-16T08:59:18-04:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A week for releasing]]></title>
+    <link href="http://erick2red.github.com/blog/2013/07/16/a-week-for-releasing/"/>
+    <updated>2013-07-16T08:16:00-04:00</updated>
+    <id>http://erick2red.github.com/blog/2013/07/16/a-week-for-releasing</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve set a deadline for doing a weekly post. Well, last week, I missed. It was a really busy week.
+I was building a web-page, and I haven&#8217;t done that in like 10 months or something so I had a lot to
+catch up. It was fun, though. I&#8217;m right now looking forward to start playing around with <a href="http://weblog.rubyonrails.org/2013/6/25/Rails-4-0-final/">Rails 4</a></p>
+
+<p>On the other side my Gnome duties caught up with me. I&#8217;ve been acting as Contacts maintainer with Alex for
+a while now. But so far, he was doing the releasing part. I, usually, implemented new stuff, reviewed patches,
+fixed bugs, but no more. This past week since Alex is on vacation I had to fill in doing the release.</p>
+
+<p>I was prompted by Matthias Clasen for doing a release of gnome-contacts for the 3.9.4 development release of <a href="http://permalink.gmane.org/gmane.comp.gnome.devel.announce/339">Gnome</a>.
+In the process, I realized I cant&#8217; log into master.gnome.org for the purposes of uploading the packages. So,
+Mathias kindly offered himself to upload the package. Later I got my account authorized, and I was able to release
+gnome-contacts-3.8.3. This latter one, I was surprised to see it packaged this morning into Archlinux.</p>
+
+<p>These two releases are only bug fixes, yet there nasty bugs fixed there. You can read the <a href="https://git.gnome.org/browse/gnome-contacts/tree/NEWS">NEWS</a> file, or
+the <a href="https://git.gnome.org/browse/gnome-contacts/log/">commit log</a> to find about.</p>
+
+<p>What&#8217;s next on Contacts ? I want to implement New Contact flow inline and get rid of dialog, and close a
+bunch of bugs around it. Also, yesterday I got a bug from Allan about updating a bit the selection pattern, and I
+would like to work on it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[June update on Calendar]]></title>
@@ -709,37 +736,6 @@ gnome_bluetooth_built_cfiles = gnome-bluetooth-enum-types.c</p>
 
 <blockquote><p>This is based on the same Makefile.am stuff gnome-bluetooth,
 which is based on the same stuff in pango</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Developing for Gtk/Glib]]></title>
-    <link href="http://erick2red.github.com/blog/2011/06/28/developing-for-gtkglib/"/>
-    <updated>2011-06-28T13:13:41-04:00</updated>
-    <id>http://erick2red.github.com/blog/2011/06/28/developing-for-gtkglib</id>
-    <content type="html"><![CDATA[<p>Hi everyone. It&#8217;s been a while since I blogged something. Been busy day-to-day work.</p>
-
-<p>Yesterday something started to bug me, a new project like, a new toy application. After some modeling/sketching on a page I decided to start writing some demo code.</p>
-
-<p>It took me a while to notice that I&#8217;m far from setting a GObject development environment fast. I&#8217;m using <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-cc-linux-developers-includes-incubating-components/indigor">Eclipse IDE for C/C++ Linux Developers</a>, and valgrind and the usual tools in my Archlinux. There&#8217;s, by the way, a package group in pacman called base-devel, I always had installed first hand.</p>
-
-<p>Anyway I&#8217;ll talk about the main three issues I found in my way to set up start and star coding some mockups and early designs of my toy app.</p>
-
-<p><strong>Autotools packaging</strong></p>
-
-<p>I&#8217;m not the guy who lined up with cmake cause autotools is old, and should be improved, although I think it needs some improvements [1]. The main issue with autotools is that it is hard to learn, the existent documentation is little and somewhat cryptic, and that makes the learning curve steep. After read some things on the web, and been this not first time I stand before the issues, I did what I think everyone should, I made my own sample-autootols project which keeps a minimal configuration of what I need to develop a Gtk application. I included tips from <a href="http://blogs.gnome.org/jjardon/2010/01/25/modernize-your-autotools-build-system/">this post</a> about improving and modernizing the autotools configuration, and some others about using <a href="http://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00599.html">xz compression instead of gz</a>. The project is in <a href="https://github.com/erick2red/autotools-sample">github</a>, and I&#8217;m planning to improve it with several configurations for several kinds of builds. Anyway, that for point one, I will keep my template at hand, but I think for new developers, and for the good of the platform, Gnome should make something like Ubuntu Quickly. Note: I&#8217;ve tried to use anjuta, really tried, but it doesn&#8217;t feel right or stable, and this is not for the developers to take it personal, it just my experience with it had been bad.</p>
-
-<p><strong>GObject based C class</strong></p>
-
-<p>This is so simple is really a shame it had taken me so long to pass this point. I needed some GObject based class, to handle some  internals structures of my application, and then I found myself copying parts of devhelp tutorials to headers and sources files to build the class, this code is all templates, is the same over and over for every class I had and have to make. I just want some script that make me the files after I provide the name of the class I want. If I had the time to learn howto make Eclipse plugins I&#8217;ll make the Eclipse Template for those files header and source file for  a GObject based class. I tried vala before and I know it does, one possible solution is for vala to print the translation into some pretty formatted code. If I can&#8217;t find any solution soon, I&#8217;ll make some awk script that output the files with the required boilerplate needed.</p>
-
-<p><strong>Valgrind debugging</strong></p>
-
-<p>Finally, the third point is the fair beginner one, I have to say this pretty much my first time doing C development of Gtk/Glib applications. Until now I&#8217;ve used some vala, and some JavaScript, and some C++, but C, nope, so I think this is mainly why I found this obstacles in my path. After having some windows running and some buttons doings it&#8217;s work I felt it was time to profile the memory usage I was using. I used valgrind since the Eclipse bring with support for it included, and I notice I need a suppression file for Gtk/Glib <em>possible memory lost</em>, which isn&#8217;t real. Digged a little on the web, actually digged nothing this was the first results that pops out: <a href="https://live.gnome.org/Valgrind">Valgrind at live.gnome.org</a>, and I went after the suppression file, just to learn that the file was missing or something else (I&#8217;m getting some internal error, which I now realize I have to tell the maintainers of the wiki). After that I decided I have to do it by myself. I think that the gnome developers should have a file like that somewhere, but I&#8217;m to shy to ask for it, so I&#8217;ll take the time to do one for me, someday.</p>
-
-<p>Again I think that, in order to promote the platform, is necessary to publish things like this, The new look of <a href="http://developer.gnome.org/">developer.gnome.org</a> and the samples in there helps to that purpose, but still feel more work in that direction is missing.</p>
-
-<p>[1] Autotools needs to handle parallel configure, since parallel <em>make</em> is handled by the <em>-j</em> flag.</p>
 ]]></content>
   </entry>
   

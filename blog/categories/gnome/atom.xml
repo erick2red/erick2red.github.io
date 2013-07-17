@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gnome | Builder's notes]]></title>
   <link href="http://erick2red.github.com/blog/categories/gnome/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2013-07-16T08:59:18-04:00</updated>
+  <updated>2013-07-17T09:44:03-04:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -27,7 +27,7 @@ a while now. But so far, he was doing the releasing part. I, usually, implemente
 fixed bugs, but no more. This past week since Alex is on vacation I had to fill in doing the release.</p>
 
 <p>I was prompted by Matthias Clasen for doing a release of gnome-contacts for the 3.9.4 development release of <a href="http://permalink.gmane.org/gmane.comp.gnome.devel.announce/339">Gnome</a>.
-In the process, I realized I cant' log into master.gnome.org for the purposes of uploading the packages. So,
+In the process, I realized I can't log into master.gnome.org for the purposes of uploading the packages. So,
 Mathias kindly offered himself to upload the package. Later I got my account authorized, and I was able to release
 gnome-contacts-3.8.3. This latter one, I was surprised to see it packaged this morning into Archlinux.</p>
 
@@ -37,6 +37,8 @@ the <a href="https://git.gnome.org/browse/gnome-contacts/log/">commit log</a> to
 <p>What's next on Contacts ? I want to implement New Contact flow inline and get rid of dialog, and close a
 bunch of bugs around it. Also, yesterday I got a bug from Allan about updating a bit the selection pattern, and I
 would like to work on it.</p>
+
+<p><strong>Update</strong>: I have to thanks Jonh Wendell for his fix of the webcam bug.</p>
 ]]></content>
   </entry>
   

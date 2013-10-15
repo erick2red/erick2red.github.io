@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Contacts | Builder's notes]]></title>
   <link href="http://erick2red.github.com/blog/categories/contacts/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2013-07-17T13:11:09-04:00</updated>
+  <updated>2013-10-15T17:18:50-04:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Contacts 3.10]]></title>
+    <link href="http://erick2red.github.com/blog/2013/09/30/contacts-3-dot-10/"/>
+    <updated>2013-09-30T12:06:00-04:00</updated>
+    <id>http://erick2red.github.com/blog/2013/09/30/contacts-3-dot-10</id>
+    <content type="html"><![CDATA[<p><em>This is post was due for about two weeks ago. I've been very busy, so here it goes.</em></p>
+
+<p>GNOME 3.10 was released almost three weeks ago. A huge number changes and improvements were made as you can see in
+the <a href="https://help.gnome.org/misc/release-notes/3.10/">release notes</a>. Those changes affected <strong>Contacts</strong> as well.</p>
+
+<p>This cycle the platform gained client-side decoration support from Gtk+ toolkit. We, in Contacts, also
+incorporated a cool <a href="https://developer.gnome.org/gtk3/3.10/GtkHeaderBar.html">header bar</a>, which in our case has the perk of being splitted between the contacts list and
+the main contact pane.</p>
+
+<p>The change in Contacts I'm most proud of is the new Change AddressBook dialog. It's an UI change that improved
+the experience a lot and <a href="https://bugzilla.gnome.org/show_bug.cgi?id=687220">clarified which is the active addressbook</a></p>
+
+<p>Finally, under the hood, Contacts is starting to use most of the new widgets recently migrated into Gtk+ and
+the template support landed this cycle.</p>
+
+<p><strong>Edit</strong>: I owe you screenshots.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A week for releasing]]></title>

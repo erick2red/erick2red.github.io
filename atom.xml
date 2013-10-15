@@ -4,7 +4,7 @@
   <title><![CDATA[Builder's notes]]></title>
   <link href="http://erick2red.github.com/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2013-07-17T13:11:09-04:00</updated>
+  <updated>2013-10-15T17:18:50-04:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Contacts 3.10]]></title>
+    <link href="http://erick2red.github.com/blog/2013/09/30/contacts-3-dot-10/"/>
+    <updated>2013-09-30T12:06:00-04:00</updated>
+    <id>http://erick2red.github.com/blog/2013/09/30/contacts-3-dot-10</id>
+    <content type="html"><![CDATA[<p><em>This is post was due for about two weeks ago. I&#8217;ve been very busy, so here it goes.</em></p>
+
+<p>GNOME 3.10 was released almost three weeks ago. A huge number changes and improvements were made as you can see in
+the <a href="https://help.gnome.org/misc/release-notes/3.10/">release notes</a>. Those changes affected <strong>Contacts</strong> as well.</p>
+
+<p>This cycle the platform gained client-side decoration support from Gtk+ toolkit. We, in Contacts, also
+incorporated a cool <a href="https://developer.gnome.org/gtk3/3.10/GtkHeaderBar.html">header bar</a>, which in our case has the perk of being splitted between the contacts list and
+the main contact pane.</p>
+
+<p>The change in Contacts I&#8217;m most proud of is the new Change AddressBook dialog. It&#8217;s an UI change that improved
+the experience a lot and <a href="https://bugzilla.gnome.org/show_bug.cgi?id=687220">clarified which is the active addressbook</a></p>
+
+<p>Finally, under the hood, Contacts is starting to use most of the new widgets recently migrated into Gtk+ and
+the template support landed this cycle.</p>
+
+<p><strong>Edit</strong>: I owe you screenshots.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A week for releasing]]></title>
@@ -687,57 +711,6 @@ So, let&#8217;s see how it goes.</p>
 <li><p>and <a href="http://blog.fournova.com/2011/06/git-cheat-sheet/">Git Cheat Sheet</a> (although you may find a bunch of this)</p></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Open source software is green]]></title>
-    <link href="http://erick2red.github.com/blog/2011/07/01/open-source-software-is-green/"/>
-    <updated>2011-07-01T08:54:56-04:00</updated>
-    <id>http://erick2red.github.com/blog/2011/07/01/open-source-software-is-green</id>
-    <content type="html"><![CDATA[<p>A few days ago I read post about FOSS being green or not. Since open source is about reusing/improving stuff made by others you could surely say, yes, FOSS is green indeed.</p>
-
-<p>Then I found this, what a better prove !!!</p>
-
-<p>[sourcecode language=&#8221;cpp&#8221;]
-gnome_bluetooth_headers_to_scan_for_enums = bluetooth-enums.h</p>
-
-<h1>Generate the enums source code, with glib-mkenums:</h1>
-
-<h1>This is based on the same Makefile.am stuff in pango:</h1>
-
-<p>gnome_bluetooth_built_headers = gnome-bluetooth-enum-types.h
-gnome_bluetooth_built_cfiles = gnome-bluetooth-enum-types.c</p>
-
-<p>gnome-bluetooth-enum-types.h: $(gnome_bluetooth_headers_to_scan_for_enums) Makefile</p>
-
-<pre><code>$(AM_V_GEN) (cd $(srcdir) &amp;&amp; glib-mkenums \
-        --fhead "#ifndef __GNOME_BLUETOOTH_ENUM_TYPES_H__\n#define __GNOME_BLUETOOTH_ENUM_TYPES_H__\n\n#include \n\nG_BEGIN_DECLS\n" \
-        --fprod "/* enumerations from \"@filename@\" */\n" \
-        --vhead "GType @enum_name@_get_type (void);\n#define BLUETOOTH_TYPE_@ENUMSHORT@ (@enum_name@_get_type())\n"     \
-        --ftail "G_END_DECLS\n\n#endif /* __GNOME_BLUETOOTH_ENUM_TYPES_H__ */" \
-    $(gnome_bluetooth_headers_to_scan_for_enums)) &gt; $@
-</code></pre>
-
-<p>gnome-bluetooth-enum-types.c: $(gnome_bluetooth_headers_to_scan_for_enums) Makefile gnome-bluetooth-enum-types.h</p>
-
-<pre><code>$(AM_V_GEN) (cd $(srcdir) &amp;&amp; glib-mkenums \
-        --fhead "#include \n" \
-        --fhead "#include \"gnome-bluetooth-enum-types.h\"\n" \
-        --fhead "#include " \
-            --fprod "\n/* enumerations from \"@filename@\" */" \
-        --vhead "GType\n@enum_name@_get_type (void)\n{\n  static GType etype = 0;\n  if (etype == 0) {\n    static const G@Type@Value values[] = {"     \
-        --vprod "      { @VALUENAME@, \"@VALUENAME@\", \"@valuenick@\" }," \
-        --vtail "      { 0, NULL, NULL }\n    };\n    etype = g_@type@_register_static (\"@EnumName@\", values);\n  }\n  return etype;\n}\n" \
-    $(gnome_bluetooth_headers_to_scan_for_enums)) &gt; $@
-</code></pre>
-
-<p>[/sourcecode]</p>
-
-<p>I found myself using this, so my comments after this goes:</p>
-
-<blockquote><p>This is based on the same Makefile.am stuff gnome-bluetooth,
-which is based on the same stuff in pango</p></blockquote>
 ]]></content>
   </entry>
   

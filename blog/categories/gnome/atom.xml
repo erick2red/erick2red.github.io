@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gnome | Builder's notes]]></title>
   <link href="http://erick2red.github.com/blog/categories/gnome/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2013-07-17T13:11:09-04:00</updated>
+  <updated>2013-10-15T17:18:50-04:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Contacts 3.10]]></title>
+    <link href="http://erick2red.github.com/blog/2013/09/30/contacts-3-dot-10/"/>
+    <updated>2013-09-30T12:06:00-04:00</updated>
+    <id>http://erick2red.github.com/blog/2013/09/30/contacts-3-dot-10</id>
+    <content type="html"><![CDATA[<p><em>This is post was due for about two weeks ago. I've been very busy, so here it goes.</em></p>
+
+<p>GNOME 3.10 was released almost three weeks ago. A huge number changes and improvements were made as you can see in
+the <a href="https://help.gnome.org/misc/release-notes/3.10/">release notes</a>. Those changes affected <strong>Contacts</strong> as well.</p>
+
+<p>This cycle the platform gained client-side decoration support from Gtk+ toolkit. We, in Contacts, also
+incorporated a cool <a href="https://developer.gnome.org/gtk3/3.10/GtkHeaderBar.html">header bar</a>, which in our case has the perk of being splitted between the contacts list and
+the main contact pane.</p>
+
+<p>The change in Contacts I'm most proud of is the new Change AddressBook dialog. It's an UI change that improved
+the experience a lot and <a href="https://bugzilla.gnome.org/show_bug.cgi?id=687220">clarified which is the active addressbook</a></p>
+
+<p>Finally, under the hood, Contacts is starting to use most of the new widgets recently migrated into Gtk+ and
+the template support landed this cycle.</p>
+
+<p><strong>Edit</strong>: I owe you screenshots.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A week for releasing]]></title>
@@ -154,45 +178,6 @@ or so, and I've been using Linux since for ever it seems. I became involved with
 Gnome last year, after wanting to for a very long time. I've been contributing
 to Contacts, as you can see here in the archive of the blog, and I'm planning to
 keep on. So, till next time, I'll see you around.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Getting warnings out of Clutter]]></title>
-    <link href="http://erick2red.github.com/blog/2012/04/28/getting-warnings-out-of-clutter/"/>
-    <updated>2012-04-28T23:59:00-04:00</updated>
-    <id>http://erick2red.github.com/blog/2012/04/28/getting-warnings-out-of-clutter</id>
-    <content type="html"><![CDATA[<p>It's been a while since I blogged anything. Well, I actually did some ranting
-about starting this new blog. But that really doesn't count. I should make a
-post saying what I've been up to. But I'm lazy. I've been:</p>
-
-<ul>
-<li>Learning some Qt (and I doesn't like it, maybe I tell something about this
-later)</li>
-<li>Using <a href="https://github.com/fritzy/SleekXMPP">SleekXMPP</a> python library</li>
-<li>Learning ruby (Did I said this already ?)</li>
-<li>Learning <a href="http://www.clutter-project.org">Clutter</a>, and here we stop.</li>
-</ul>
-
-
-<p>While I was trying to pull some code using Clutter and Gtk+, before you ask, I
-was trying to put GtkWidget inside Clutter Actors to get some fancy animation, I
-got into some minor troubles, which I think those newbies like me out there
-should know.</p>
-
-<p>First, if you read the blog of the might Emmanuele Bassi (Clutter's author and
-main developer) you then came across this post
-<a href="http://blogs.gnome.org/ebassi/2012/03/17/had-a-dream/">Had a dream</a>. I did, and I wanted to get
-those warning they talk about so my code would need to be modified pretty much
-anything when those API get deprecated. Well, I didn't, I mean I used
-deprecated API and my compiler wasn't throwing me warnings. Someone told me
-that I needed to use a decent set of compilers flags, and I tried, nah, still
-nothing. I went into IRC, I found help there and after a while, I was told to
-add this to my compiler options
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>-DCLUTTER_VERSION_MIN_REQUIRED=CLUTTER_VERSION_1_10</span></code></pre></td></tr></table></div></figure></notextile></div>
-This finally solved the issue and I'm having pretty warnings  every time I use
-an old method which should be destroyed in a couple of months.</p>
 ]]></content>
   </entry>
   

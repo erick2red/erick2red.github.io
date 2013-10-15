@@ -7,7 +7,7 @@
 	<meta name="author" content="Erick Pérez Castellanos">
 
 	
-	<meta name="description" content="Today, I fill my application for a Gnome Foundation Membership, since they&#8217;re not adding blogs to Planet Gnome without a membership, it&#8217; &hellip;">
+	<meta name="description" content="Yesterday, while I was talking with the Gnome Contacts developer came up the issue of me having an account. I wasn&#8217;t familiar with the process &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -94,6 +94,51 @@
 
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/03/02/gnome-account-application/">
+		
+			Gnome Account Application</a>
+	</h2>
+	<div class="entry-content">
+		<p>Yesterday, while I was talking with the Gnome Contacts developer came up the issue of me having an account. I wasn&#8217;t familiar with the process, he point me to the <a href="https://live.gnome.org/NewAccounts">page in question</a>, and I filled the application for the account. The process took a day, this morning while I was solving another bug in Gnome Contact the mails reached my inbox telling me about the new account being setup in an hour or so. I finished the work in the patch. Went right to the instruction for using Git as the Gnome standards requires and <a href="http://git.gnome.org/browse/gnome-contacts/commit/?id=3eae3e0501539c1d3de7c062abaaa591f79ba1d9">pushed the patch</a> by my own. Now I have a few commits already in <a href="http://git.gnome.org/browse/gnome-contacts">git.gnome.org/gnome-contacts</a> but this one is the first one I make myself.</p>
+
+<p>Now I&#8217;m still waiting for the Gnome Foundation decision on my application to be a member yet, this is huge joy. I&#8217;m looking forward to contribue more to Gnome, it&#8217;s an amazing world with amazing people and great programmers, and I&#8217;m pretty happy to be prt of it.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-02T11:49:36-05:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="/blog/2012/03/02/gnome-account-application/#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -306,91 +351,6 @@ So, let&#8217;s see how it goes.</p>
 </div>
 	
 	<div class="comments"><a href="/blog/2011/07/16/git-on-steroids/#disqus_thread">Comments</a></div>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2011/07/01/open-source-software-is-green/">
-		
-			Open Source Software Is Green</a>
-	</h2>
-	<div class="entry-content">
-		<p>A few days ago I read post about FOSS being green or not. Since open source is about reusing/improving stuff made by others you could surely say, yes, FOSS is green indeed.</p>
-
-<p>Then I found this, what a better prove !!!</p>
-
-<p>[sourcecode language=&#8221;cpp&#8221;]
-gnome_bluetooth_headers_to_scan_for_enums = bluetooth-enums.h</p>
-
-<h1>Generate the enums source code, with glib-mkenums:</h1>
-
-<h1>This is based on the same Makefile.am stuff in pango:</h1>
-
-<p>gnome_bluetooth_built_headers = gnome-bluetooth-enum-types.h
-gnome_bluetooth_built_cfiles = gnome-bluetooth-enum-types.c</p>
-
-<p>gnome-bluetooth-enum-types.h: $(gnome_bluetooth_headers_to_scan_for_enums) Makefile</p>
-
-<pre><code>$(AM_V_GEN) (cd $(srcdir) &amp;&amp; glib-mkenums \
-        --fhead "#ifndef __GNOME_BLUETOOTH_ENUM_TYPES_H__\n#define __GNOME_BLUETOOTH_ENUM_TYPES_H__\n\n#include \n\nG_BEGIN_DECLS\n" \
-        --fprod "/* enumerations from \"@filename@\" */\n" \
-        --vhead "GType @enum_name@_get_type (void);\n#define BLUETOOTH_TYPE_@ENUMSHORT@ (@enum_name@_get_type())\n"     \
-        --ftail "G_END_DECLS\n\n#endif /* __GNOME_BLUETOOTH_ENUM_TYPES_H__ */" \
-    $(gnome_bluetooth_headers_to_scan_for_enums)) &gt; $@
-</code></pre>
-
-<p>gnome-bluetooth-enum-types.c: $(gnome_bluetooth_headers_to_scan_for_enums) Makefile gnome-bluetooth-enum-types.h</p>
-
-<pre><code>$(AM_V_GEN) (cd $(srcdir) &amp;&amp; glib-mkenums \
-        --fhead "#include \n" \
-        --fhead "#include \"gnome-bluetooth-enum-types.h\"\n" \
-        --fhead "#include " \
-            --fprod "\n/* enumerations from \"@filename@\" */" \
-        --vhead "GType\n@enum_name@_get_type (void)\n{\n  static GType etype = 0;\n  if (etype == 0) {\n    static const G@Type@Value values[] = {"     \
-        --vprod "      { @VALUENAME@, \"@VALUENAME@\", \"@valuenick@\" }," \
-        --vtail "      { 0, NULL, NULL }\n    };\n    etype = g_@type@_register_static (\"@EnumName@\", values);\n  }\n  return etype;\n}\n" \
-    $(gnome_bluetooth_headers_to_scan_for_enums)) &gt; $@
-</code></pre>
-
-<p>[/sourcecode]</p>
-
-<p>I found myself using this, so my comments after this goes:</p>
-
-<blockquote><p>This is based on the same Makefile.am stuff gnome-bluetooth,
-which is based on the same stuff in pango</p></blockquote>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-07-01T08:54:56-04:00" pubdate data-updated="true">Jul 1<span>st</span>, 2011</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/development/'>Development</a>
-
-
-</div>
-	
-	<div class="comments"><a href="/blog/2011/07/01/open-source-software-is-green/#disqus_thread">Comments</a></div>
 	
 </div>
 </article>

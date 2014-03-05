@@ -114,3 +114,8 @@ mini_magick:
     destination: images/galleries/calendar_june_2013/thumbs
     commands:
       - scale: "250"
+  gproxies_march_2014_thumbnail:
+    source: images/galleries/gproxies_march_2014
+    destination: images/galleries/gproxies_march_2014/thumbs
+    commands:
+      - scale: "250"

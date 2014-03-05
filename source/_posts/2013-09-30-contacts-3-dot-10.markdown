@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Contacts 3.10"
+date: 2013-09-30 12:06
+comments: true
+categories: [Gnome, Contacts]
+---
+
+*This is post was due for about two weeks ago. I've been very busy, so here it goes.*
+
+GNOME 3.10 was released almost three weeks ago. A huge number changes and improvements were made as you can see in
+the [release notes][1]. Those changes affected **Contacts** as well.
+
+This cycle the platform gained client-side decoration support from Gtk+ toolkit. We, in Contacts, also
+incorporated a cool [header bar][2], which in our case has the perk of being splitted between the contacts list and
+the main contact pane.
+
+The change in Contacts I'm most proud of is the new Change AddressBook dialog. It's an UI change that improved
+the experience a lot and [clarified which is the active addressbook][3]
+
+Finally, under the hood, Contacts is starting to use most of the new widgets recently migrated into Gtk+ and
+the template support landed this cycle.
+
+**Edit**: I owe you screenshots.
+
+[1]: https://help.gnome.org/misc/release-notes/3.10/
+[2]: https://developer.gnome.org/gtk3/3.10/GtkHeaderBar.html
+[3]: https://bugzilla.gnome.org/show_bug.cgi?id=687220

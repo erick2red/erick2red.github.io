@@ -7,7 +7,8 @@
 	<meta name="author" content="Erick Pérez Castellanos">
 
 	
-	<meta name="description" content="This is post was due for about two weeks ago. I&#8217;ve been very busy, so here it goes. GNOME 3.10 was released almost three weeks ago. A huge &hellip;">
+	<meta name="description" content="Lately, I&#8217;ve been working only from my laptop, and since I&#8217;m moving a lot usually
+I find myself in situations where I need to change &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -94,6 +95,102 @@
 
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/03/05/presenting-gproxies/">
+		
+			Presenting GProxies</a>
+	</h2>
+	<div class="entry-content">
+		<p>Lately, I&#8217;ve been working only from my laptop, and since I&#8217;m moving a lot usually
+I find myself in situations where I need to change networks details to properly connect
+to Internet. Now, <a href="https://www.gnome.org">GNOME</a> and <a href="http://www.gnome.org/projects/NetworkManager">NetworkManager</a> network configuration system
+does a decent job at remembering your network settings across different network.</p>
+
+<p>The thing about this, it&#8217;s that a network profile as defined in <strong>System Settings</strong> does not
+keep your proxy configuration for that profile. So I took the task to wrote a small
+tool for keeping different proxy configurations and allowing easy switching between them.</p>
+
+<p>The tool is called <a href="https://github.com/erick2red/gproxies">GProxies</a>. It&#8217;s built using latest
+<a href="http://www.gtk.org">Gtk+</a>, <strong>GLib</strong> and <strong>Vala</strong>. I tried to use the minimal amount of dependencies
+so it won&#8217;t have that much noise.</p>
+
+<p><strong>GProxies</strong> is designed with a very simple plugins system. Plugins are meant for
+updating other applications&#8217; configuration whenever you select a different proxy setting
+from the interface. For instance: I made a plugin for updating my git&#8217;s <code>http.proxy</code>
+config automatically when selecting a different a proxy settings. There are two types
+of plugins: one main <em>default plugin</em>, for setting GNOME system settings&#8217; proxy and
+the others living inside <code>${XDG_DATA_DIR}/gproxies</code> designed to update other applications
+configuration.</p>
+
+<p>A plugin is defined by a folder named after the plugin in <code>${XDG_DATA_DIR}/gproxies</code>
+with two or more files in it:</p>
+
+<ul>
+<li>a <code>plugin.ini</code> key-file. More details are explained <a href="https://github.com/erick2red/gproxies/blob/master/PLUGINS.md">here</a>.</li>
+<li>an executable script/application which receives proxy details as calling arguments</li>
+</ul>
+
+
+<p>This way you can make plugins for changing the proxy in any applications
+you want. I&#8217;ve made another <a href="https://github.com/erick2red/gproxies-plugins">repository</a> with the plugins I&#8217;ve write for myself.</p>
+
+<p>Right now the tool is in a working state. I have some other improvements in mind,
+such as:</p>
+
+<ul>
+<li>Add some interface to properly <em>enable/disable</em> plugins</li>
+<li>Add the ability to install plugins from zipped files or remote sources</li>
+<li>Add a direct-connection (no proxy enabled) state</li>
+</ul>
+
+
+<p>Finally, I&#8217;d like to say how much I enjoyed coding a small application for the GNOME
+desktop. Gtk+ toolkit is perfect for this kind of task, with widgets which helps
+enforcing GNOME HIG making an application fits properly in the desktop environment.
+Also, Vala as a language it&#8217;s really powerful and composite widget templates from Gtk+
+really speed up the development process. The code of <strong>GProxies</strong> is pretty simple,
+and I guess it would make a nice reading for GNOME developer beginners.</p>
+
+<p>Below, I present some screenshots. I hope someone will find this useful.</p>
+
+<p><a class="fancybox" href="/images/galleries/gproxies_march_2014/gproxies_main.png" rel="shadowbox" title="gproxies_main"><img src="/images/galleries/gproxies_march_2014/thumbs/gproxies_main.png" /></a>
+<a class="fancybox" href="/images/galleries/gproxies_march_2014/gproxies_showing_details.png" rel="shadowbox" title="gproxies_showing_details"><img src="/images/galleries/gproxies_march_2014/thumbs/gproxies_showing_details.png" /></a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-05T00:12:00-05:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/gtk-/'>Gtk+</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vala/'>Vala</a>
+
+
+</div>
+	
+	<div class="comments"><a href="/blog/2014/03/05/presenting-gproxies/#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -380,74 +477,6 @@ I have to take care of.</p>
 </div>
 </article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/10/09/a-challenge-of-locales/">
-		
-			A Challenge of Locales</a>
-	</h2>
-	<div class="entry-content">
-		<p>When developing an application aiming for everyone worldwide to use, there are certain challenges
-you will face. Right now, mine is fighting laziness and locales.</p>
-
-<p>I&#8217;m developing some widget for specifying a date and I&#8217;ve been struggling with date formats across locales
-So, after reading a huge number of manpages, source-code, and so on I stumble on this code.</p>
-
-<pre><code>#include &lt;langinfo.h&gt;
-#include &lt;locale.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-int
-main(int argc, char *argv[])
-{
-  setlocale(LC_ALL,"");
-  printf("%s\n",nl_langinfo(D_FMT));
-  exit(EXIT_SUCCESS);
-}
-</code></pre>
-
-<p>This will show me your date format according to your locale.
-What I will ask, compile and run this code in your pc, and post the answer here along with your locales.</p>
-
-<p>See you around.</p>
-
-<p><em>Update</em>: Thxs for the comments. Two things: I&#8217;ve just updated the code, thxs to Tom, adding <strong>setlocale</strong> line made the code works. Second: Thxs to Tommi (first comment). That was the info I was looking for.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-09T09:41:00-04:00" pubdate data-updated="true">Oct 9<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/code/'>Code</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>
-
-
-</div>
-	
-	<div class="comments"><a href="/blog/2012/10/09/a-challenge-of-locales/#disqus_thread">Comments</a></div>
-	
-</div>
-</article>
-
 <nav id="pagenavi">
     
     
@@ -455,7 +484,7 @@ What I will ask, compile and run this code in your pc, and post the answer here 
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav></div>
-	<footer id="footer" class="inner">Copyright &copy; 2013
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     Erick Pérez Castellanos
 

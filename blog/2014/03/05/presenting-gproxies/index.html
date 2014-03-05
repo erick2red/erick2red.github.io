@@ -1,0 +1,240 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Presenting GProxies - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="Lately, I&#8217;ve been working only from my laptop, and since I&#8217;m moving a lot usually
+I find myself in situations where I need to change &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/111653970154711735047?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Presenting GProxies</h2>
+	<div class="entry-content"><p>Lately, I&#8217;ve been working only from my laptop, and since I&#8217;m moving a lot usually
+I find myself in situations where I need to change networks details to properly connect
+to Internet. Now, <a href="https://www.gnome.org">GNOME</a> and <a href="http://www.gnome.org/projects/NetworkManager">NetworkManager</a> network configuration system
+does a decent job at remembering your network settings across different network.</p>
+
+<p>The thing about this, it&#8217;s that a network profile as defined in <strong>System Settings</strong> does not
+keep your proxy configuration for that profile. So I took the task to wrote a small
+tool for keeping different proxy configurations and allowing easy switching between them.</p>
+
+<p>The tool is called <a href="https://github.com/erick2red/gproxies">GProxies</a>. It&#8217;s built using latest
+<a href="http://www.gtk.org">Gtk+</a>, <strong>GLib</strong> and <strong>Vala</strong>. I tried to use the minimal amount of dependencies
+so it won&#8217;t have that much noise.</p>
+
+<p><strong>GProxies</strong> is designed with a very simple plugins system. Plugins are meant for
+updating other applications&#8217; configuration whenever you select a different proxy setting
+from the interface. For instance: I made a plugin for updating my git&#8217;s <code>http.proxy</code>
+config automatically when selecting a different a proxy settings. There are two types
+of plugins: one main <em>default plugin</em>, for setting GNOME system settings&#8217; proxy and
+the others living inside <code>${XDG_DATA_DIR}/gproxies</code> designed to update other applications
+configuration.</p>
+
+<p>A plugin is defined by a folder named after the plugin in <code>${XDG_DATA_DIR}/gproxies</code>
+with two or more files in it:</p>
+
+<ul>
+<li>a <code>plugin.ini</code> key-file. More details are explained <a href="https://github.com/erick2red/gproxies/blob/master/PLUGINS.md">here</a>.</li>
+<li>an executable script/application which receives proxy details as calling arguments</li>
+</ul>
+
+
+<p>This way you can make plugins for changing the proxy in any applications
+you want. I&#8217;ve made another <a href="https://github.com/erick2red/gproxies-plugins">repository</a> with the plugins I&#8217;ve write for myself.</p>
+
+<p>Right now the tool is in a working state. I have some other improvements in mind,
+such as:</p>
+
+<ul>
+<li>Add some interface to properly <em>enable/disable</em> plugins</li>
+<li>Add the ability to install plugins from zipped files or remote sources</li>
+<li>Add a direct-connection (no proxy enabled) state</li>
+</ul>
+
+
+<p>Finally, I&#8217;d like to say how much I enjoyed coding a small application for the GNOME
+desktop. Gtk+ toolkit is perfect for this kind of task, with widgets which helps
+enforcing GNOME HIG making an application fits properly in the desktop environment.
+Also, Vala as a language it&#8217;s really powerful and composite widget templates from Gtk+
+really speed up the development process. The code of <strong>GProxies</strong> is pretty simple,
+and I guess it would make a nice reading for GNOME developer beginners.</p>
+
+<p>Below, I present some screenshots. I hope someone will find this useful.</p>
+
+<p><a class="fancybox" href="/images/galleries/gproxies_march_2014/gproxies_main.png" rel="shadowbox" title="gproxies_main"><img src="/images/galleries/gproxies_march_2014/thumbs/gproxies_main.png" /></a>
+<a class="fancybox" href="/images/galleries/gproxies_march_2014/gproxies_showing_details.png" rel="shadowbox" title="gproxies_showing_details"><img src="/images/galleries/gproxies_march_2014/thumbs/gproxies_showing_details.png" /></a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-05T00:12:00-05:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/gtk-/'>Gtk+</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vala/'>Vala</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://erick2red.github.com/blog/2014/03/05/presenting-gproxies/';
+        var disqus_url = 'http://erick2red.github.com/blog/2014/03/05/presenting-gproxies/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

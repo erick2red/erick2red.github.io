@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Vala | Builder's notes]]></title>
+  <link href="http://erick2red.github.com/blog/categories/vala/atom.xml" rel="self"/>
+  <link href="http://erick2red.github.com/"/>
+  <updated>2014-03-05T13:28:30-05:00</updated>
+  <id>http://erick2red.github.com/</id>
+  <author>
+    <name><![CDATA[Erick Pérez Castellanos]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Presenting GProxies]]></title>
+    <link href="http://erick2red.github.com/blog/2014/03/05/presenting-gproxies/"/>
+    <updated>2014-03-05T00:12:00-05:00</updated>
+    <id>http://erick2red.github.com/blog/2014/03/05/presenting-gproxies</id>
+    <content type="html"><![CDATA[<p>Lately, I've been working only from my laptop, and since I'm moving a lot usually
+I find myself in situations where I need to change networks details to properly connect
+to Internet. Now, <a href="https://www.gnome.org">GNOME</a> and <a href="http://www.gnome.org/projects/NetworkManager">NetworkManager</a> network configuration system
+does a decent job at remembering your network settings across different network.</p>
+
+<p>The thing about this, it's that a network profile as defined in <strong>System Settings</strong> does not
+keep your proxy configuration for that profile. So I took the task to wrote a small
+tool for keeping different proxy configurations and allowing easy switching between them.</p>
+
+<p>The tool is called <a href="https://github.com/erick2red/gproxies">GProxies</a>. It's built using latest
+<a href="http://www.gtk.org">Gtk+</a>, <strong>GLib</strong> and <strong>Vala</strong>. I tried to use the minimal amount of dependencies
+so it won't have that much noise.</p>
+
+<p><strong>GProxies</strong> is designed with a very simple plugins system. Plugins are meant for
+updating other applications' configuration whenever you select a different proxy setting
+from the interface. For instance: I made a plugin for updating my git's <code>http.proxy</code>
+config automatically when selecting a different a proxy settings. There are two types
+of plugins: one main <em>default plugin</em>, for setting GNOME system settings' proxy and
+the others living inside <code>${XDG_DATA_DIR}/gproxies</code> designed to update other applications
+configuration.</p>
+
+<p>A plugin is defined by a folder named after the plugin in <code>${XDG_DATA_DIR}/gproxies</code>
+with two or more files in it:</p>
+
+<ul>
+<li>a <code>plugin.ini</code> key-file. More details are explained <a href="https://github.com/erick2red/gproxies/blob/master/PLUGINS.md">here</a>.</li>
+<li>an executable script/application which receives proxy details as calling arguments</li>
+</ul>
+
+
+<p>This way you can make plugins for changing the proxy in any applications
+you want. I've made another <a href="https://github.com/erick2red/gproxies-plugins">repository</a> with the plugins I've write for myself.</p>
+
+<p>Right now the tool is in a working state. I have some other improvements in mind,
+such as:</p>
+
+<ul>
+<li>Add some interface to properly <em>enable/disable</em> plugins</li>
+<li>Add the ability to install plugins from zipped files or remote sources</li>
+<li>Add a direct-connection (no proxy enabled) state</li>
+</ul>
+
+
+<p>Finally, I'd like to say how much I enjoyed coding a small application for the GNOME
+desktop. Gtk+ toolkit is perfect for this kind of task, with widgets which helps
+enforcing GNOME HIG making an application fits properly in the desktop environment.
+Also, Vala as a language it's really powerful and composite widget templates from Gtk+
+really speed up the development process. The code of <strong>GProxies</strong> is pretty simple,
+and I guess it would make a nice reading for GNOME developer beginners.</p>
+
+<p>Below, I present some screenshots. I hope someone will find this useful.</p>
+
+<p><a class="fancybox" href="/images/galleries/gproxies_march_2014/gproxies_main.png" rel="shadowbox" title="gproxies_main"><img src="/images/galleries/gproxies_march_2014/thumbs/gproxies_main.png" /></a>
+<a class="fancybox" href="/images/galleries/gproxies_march_2014/gproxies_showing_details.png" rel="shadowbox" title="gproxies_showing_details"><img src="/images/galleries/gproxies_march_2014/thumbs/gproxies_showing_details.png" /></a></p>
+]]></content>
+  </entry>
+  
+</feed>

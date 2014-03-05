@@ -7,8 +7,8 @@
 	<meta name="author" content="Erick Pérez Castellanos">
 
 	
-	<meta name="description" content="A few days ago, I was in gtk+ irc channel and there was someone making the
-kind of question I&#8217;ve done myself like a hundred times. Thankfully &hellip;">
+	<meta name="description" content="When developing an application aiming for everyone worldwide to use, there are certain challenges
+you will face. Right now, mine is fighting &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -95,6 +95,74 @@ kind of question I&#8217;ve done myself like a hundred times. Thankfully &hellip
 
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/10/09/a-challenge-of-locales/">
+		
+			A Challenge of Locales</a>
+	</h2>
+	<div class="entry-content">
+		<p>When developing an application aiming for everyone worldwide to use, there are certain challenges
+you will face. Right now, mine is fighting laziness and locales.</p>
+
+<p>I&#8217;m developing some widget for specifying a date and I&#8217;ve been struggling with date formats across locales
+So, after reading a huge number of manpages, source-code, and so on I stumble on this code.</p>
+
+<pre><code>#include &lt;langinfo.h&gt;
+#include &lt;locale.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int
+main(int argc, char *argv[])
+{
+  setlocale(LC_ALL,"");
+  printf("%s\n",nl_langinfo(D_FMT));
+  exit(EXIT_SUCCESS);
+}
+</code></pre>
+
+<p>This will show me your date format according to your locale.
+What I will ask, compile and run this code in your pc, and post the answer here along with your locales.</p>
+
+<p>See you around.</p>
+
+<p><em>Update</em>: Thxs for the comments. Two things: I&#8217;ve just updated the code, thxs to Tom, adding <strong>setlocale</strong> line made the code works. Second: Thxs to Tommi (first comment). That was the info I was looking for.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-09T09:41:00-04:00" pubdate data-updated="true">Oct 9<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/code/'>Code</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+	
+	<div class="comments"><a href="/blog/2012/10/09/a-challenge-of-locales/#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -495,59 +563,6 @@ Alex.</p>
 </div>
 </article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/05/16/im-on-planet-gnome/">
-		
-			I&#8217;m on Planet Gnome</a>
-	</h2>
-	<div class="entry-content">
-		<p>Since last Friday I&#8217;m a proud member of <a href="http://planet.gnome.org">Planet Gnome</a>.
-I notice my last two post on Planet Gnome feed, and was a huge joy. After the
-initial excitement I realize what a great responsibility encloses the fact of
-being able of publish there, and certain fear went deep into my bones.</p>
-
-<p>Anyway, and introduction is mandatory. My name is: Erick Pérez Castellanos, and
-I&#8217;m a software developer from Cuba. I studied Computer Science like 4 years ago
-or so, and I&#8217;ve been using Linux since for ever it seems. I became involved with
-Gnome last year, after wanting to for a very long time. I&#8217;ve been contributing
-to Contacts, as you can see here in the archive of the blog, and I&#8217;m planning to
-keep on. So, till next time, I&#8217;ll see you around.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-16T22:44:00-04:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/gnome/'>Gnome</a>
-
-
-</div>
-	
-	<div class="comments"><a href="/blog/2012/05/16/im-on-planet-gnome/#disqus_thread">Comments</a></div>
-	
-</div>
-</article>
-
 <nav id="pagenavi">
     
         <a href="/" class="prev">Prev</a>
@@ -557,7 +572,7 @@ keep on. So, till next time, I&#8217;ll see you around.</p>
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav></div>
-	<footer id="footer" class="inner">Copyright &copy; 2013
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     Erick Pérez Castellanos
 

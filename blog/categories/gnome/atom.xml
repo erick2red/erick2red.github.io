@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gnome | Builder's notes]]></title>
   <link href="http://erick2red.github.com/blog/categories/gnome/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2014-09-22T02:08:31-04:00</updated>
+  <updated>2014-09-22T09:29:08-04:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -20,7 +20,7 @@
     <id>http://erick2red.github.com/blog/2014/09/22/contacts-3-dot-14</id>
     <content type="html"><![CDATA[<p>It's been almost seven months since my last post and much have happened. Across the next posts I'll be telling you some of what's been and what will come. Yet, today's post i about <a href="https://wiki.gnome.org/Apps/Contacts">Contacts</a> and the improvements we made on this cycle and you will see when GNOME 3.14 gets released.</p>
 
-<p>The biggest greatest work on these past months was implementing inline contact creation. For a long time I had Allan's mockups lying around, there were, also, some bugs concerning the <em>"new contact dialog"</em> and its behavior. So we set the goal to fix those and implement the feature this cycle. Doing this I realize the some internals cleaning in Contacts is in order, but, since feeling it is a big task I decided to delay it and hack our current <a href="https://git.gnome.org/browse/tree/src/contacts-contact-editor.vala">ContactEditor</a> widget to make it able to work on the new flow.</p>
+<p>The biggest greatest work on these past months was implementing inline contact creation. For a long time I had Allan's mockups lying around, there were, also, some bugs concerning the <em>"new contact dialog"</em> and its behavior. So we set the goal to fix those and implement the feature this cycle. Doing this I realize the some internals cleaning in Contacts is in order, but, since feeling it is a big task I decided to delay it and hack our current <a href="https://git.gnome.org/browse/gnome-contacts/tree/src/contacts-contact-editor.vala">ContactEditor</a> widget to make it able to work on the new flow.</p>
 
 <p>Down, at the end, are some screenshots.</p>
 

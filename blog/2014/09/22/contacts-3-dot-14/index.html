@@ -1,0 +1,210 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Contacts 3.14 - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="It&#8217;s been almost seven months since my last post and much have happened. Across the next posts I&#8217;ll be telling you some of what&#8217;s &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/111653970154711735047?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Contacts 3.14</h2>
+	<div class="entry-content"><p>It&#8217;s been almost seven months since my last post and much have happened. Across the next posts I&#8217;ll be telling you some of what&#8217;s been and what will come. Yet, today&#8217;s post i about <a href="https://wiki.gnome.org/Apps/Contacts">Contacts</a> and the improvements we made on this cycle and you will see when GNOME 3.14 gets released.</p>
+
+<p>The biggest greatest work on these past months was implementing inline contact creation. For a long time I had Allan&#8217;s mockups lying around, there were, also, some bugs concerning the <em>&#8220;new contact dialog&#8221;</em> and its behavior. So we set the goal to fix those and implement the feature this cycle. Doing this I realize the some internals cleaning in Contacts is in order, but, since feeling it is a big task I decided to delay it and hack our current <a href="https://git.gnome.org/browse/tree/src/contacts-contact-editor.vala">ContactEditor</a> widget to make it able to work on the new flow.</p>
+
+<p>Down, at the end, are some screenshots.</p>
+
+<p>We also worked a bit on others details. There&#8217;s a list here:</p>
+
+<ul>
+<li>Updated all our dialogs to match latest Gtk+ design</li>
+<li>Fixed the header-bar behavior and looks for selection and edit-mode</li>
+<li>Fixed some bugs related to changing your default address bug. This included hacking into <a href="https://wiki.gnome.org/Projects/Folks">folks</a> library, a work of which I am very proud.</li>
+<li>Improved Adwaita dark variant support: Contacts maintained tweaked css code for colors definitions, we set out to use the defaults provided by the theme in order to work well with both variants.</li>
+</ul>
+
+
+<p>I hope you can enjoy latest version on Contacts when it&#8217;s released. Go, find and bugs and improvements and <a href="http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-contacts">let us know</a></p>
+
+<h4>A word on bugs</h4>
+
+<p>I&#8217;ve been trying to maintain Contacts&#8217; bug list properly tagged and organized. In accomplishing that I&#8217;ve marked some as NEEDINFO, now, it&#8217;s been a while of this. I just wanted to let you know, I&#8217;ll be closing those bugs if they don&#8217;t get any updates before 3.14.1 is out on October 15.</p>
+
+<p><a class="fancybox" href="/images/galleries/contacts_314/314-yay.png" rel="shadowbox" title="314-yay"><img src="/images/galleries/contacts_314/thumbs/314-yay.png" /></a>
+<a class="fancybox" href="/images/galleries/contacts_314/header-bar-cleaned.png" rel="shadowbox" title="header-bar-cleaned"><img src="/images/galleries/contacts_314/thumbs/header-bar-cleaned.png" /></a>
+<a class="fancybox" href="/images/galleries/contacts_314/inline-contact-creation.png" rel="shadowbox" title="inline-contact-creation"><img src="/images/galleries/contacts_314/thumbs/inline-contact-creation.png" /></a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-22T00:59:00-04:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2014</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/contacts/'>Contacts</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://erick2red.github.com/blog/2014/09/22/contacts-3-dot-14/';
+        var disqus_url = 'http://erick2red.github.com/blog/2014/09/22/contacts-3-dot-14/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

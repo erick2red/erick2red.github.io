@@ -7,8 +7,7 @@
 	<meta name="author" content="Erick Pérez Castellanos">
 
 	
-	<meta name="description" content="Lately, I&#8217;ve been working only from my laptop, and since I&#8217;m moving a lot usually
-I find myself in situations where I need to change &hellip;">
+	<meta name="description" content="It&#8217;s been almost seven months since my last post and much have happened. Across the next posts I&#8217;ll be telling you some of what&#8217;s &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -95,6 +94,73 @@ I find myself in situations where I need to change &hellip;">
 
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/09/22/contacts-3-dot-14/">
+		
+			Contacts 3.14</a>
+	</h2>
+	<div class="entry-content">
+		<p>It&#8217;s been almost seven months since my last post and much have happened. Across the next posts I&#8217;ll be telling you some of what&#8217;s been and what will come. Yet, today&#8217;s post i about <a href="https://wiki.gnome.org/Apps/Contacts">Contacts</a> and the improvements we made on this cycle and you will see when GNOME 3.14 gets released.</p>
+
+<p>The biggest greatest work on these past months was implementing inline contact creation. For a long time I had Allan&#8217;s mockups lying around, there were, also, some bugs concerning the <em>&#8220;new contact dialog&#8221;</em> and its behavior. So we set the goal to fix those and implement the feature this cycle. Doing this I realize the some internals cleaning in Contacts is in order, but, since feeling it is a big task I decided to delay it and hack our current <a href="https://git.gnome.org/browse/tree/src/contacts-contact-editor.vala">ContactEditor</a> widget to make it able to work on the new flow.</p>
+
+<p>Down, at the end, are some screenshots.</p>
+
+<p>We also worked a bit on others details. There&#8217;s a list here:</p>
+
+<ul>
+<li>Updated all our dialogs to match latest Gtk+ design</li>
+<li>Fixed the header-bar behavior and looks for selection and edit-mode</li>
+<li>Fixed some bugs related to changing your default address bug. This included hacking into <a href="https://wiki.gnome.org/Projects/Folks">folks</a> library, a work of which I am very proud.</li>
+<li>Improved Adwaita dark variant support: Contacts maintained tweaked css code for colors definitions, we set out to use the defaults provided by the theme in order to work well with both variants.</li>
+</ul>
+
+
+<p>I hope you can enjoy latest version on Contacts when it&#8217;s released. Go, find and bugs and improvements and <a href="http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-contacts">let us know</a></p>
+
+<h4>A word on bugs</h4>
+
+<p>I&#8217;ve been trying to maintain Contacts&#8217; bug list properly tagged and organized. In accomplishing that I&#8217;ve marked some as NEEDINFO, now, it&#8217;s been a while of this. I just wanted to let you know, I&#8217;ll be closing those bugs if they don&#8217;t get any updates before 3.14.1 is out on October 15.</p>
+
+<p><a class="fancybox" href="/images/galleries/contacts_314/314-yay.png" rel="shadowbox" title="314-yay"><img src="/images/galleries/contacts_314/thumbs/314-yay.png" /></a>
+<a class="fancybox" href="/images/galleries/contacts_314/header-bar-cleaned.png" rel="shadowbox" title="header-bar-cleaned"><img src="/images/galleries/contacts_314/thumbs/header-bar-cleaned.png" /></a>
+<a class="fancybox" href="/images/galleries/contacts_314/inline-contact-creation.png" rel="shadowbox" title="inline-contact-creation"><img src="/images/galleries/contacts_314/thumbs/inline-contact-creation.png" /></a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-22T00:59:00-04:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2014</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/contacts/'>Contacts</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="/blog/2014/09/22/contacts-3-dot-14/#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -388,91 +454,6 @@ use <strong>GtkOverlay</strong>.</p>
 </div>
 	
 	<div class="comments"><a href="/blog/2013/06/25/june-update-on-calendar/#disqus_thread">Comments</a></div>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/30/software-updates/">
-		
-			Software Updates</a>
-	</h2>
-	<div class="entry-content">
-		<p>It&#8217;s been a very long time since I posted anything.
-You might not know, I live in <a href="http://en.wikipedia.org/wiki/Santiago_de_Cuba">Santiago de Cuba</a>, Cuba, one of the cities trashed by the <a href="http://en.wikipedia.org/wiki/Hurricane_Sandy">hurricane
-Sandy</a>. That left us a bunch of loses and lack of communication for weeks. We went
-without power for at least 14 days, so you can imagine why I was not posting updates. Some time has
-passed and the city is growing back from its ashes.</p>
-
-<p>I&#8217;ve been working on <a href="https://live.gnome.org/Design/Apps/Calendar"><strong>Calendar</strong></a>, trying to get some minimal functioning
-application, to get something out for you to use, and then I can continue
-improving the rest. For now, I&#8217;ve focused on enable a fully working the &#8220;Event Details&#8221;
-dialog. The thing is kinda clunky yet, but it works. It needs more polish
-and heavy testing, though.</p>
-
-<p>I also went and made a year-view implementation, which is almost fully
-functional. This one was easy, was almost copy/paste from the old month-view
-implementation.
-The month-view also received a full face-lift. The previous version had some
-super-rough edges when months didn&#8217;t fit in a 35 cells grid. That has been
-fixed, our designers pulled some rabbits out of their hats. The new design,
-which is already implemented suggest a scrolling
-animation, but I want to be sure it works before going into it.</p>
-
-<p>I&#8217;m trying to get <strong>Calendar</strong> in beta
-shape for 3.8 release. I&#8217;m still need to implement three views: list-view,
-day-view and week-view, and the search mechanism, with the results showing.
-For the week-view I have an implementation which have scrolling issues,
-I have to take care of.</p>
-
-<p>Some minor mojo I don&#8217;t want to pass unnoticed:</p>
-
-<ul>
-<li>Squared buttons in the toolbar, thxs to Debarshy Ray for the suggestion and Cosimo&#8217;s libgd for the hack.</li>
-<li>We added a proper use of <code>g_clear_object</code></li>
-<li>Simple keyboard shortcuts, for <strong>Quit</strong> and change amount views.</li>
-</ul>
-
-
-<p>Now some screenshots</p>
-
-<p><a class="fancybox" href="/images/galleries/calendar_dec_2012/edit-event-dialog.png" rel="shadowbox" title="edit-event-dialog"><img src="/images/galleries/calendar_dec_2012/thumbs/edit-event-dialog.png" /></a>
-<a class="fancybox" href="/images/galleries/calendar_dec_2012/month-35-cell.png" rel="shadowbox" title="month-35-cell"><img src="/images/galleries/calendar_dec_2012/thumbs/month-35-cell.png" /></a>
-<a class="fancybox" href="/images/galleries/calendar_dec_2012/month-42-cell.png" rel="shadowbox" title="month-42-cell"><img src="/images/galleries/calendar_dec_2012/thumbs/month-42-cell.png" /></a>
-<a class="fancybox" href="/images/galleries/calendar_dec_2012/year-view-first.png" rel="shadowbox" title="year-view-first"><img src="/images/galleries/calendar_dec_2012/thumbs/year-view-first.png" /></a>
-<a class="fancybox" href="/images/galleries/calendar_dec_2012/year-view-second.png" rel="shadowbox" title="year-view-second"><img src="/images/galleries/calendar_dec_2012/thumbs/year-view-second.png" /></a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-30T23:40:00-05:00" pubdate data-updated="true">Nov 30<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/calendar/'>Calendar</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
-
-
-</div>
-	
-	<div class="comments"><a href="/blog/2012/11/30/software-updates/#disqus_thread">Comments</a></div>
 	
 </div>
 </article>

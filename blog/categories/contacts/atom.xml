@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Contacts | Builder's notes]]></title>
   <link href="http://erick2red.github.com/blog/categories/contacts/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2014-03-05T13:28:30-05:00</updated>
+  <updated>2014-09-22T02:08:31-04:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Contacts 3.14]]></title>
+    <link href="http://erick2red.github.com/blog/2014/09/22/contacts-3-dot-14/"/>
+    <updated>2014-09-22T00:59:00-04:00</updated>
+    <id>http://erick2red.github.com/blog/2014/09/22/contacts-3-dot-14</id>
+    <content type="html"><![CDATA[<p>It's been almost seven months since my last post and much have happened. Across the next posts I'll be telling you some of what's been and what will come. Yet, today's post i about <a href="https://wiki.gnome.org/Apps/Contacts">Contacts</a> and the improvements we made on this cycle and you will see when GNOME 3.14 gets released.</p>
+
+<p>The biggest greatest work on these past months was implementing inline contact creation. For a long time I had Allan's mockups lying around, there were, also, some bugs concerning the <em>"new contact dialog"</em> and its behavior. So we set the goal to fix those and implement the feature this cycle. Doing this I realize the some internals cleaning in Contacts is in order, but, since feeling it is a big task I decided to delay it and hack our current <a href="https://git.gnome.org/browse/tree/src/contacts-contact-editor.vala">ContactEditor</a> widget to make it able to work on the new flow.</p>
+
+<p>Down, at the end, are some screenshots.</p>
+
+<p>We also worked a bit on others details. There's a list here:</p>
+
+<ul>
+<li>Updated all our dialogs to match latest Gtk+ design</li>
+<li>Fixed the header-bar behavior and looks for selection and edit-mode</li>
+<li>Fixed some bugs related to changing your default address bug. This included hacking into <a href="https://wiki.gnome.org/Projects/Folks">folks</a> library, a work of which I am very proud.</li>
+<li>Improved Adwaita dark variant support: Contacts maintained tweaked css code for colors definitions, we set out to use the defaults provided by the theme in order to work well with both variants.</li>
+</ul>
+
+
+<p>I hope you can enjoy latest version on Contacts when it's released. Go, find and bugs and improvements and <a href="http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-contacts">let us know</a></p>
+
+<h4>A word on bugs</h4>
+
+<p>I've been trying to maintain Contacts' bug list properly tagged and organized. In accomplishing that I've marked some as NEEDINFO, now, it's been a while of this. I just wanted to let you know, I'll be closing those bugs if they don't get any updates before 3.14.1 is out on October 15.</p>
+
+<p><a class="fancybox" href="/images/galleries/contacts_314/314-yay.png" rel="shadowbox" title="314-yay"><img src="/images/galleries/contacts_314/thumbs/314-yay.png" /></a>
+<a class="fancybox" href="/images/galleries/contacts_314/header-bar-cleaned.png" rel="shadowbox" title="header-bar-cleaned"><img src="/images/galleries/contacts_314/thumbs/header-bar-cleaned.png" /></a>
+<a class="fancybox" href="/images/galleries/contacts_314/inline-contact-creation.png" rel="shadowbox" title="inline-contact-creation"><img src="/images/galleries/contacts_314/thumbs/inline-contact-creation.png" /></a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Contacts 3.10]]></title>

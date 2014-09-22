@@ -7,8 +7,7 @@
 	<meta name="author" content="Erick Pérez Castellanos">
 
 	
-	<meta name="description" content="Here goes some of the morning news you can find around: Gnome-Shell vs Unity vs Others
-The OBS will need a look, since it&#8217;s kinda a useful &hellip;">
+	<meta name="description" content="The Gnome Shell Extensions system is one mighty and powerful beast. Just yesterday I found myself wanting to have a simple list of stuff I wanted to &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -95,6 +94,99 @@ The OBS will need a look, since it&#8217;s kinda a useful &hellip;">
 
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2011/05/31/json-parse-and-json-stringify/">
+		
+			JSON.parse and JSON.stringify</a>
+	</h2>
+	<div class="entry-content">
+		<p>The Gnome Shell Extensions system is one mighty and powerful beast. Just yesterday I found myself wanting to have a simple list of stuff I wanted to check later. After looking around a bit to storage components in Gnome Shell environment I decide I&#8217;ll use simple files with <a href="http://en.wikipedia.org/wiki/Json">JSON</a> strings inside.</p>
+
+<p>I started coding and in a while I got my <a href="http://erick2red.wordpress.com/my-projects/shell-extensions/#wish-list">wish-list</a> extension. The  beauty of this is what I learnt in the process. Two stuff I never tried, before:</p>
+
+<ul>
+<li><p>Hacking with autotools: This is the kind of things you should know once you decide to get involved in software development for Linux.</p></li>
+<li><p>How to hack a new kind of PopMenuItem for the Shell UI</p></li>
+</ul>
+
+
+<p>Since I have access to the facilities of JavaScript and GLib system from the extension I can do almost everything with it.
+I used a file as a back-end for my list of wishes and  use JSON.parse for reading and parsing the content back into an array and JSON.stringify to dumps the objects into the file. You can go down through the code later. Anyway there&#8217;s those two snippets</p>
+
+<p>Using GLib/Gio and JSON
+[sourcecode language=&#8221;javascript&#8221;]
+let dir = Gio.file_new_for_path(Main.ExtensionSystem.extensionMeta[UUID].path);
+let listFile = dir.get_child(&#8216;lists.json&#8217;);</p>
+
+<p>let raw = listFile.replace(null, false,</p>
+
+<pre><code>                Gio.FileCreateFlags.NONE,
+                null);
+</code></pre>
+
+<p>let out = Gio.BufferedOutputStream.new_sized (raw, 4096);
+Shell.write_string_to_stream (out, JSON.stringify(this.list));
+out.close(null)
+[/sourcecode]</p>
+
+<p>Instantiating PopupMenuItem
+[sourcecode language=&#8221;javascript&#8221;]
+PopupEntryMenuItem.prototype = {</p>
+
+<pre><code>__proto__: PopupMenu.PopupBaseMenuItem.prototype,
+
+_init: function (style) {
+    PopupMenu.PopupBaseMenuItem.prototype._init.call(this, { activate: false });
+
+    this.entry = new St.Entry({ style_class: style });
+
+    this.entry.clutter_text.connect('key-press-event', Lang.bind(this, this._onKeyPress));
+    this.addActor(this.entry, { span: -1, expand: true });
+
+    this.actor.add_style_class_name('menu-entry');
+}
+</code></pre>
+
+<p>}
+Signals.addSignalMethods(PopupEntryMenuItem.prototype)
+[/sourcecode]
+The page is linked above. See you around.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-31T12:51:56-04:00" pubdate data-updated="true">May 31<span>st</span>, 2011</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/news/'>News</a>
+
+
+</div>
+	
+	<div class="comments"><a href="/blog/2011/05/31/json-parse-and-json-stringify/#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
 
 
     <article class="post">

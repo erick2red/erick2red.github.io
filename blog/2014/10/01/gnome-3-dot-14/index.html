@@ -1,0 +1,208 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>GNOME 3.14 - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="Last week GNOME 3.14 was released. I&#8217;ve been using my jhbuild copy since last Wednesday, and have to say I&#8217;m most happy with the &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/111653970154711735047?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">GNOME 3.14</h2>
+	<div class="entry-content"><p>Last week GNOME 3.14 <a href="http://www.gnome.org/news/2014/09/gnome-3-14-released">was released</a>. I&#8217;ve been using my jhbuild copy since last Wednesday, and have to say I&#8217;m most happy with the improvements this cycle brought. I wanted to talk a bit about it, and this is one of the reason of this post.</p>
+
+<p>As you can see in <a href="https://help.gnome.org/misc/release-notes/3.14/">the release notes</a> this version includes improvements around the whole stack: the network and sharing settings; the input system, with support for gestures and improved touchscreen support; the shell and a bunch of updated applications.</p>
+
+<p>I&#8217;m most happy with the updates on GNOME Shell, this time the developers bring some pretty nifty animations to the Activities overview and windows. There&#8217;s also a whole set of changes for the developers using and targeting GNOME as platform. I&#8217;ll be talking a bit more on this latter.</p>
+
+<h4>GNOME Shell</h4>
+
+<p>I thought at first on describing you the animations added to latest iteration of the shell, but since an image is worth a thousands words. I guess a video will be worth 30 times per second the same, so <a href="https://www.youtube.com/watch?v=cHtKkud6_is">here</a> it is this video showing you exactly that (Note: this is screencast was not made by me).</p>
+
+<p>At first I thought I will be rapidly tired of those animations, usually, animations on the user interface looks good initially but over time just gets in the way of user daily activities. In this case it&#8217;s different, as in the case of those well thought features, I&#8217;ve been using the new shell for a over week a now, and I&#8217;m great surprised of how the animations don&#8217;t get in my way. Without being a magical thing, sometimes I realize of it when closing a window, or when opening one, but most of time I don&#8217;t even think of it. This speaks very highly on the craft of those designers and developers who accomplish so subtle change. Thanks.</p>
+
+<h4>Developers improvements</h4>
+
+<p>Now, this is the main reason of the post, even when I have left it to the end.</p>
+
+<p>Life for the developers in GNOME has been improving steady over the last few cycles. GNOME hackers has come up with a DX hackfest, the interest in having a SDK for developing GNOME software has risen in the community, and projects like Christian&#8217;s <a href="https:///git.gnome.org/browse/gnome-builder">gnome-builder</a> are actively working towards this.</p>
+
+<p>With GNOME 3.14, the awesome design team has come up with an updated version of <a href="https://developer.gnome.org/hig/stable/">GNOME Human Interface Guidelines</a>. I can&#8217;t stress enough the importance of this. Having a published and updated HIG provides uniformity and organization through the whole set of GNOME applications. I have it for around 4 days, and I have found myself going over to review a pattern, recheck a convention, etc. From simple things like margin, alignment and visual layout to others more detailed like how best use specific widgets available in Gtk+ and the contents of menus are explained there. The work done in getting those HIG ready is really impressive and we should be grateful as a platform of having this guidance for developers, either old ones and newcomers. I think is in order to thank great <a href="http://blogs.gnome.org/aday">Allan Day</a> and all the others for their work on this.</p>
+
+<p>Finally, I want to mention Gtk+ improvements as a toolkit. First, the rewrite of Adwaita theme and its inclusion in Gtk+ will provide better experience for the user across different platforms and better looking in general. Second, and most important, the inclusion in Gtk+ of a new Gtk+ Inspector thanks to the work of <a href="http://blogs.gnome.org/mclasen">Matthias Clasen</a>. I won&#8217;t be talking much about Gtk+ Inspector since there have been already some post on it. I just wanted to mention it here because with the release of stable versions of Gtk+ and GNOME this is accessible to much more people than the selected team working on GNOME.</p>
+
+<p>As before, I hope you enjoy GNOME 3.14 and its perks. See you around.</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-01T10:30:00-04:00" pubdate data-updated="true">Oct 1<span>st</span>, 2014</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://erick2red.github.com/blog/2014/10/01/gnome-3-dot-14/';
+        var disqus_url = 'http://erick2red.github.com/blog/2014/10/01/gnome-3-dot-14/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   <title><![CDATA[Builder's notes]]></title>
   <link href="http://erick2red.github.com/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2014-09-22T09:29:08-04:00</updated>
+  <updated>2014-10-01T11:48:11-04:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GNOME 3.14]]></title>
+    <link href="http://erick2red.github.com/blog/2014/10/01/gnome-3-dot-14/"/>
+    <updated>2014-10-01T10:30:00-04:00</updated>
+    <id>http://erick2red.github.com/blog/2014/10/01/gnome-3-dot-14</id>
+    <content type="html"><![CDATA[<p>Last week GNOME 3.14 <a href="http://www.gnome.org/news/2014/09/gnome-3-14-released">was released</a>. I&#8217;ve been using my jhbuild copy since last Wednesday, and have to say I&#8217;m most happy with the improvements this cycle brought. I wanted to talk a bit about it, and this is one of the reason of this post.</p>
+
+<p>As you can see in <a href="https://help.gnome.org/misc/release-notes/3.14/">the release notes</a> this version includes improvements around the whole stack: the network and sharing settings; the input system, with support for gestures and improved touchscreen support; the shell and a bunch of updated applications.</p>
+
+<p>I&#8217;m most happy with the updates on GNOME Shell, this time the developers bring some pretty nifty animations to the Activities overview and windows. There&#8217;s also a whole set of changes for the developers using and targeting GNOME as platform. I&#8217;ll be talking a bit more on this latter.</p>
+
+<h4>GNOME Shell</h4>
+
+<p>I thought at first on describing you the animations added to latest iteration of the shell, but since an image is worth a thousands words. I guess a video will be worth 30 times per second the same, so <a href="https://www.youtube.com/watch?v=cHtKkud6_is">here</a> it is this video showing you exactly that (Note: this is screencast was not made by me).</p>
+
+<p>At first I thought I will be rapidly tired of those animations, usually, animations on the user interface looks good initially but over time just gets in the way of user daily activities. In this case it&#8217;s different, as in the case of those well thought features, I&#8217;ve been using the new shell for a over week a now, and I&#8217;m great surprised of how the animations don&#8217;t get in my way. Without being a magical thing, sometimes I realize of it when closing a window, or when opening one, but most of time I don&#8217;t even think of it. This speaks very highly on the craft of those designers and developers who accomplish so subtle change. Thanks.</p>
+
+<h4>Developers improvements</h4>
+
+<p>Now, this is the main reason of the post, even when I have left it to the end.</p>
+
+<p>Life for the developers in GNOME has been improving steady over the last few cycles. GNOME hackers has come up with a DX hackfest, the interest in having a SDK for developing GNOME software has risen in the community, and projects like Christian&#8217;s <a href="https:///git.gnome.org/browse/gnome-builder">gnome-builder</a> are actively working towards this.</p>
+
+<p>With GNOME 3.14, the awesome design team has come up with an updated version of <a href="https://developer.gnome.org/hig/stable/">GNOME Human Interface Guidelines</a>. I can&#8217;t stress enough the importance of this. Having a published and updated HIG provides uniformity and organization through the whole set of GNOME applications. I have it for around 4 days, and I have found myself going over to review a pattern, recheck a convention, etc. From simple things like margin, alignment and visual layout to others more detailed like how best use specific widgets available in Gtk+ and the contents of menus are explained there. The work done in getting those HIG ready is really impressive and we should be grateful as a platform of having this guidance for developers, either old ones and newcomers. I think is in order to thank great <a href="http://blogs.gnome.org/aday">Allan Day</a> and all the others for their work on this.</p>
+
+<p>Finally, I want to mention Gtk+ improvements as a toolkit. First, the rewrite of Adwaita theme and its inclusion in Gtk+ will provide better experience for the user across different platforms and better looking in general. Second, and most important, the inclusion in Gtk+ of a new Gtk+ Inspector thanks to the work of <a href="http://blogs.gnome.org/mclasen">Matthias Clasen</a>. I won&#8217;t be talking much about Gtk+ Inspector since there have been already some post on it. I just wanted to mention it here because with the release of stable versions of Gtk+ and GNOME this is accessible to much more people than the selected team working on GNOME.</p>
+
+<p>As before, I hope you enjoy GNOME 3.14 and its perks. See you around.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Contacts 3.14]]></title>
@@ -737,27 +768,6 @@ advance there. Well after all that I think is pretty logic to try this move.</p>
     <id>http://erick2red.github.com/blog/2012/02/27/applying-for-gnome-foundation-membership</id>
     <content type="html"><![CDATA[<p>Today, I fill my application for a <a href="http://www.gnome.org/foundation/membership/apply/">Gnome Foundation Membership</a>, since they&#8217;re not adding blogs to<a href="http://planet.gnome.org"> Planet Gnome</a> without a membership, it&#8217;s kinda forced. My point is not that I don&#8217;t want, is that sometimes I think I&#8217;m not worthy of a membership yet. I&#8217;ve done too little in my opinion.<br/>
 So, let&#8217;s see how it goes.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[New Link Dialog into gnome-contacts]]></title>
-    <link href="http://erick2red.github.com/blog/2012/02/13/new-link-dialog-into-gnome-contacts/"/>
-    <updated>2012-02-13T23:45:24-05:00</updated>
-    <id>http://erick2red.github.com/blog/2012/02/13/new-link-dialog-into-gnome-contacts</id>
-    <content type="html"><![CDATA[<p>Well, it seems I&#8217;m fully contributing to gnome-contacts now.</p>
-
-<p>&#8230; that was the start of this blog post a few weeks ago, the work got me in the middle and the post got stuck at draft stage til today. So</p>
-
-<p>In these previous weeks, I got the new link dialog mockups made by <a href="http://afaikblog.wordpress.com">Allan Day</a> into the code. After some hacking to the undo part well. I uploaded the patches into bugzilla for review. Here&#8217;s the mandatory screenshot</p>
-
-<p><a href="http://erick2red.files.wordpress.com/2012/02/link-to-other-contact.png"><img src="http://erick2red.files.wordpress.com/2012/02/link-to-other-contact.png?w=300" alt="" /></a></p>
-
-<p>After that I went into getting crop support for setting an avatar for a contact. Here I had to came up with some design, since Alex and Allan have not agreed anything on these. I took the crop widget from gnome-control-center code, and tweaked the vapi file to load the widget. Now when you use a picture with more than 128 x 128 pixels as avatar the crop widget come up to allow you to select what you want of that pics. The crop widget only allow for square crop. Here the screenshot is this one:</p>
-
-<p><a href="http://erick2red.files.wordpress.com/2012/02/contacts-crop.png"><img src="http://erick2red.files.wordpress.com/2012/02/contacts-crop.png?w=225" alt="" /></a></p>
-
-<p>Right, now, I&#8217;m kinda frozen. There&#8217;s still a lot of stuff to be done. We&#8217;ll set to it soon.</p>
 ]]></content>
   </entry>
   

@@ -7,7 +7,7 @@
 	<meta name="author" content="Erick Pérez Castellanos">
 
 	
-	<meta name="description" content="As of today I uploaded a patch to gnome-contacts to support undo for delete operation. After a bunch a fixes and reviews from contacts developer &hellip;">
+	<meta name="description" content="Well, it seems I&#8217;m fully contributing to gnome-contacts now. &#8230; that was the start of this blog post a few weeks ago, the work got me in &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -94,6 +94,61 @@
 
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/02/13/new-link-dialog-into-gnome-contacts/">
+		
+			New Link Dialog Into Gnome-contacts</a>
+	</h2>
+	<div class="entry-content">
+		<p>Well, it seems I&#8217;m fully contributing to gnome-contacts now.</p>
+
+<p>&#8230; that was the start of this blog post a few weeks ago, the work got me in the middle and the post got stuck at draft stage til today. So</p>
+
+<p>In these previous weeks, I got the new link dialog mockups made by <a href="http://afaikblog.wordpress.com">Allan Day</a> into the code. After some hacking to the undo part well. I uploaded the patches into bugzilla for review. Here&#8217;s the mandatory screenshot</p>
+
+<p><a href="http://erick2red.files.wordpress.com/2012/02/link-to-other-contact.png"><img src="http://erick2red.files.wordpress.com/2012/02/link-to-other-contact.png?w=300" alt="" /></a></p>
+
+<p>After that I went into getting crop support for setting an avatar for a contact. Here I had to came up with some design, since Alex and Allan have not agreed anything on these. I took the crop widget from gnome-control-center code, and tweaked the vapi file to load the widget. Now when you use a picture with more than 128 x 128 pixels as avatar the crop widget come up to allow you to select what you want of that pics. The crop widget only allow for square crop. Here the screenshot is this one:</p>
+
+<p><a href="http://erick2red.files.wordpress.com/2012/02/contacts-crop.png"><img src="http://erick2red.files.wordpress.com/2012/02/contacts-crop.png?w=225" alt="" /></a></p>
+
+<p>Right, now, I&#8217;m kinda frozen. There&#8217;s still a lot of stuff to be done. We&#8217;ll set to it soon.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-13T23:45:24-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/gnome-contacts/'>Gnome Contacts</a>
+
+
+</div>
+	
+	<div class="comments"><a href="/blog/2012/02/13/new-link-dialog-into-gnome-contacts/#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -357,146 +412,6 @@ which is based on the same stuff in pango</p></blockquote>
 </div>
 	
 	<div class="comments"><a href="/blog/2011/06/28/developing-for-gtkglib/#disqus_thread">Comments</a></div>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2011/06/05/dbus-in-the-shell/">
-		
-			DBus in the Shell</a>
-	</h2>
-	<div class="entry-content">
-		<p>As a companion of the post <a href="http://erick2red.wordpress.com/2011/05/28/dbus-in-gjs-and-gnome-shell/">I made before</a> on connecting to DBus exported objects on Gjs JavaScript runtime over the Shell, should be other post talking as how to export object over DBus inside Shell JavaScript environment. More or less this one is about that.</p>
-
-<p>The code I will show here isn&#8217;t mine, even I think I contribute some part to it, the main architecture of the thing was already made by the time the code get to me. That part of thanks for the help, and the guidance should go to Vamsi Krishna Brahmajosyula.</p>
-
-<p>So, let’s get our hands dirty</p>
-
-<p>First you need to create the interface you will export, similar to the way you made before for getting proxy objects.</p>
-
-<p>[sourcecode language=&#8221;javascript&#8221;]
-const LoggerIface = {</p>
-
-<pre><code>name: 'org.gnome.Logger',
-methods: [{
-            name: 'log',
-            inSignature: 's',
-            outSignature: ''
-          }
-       ],
-signals: [{
-            name: 'added',
-            inSignature: 's'
-        }],
-properties: []
-</code></pre>
-
-<p>};
-[/sourcecode]</p>
-
-<p>As you can see, we&#8217;ll planning to create an object exporting one method &#8216;Logger::log&#8217; and one signal &#8216;Logger::added&#8217;. The method has one parameter and no return value, and the signal has one arguments, in both cases the argument/parameters is the same, the message log sent. So, our objects will have and array of log messages sent to him, and for every time you call its method &#8216;log&#8217; it emit the signal added. Very simple.</p>
-
-<p>Now we&#8217;ll create the object conforming the interface we defined before.</p>
-
-<p>[sourcecode language=&#8221;javascript&#8221;]
-function Logger() {</p>
-
-<pre><code>this._init();
-</code></pre>
-
-<p>}</p>
-
-<p>Logger.prototype = {</p>
-
-<pre><code>_init: function() {
-    this.logs = [];
-    DBus.session.exportObject('/org/gnome/Logger', this);
-},
-
-log: function(message) {
-    this.logs.push(message);
-    global.log('Received: ' + message);
-    this._emitAdded(message);
-},
-
-_emitAdded: function(message) {
-    DBus.session.emit_signal('/org/gnome/Logger',
-                             'org.gnome.Logger',
-                             'Added', 's',
-                             [message]);
-}
-</code></pre>
-
-<p>};
-[/sourcecode]</p>
-
-<p>As you see we defined a method with the same name we did in the interface and the same signature. And now we&#8217;ll pass to see the Gjs DBus magic:</p>
-
-<p>[sourcecode language=&#8221;javascript&#8221;]
-DBus.session.exportObject(&#8216;/org/gnome/Logger&#8217;, this);
-[/sourcecode]</p>
-
-<p>This was called inside our _init method, and that’s the method of the Gjs telling DBus, this is the object we want to export. And, later on this one is the one telling DBus to check if our class/prototype conforms the interface we said it conforms:</p>
-
-<p>[sourcecode language=&#8221;javascript&#8221;]
-DBus.conformExport(Logger.prototype, LoggerIface);
-[/sourcecode]</p>
-
-<p>Finally the extension entry point. Ohh wait I didn’t said that before, we’re reviewing an extension, as this is a so easy way to test Gnome 3 stuff. So the entry point, the main function.</p>
-
-<p>[sourcecode language=&#8221;javascript&#8221;]
-function main() {</p>
-
-<pre><code>// I did this to get the object after the extension code run
-Main.logger = new Logger()
-
-//this was the missing instruction
-DBus.session.acquire_name('org.gnome.Logger', 0, null, null);
-</code></pre>
-
-<p>}
-[/sourcecode]</p>
-
-<p>And here is a great trick, you see that line saying &#8220;this was the missing instruction&#8221;, yeah I had all the code written and reviewed like a thousand times, and still doesn&#8217;t worked, I keep testing but nothing the object wasn&#8217;t there. I opened Looking Glass, and typed Main.logger and the object was create, but it wasn&#8217;t receiving any notice when I called the method, actually I was getting errors cause that method doesn&#8217;t existed at all. After some back and forward between DBus documentation, and Gnome Shell source code, I figured out. The missing part was, of course, I’ve should known, the part when your object grab the DBus name it want to publish. So first I went to <strong>DBus.session.own_name</strong> but that is not a function, and then I tried this one <strong>DBus.session.acquire_name</strong>, with doesn&#8217;t exist at all in the devhelp documentation but it seems is the wrapper of Gjs for the <strong>own_name</strong> GDBus method.</p>
-
-<p>So, that’s all for now. I know I’m still missing some things. I want to learn how catch a signal emit over DBus, and how to handle exported object properties, make some samples and toy with it a bit.</p>
-
-<p>But that will be later. Keep in touch.</p>
-
-<p>BTW: I&#8217;m still figuring out how to publish the full examples, but I will do it, sometime</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-05T01:09:27-04:00" pubdate data-updated="true">Jun 5<span>th</span>, 2011</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/coding-samples/'>Coding Samples</a>
-
-
-</div>
-	
-	<div class="comments"><a href="/blog/2011/06/05/dbus-in-the-shell/#disqus_thread">Comments</a></div>
 	
 </div>
 </article>

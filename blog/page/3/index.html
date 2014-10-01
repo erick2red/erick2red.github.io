@@ -7,8 +7,8 @@
 	<meta name="author" content="Erick Pérez Castellanos">
 
 	
-	<meta name="description" content="This should be old news for some, but good news for community I hope. About a
-week I uploaded the firsts bits of Gnome Calendar application as &hellip;">
+	<meta name="description" content="It&#8217;s been long time since I published any stuff, errr. I&#8217;ve
+been busy. So, to the point. Calendar is moving forward, slower than I would &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -95,6 +95,74 @@ week I uploaded the firsts bits of Gnome Calendar application as &hellip;">
 
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/07/03/updates-to-gnome-calendar/">
+		
+			Updates to Gnome-calendar</a>
+	</h2>
+	<div class="entry-content">
+		<p>It&#8217;s been long time since I published any stuff, errr. I&#8217;ve
+been busy. So, to the point.</p>
+
+<p>Calendar is moving forward, slower than I would like, but is moving. From the
+last time, I&#8217;ve started the implementation of the event-view, and I say started
+cause there&#8217;s missing functionality yet, but the widgets part is almost done.
+For now, it deletes your events, so be careful, that&#8217;s the only button that
+really works. I&#8217;ve set in-place some code to enable notifications, but that will
+have to wait a little yet. The toolbar has got some changes,
+mostly added behavior to the change between views, and some internal
+refactoring.</p>
+
+<p>The most important stuff is: the screenshots you&#8217;ll see below will
+show you one thing, the event-view need some redesign to occupy all that empty
+space. There&#8217;s host/guest part still missing implementation, but I know it won&#8217;t
+fill all the space. On the other hand, I&#8217;ll need some symbolic icon for the
+reminders, to show in the views (monthly, daily, etc.). There&#8217;s still the issue
+of the navigation controls presentation, which I don&#8217;t like been shown by
+pressing <Ctrl>, but that will come eventually.</p>
+
+<p>This work is pretty skeleton-like, there&#8217;s a bunch of stuff that needs to be
+retouched, so, any thing you find, feel free to reach me.</p>
+
+<p>Now the shots:
+The first one is the month-view, the only one working right now, and the others
+are of the event-view.</p>
+
+<p><a class="fancybox" href="/images/galleries/calendar_aug_2012/edit-event.png" rel="shadowbox" title="edit-event"><img src="/images/galleries/calendar_aug_2012/thumbs/edit-event.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_aug_2012/month-view-showing-sources.png" rel="shadowbox" title="month-view-showing-sources"><img src="/images/galleries/calendar_aug_2012/thumbs/month-view-showing-sources.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_aug_2012/view-event.png" rel="shadowbox" title="view-event"><img src="/images/galleries/calendar_aug_2012/thumbs/view-event.png" /></a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-03T16:00:00-04:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+	<div class="comments"><a href="/blog/2012/07/03/updates-to-gnome-calendar/#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -320,82 +388,6 @@ for error and typos.</p>
 </div>
 	
 	<div class="comments"><a href="/blog/2012/04/30/initial-commit/#disqus_thread">Comments</a></div>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/04/28/getting-warnings-out-of-clutter/">
-		
-			Getting Warnings Out of Clutter</a>
-	</h2>
-	<div class="entry-content">
-		<p>It&#8217;s been a while since I blogged anything. Well, I actually did some ranting
-about starting this new blog. But that really doesn&#8217;t count. I should make a
-post saying what I&#8217;ve been up to. But I&#8217;m lazy. I&#8217;ve been:</p>
-
-<ul>
-<li>Learning some Qt (and I doesn&#8217;t like it, maybe I tell something about this
-later)</li>
-<li>Using <a href="https://github.com/fritzy/SleekXMPP">SleekXMPP</a> python library</li>
-<li>Learning ruby (Did I said this already ?)</li>
-<li>Learning <a href="http://www.clutter-project.org">Clutter</a>, and here we stop.</li>
-</ul>
-
-
-<p>While I was trying to pull some code using Clutter and Gtk+, before you ask, I
-was trying to put GtkWidget inside Clutter Actors to get some fancy animation, I
-got into some minor troubles, which I think those newbies like me out there
-should know.</p>
-
-<p>First, if you read the blog of the might Emmanuele Bassi (Clutter&#8217;s author and
-main developer) you then came across this post
-<a href="http://blogs.gnome.org/ebassi/2012/03/17/had-a-dream/">Had a dream</a>. I did, and I wanted to get
-those warning they talk about so my code would need to be modified pretty much
-anything when those API get deprecated. Well, I didn&#8217;t, I mean I used
-deprecated API and my compiler wasn&#8217;t throwing me warnings. Someone told me
-that I needed to use a decent set of compilers flags, and I tried, nah, still
-nothing. I went into IRC, I found help there and after a while, I was told to
-add this to my compiler options</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>-DCLUTTER_VERSION_MIN_REQUIRED=CLUTTER_VERSION_1_10</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This finally solved the issue and I&#8217;m having pretty warnings  every time I use
-an old method which should be destroyed in a couple of months.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-28T23:59:00-04:00" pubdate data-updated="true">Apr 28<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/clutter/'>Clutter</a>, <a class='category' href='/blog/categories/code/'>Code</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
-
-
-</div>
-	
-	<div class="comments"><a href="/blog/2012/04/28/getting-warnings-out-of-clutter/#disqus_thread">Comments</a></div>
 	
 </div>
 </article>

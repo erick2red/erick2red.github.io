@@ -7,9 +7,8 @@
 	<meta name="author" content="Erick Pérez Castellanos">
 
 	
-	<meta name="description" content="Today I&#8217;ve been looking finally at how to deploy an
-Octopress based blog into Github.
-It&#8217;s been a while since I saw octopress, and I &hellip;">
+	<meta name="description" content="It&#8217;s been a while since I blogged anything. Well, I actually did some ranting
+about starting this new blog. But that really doesn&#8217;t &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -96,6 +95,82 @@ It&#8217;s been a while since I saw octopress, and I &hellip;">
 
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/04/28/getting-warnings-out-of-clutter/">
+		
+			Getting Warnings Out of Clutter</a>
+	</h2>
+	<div class="entry-content">
+		<p>It&#8217;s been a while since I blogged anything. Well, I actually did some ranting
+about starting this new blog. But that really doesn&#8217;t count. I should make a
+post saying what I&#8217;ve been up to. But I&#8217;m lazy. I&#8217;ve been:</p>
+
+<ul>
+<li>Learning some Qt (and I doesn&#8217;t like it, maybe I tell something about this
+later)</li>
+<li>Using <a href="https://github.com/fritzy/SleekXMPP">SleekXMPP</a> python library</li>
+<li>Learning ruby (Did I said this already ?)</li>
+<li>Learning <a href="http://www.clutter-project.org">Clutter</a>, and here we stop.</li>
+</ul>
+
+
+<p>While I was trying to pull some code using Clutter and Gtk+, before you ask, I
+was trying to put GtkWidget inside Clutter Actors to get some fancy animation, I
+got into some minor troubles, which I think those newbies like me out there
+should know.</p>
+
+<p>First, if you read the blog of the might Emmanuele Bassi (Clutter&#8217;s author and
+main developer) you then came across this post
+<a href="http://blogs.gnome.org/ebassi/2012/03/17/had-a-dream/">Had a dream</a>. I did, and I wanted to get
+those warning they talk about so my code would need to be modified pretty much
+anything when those API get deprecated. Well, I didn&#8217;t, I mean I used
+deprecated API and my compiler wasn&#8217;t throwing me warnings. Someone told me
+that I needed to use a decent set of compilers flags, and I tried, nah, still
+nothing. I went into IRC, I found help there and after a while, I was told to
+add this to my compiler options</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-DCLUTTER_VERSION_MIN_REQUIRED=CLUTTER_VERSION_1_10</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This finally solved the issue and I&#8217;m having pretty warnings  every time I use
+an old method which should be destroyed in a couple of months.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-28T23:59:00-04:00" pubdate data-updated="true">Apr 28<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/clutter/'>Clutter</a>, <a class='category' href='/blog/categories/code/'>Code</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="/blog/2012/04/28/getting-warnings-out-of-clutter/#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -288,61 +363,6 @@ So, let&#8217;s see how it goes.</p>
 </div>
 	
 	<div class="comments"><a href="/blog/2012/02/27/applying-for-gnome-foundation-membership/#disqus_thread">Comments</a></div>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/02/13/new-link-dialog-into-gnome-contacts/">
-		
-			New Link Dialog Into Gnome-contacts</a>
-	</h2>
-	<div class="entry-content">
-		<p>Well, it seems I&#8217;m fully contributing to gnome-contacts now.</p>
-
-<p>&#8230; that was the start of this blog post a few weeks ago, the work got me in the middle and the post got stuck at draft stage til today. So</p>
-
-<p>In these previous weeks, I got the new link dialog mockups made by <a href="http://afaikblog.wordpress.com">Allan Day</a> into the code. After some hacking to the undo part well. I uploaded the patches into bugzilla for review. Here&#8217;s the mandatory screenshot</p>
-
-<p><a href="http://erick2red.files.wordpress.com/2012/02/link-to-other-contact.png"><img src="http://erick2red.files.wordpress.com/2012/02/link-to-other-contact.png?w=300" alt="" /></a></p>
-
-<p>After that I went into getting crop support for setting an avatar for a contact. Here I had to came up with some design, since Alex and Allan have not agreed anything on these. I took the crop widget from gnome-control-center code, and tweaked the vapi file to load the widget. Now when you use a picture with more than 128 x 128 pixels as avatar the crop widget come up to allow you to select what you want of that pics. The crop widget only allow for square crop. Here the screenshot is this one:</p>
-
-<p><a href="http://erick2red.files.wordpress.com/2012/02/contacts-crop.png"><img src="http://erick2red.files.wordpress.com/2012/02/contacts-crop.png?w=225" alt="" /></a></p>
-
-<p>Right, now, I&#8217;m kinda frozen. There&#8217;s still a lot of stuff to be done. We&#8217;ll set to it soon.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-13T23:45:24-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/gnome-contacts/'>Gnome Contacts</a>
-
-
-</div>
-	
-	<div class="comments"><a href="/blog/2012/02/13/new-link-dialog-into-gnome-contacts/#disqus_thread">Comments</a></div>
 	
 </div>
 </article>

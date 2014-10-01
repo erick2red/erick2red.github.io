@@ -7,8 +7,8 @@
 	<meta name="author" content="Erick Pérez Castellanos">
 
 	
-	<meta name="description" content="It&#8217;s been a very long time since I posted anything.
-You might not know, I live in Santiago de Cuba, Cuba, one of the cities trashed by the &hellip;">
+	<meta name="description" content="I&#8217;ve made a commitment with myself of posting updates of the stuff I&#8217;m working
+once a week. This one is the first, and I expected to be &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -95,6 +95,85 @@ You might not know, I live in Santiago de Cuba, Cuba, one of the cities trashed 
 
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/06/25/june-update-on-calendar/">
+		
+			June Update on Calendar</a>
+	</h2>
+	<div class="entry-content">
+		<p>I&#8217;ve made a commitment with myself of posting updates of the stuff I&#8217;m working
+once a week. This one is the first, and I expected to be out by Monday, but an
+<a href="https://github.com/imathis/octopress">octopress</a> update and a plugin installation for handling image galleries
+kept me from doing it.</p>
+
+<p>By now, I&#8217;m a little tired of writing, therefore I&#8217;ll be quick about it.</p>
+
+<p>A few weeks ago I restarted the work on <a href="https://live.gnome.org/Design/Apps/Calendar">Calendar</a> with the hope of adding a
+bunch of new features in <strong>Gtk+</strong> to the project. I started by creating a
+new branch, since I was sure the build would break a lot times in between, and
+didn&#8217;t want to spoil <strong>master</strong></p>
+
+<p>I&#8217;d set for myself a bunch of points I want to accomplish by rewriting the UI and
+some of them has been done, some others, not yet. That&#8217;s the main reason why I keep
+the branch still around. As soon as I feel the work is done, I&#8217;ll come back to work
+on <strong>master</strong></p>
+
+<p>I wanted to:</p>
+
+<ol>
+<li>Ditch <strong>clutter</strong> dependency. Use only Gtk+ widgets.</li>
+<li>Include <a href="https://developer.gnome.org/gtk3/3.9/GtkSearchBar.html">GtkSearchBar</a>, <a href="https://developer.gnome.org/gtk3/3.9/GtkStack.html">GtkStack</a> and some of the latest Gnome UI guidelines</li>
+<li>Use <a href="https://developer.gnome.org/gtk3/3.9/GtkBuilder.html">GtkBuilder</a>&#8217;s ui files as much as I can</li>
+<li>Rework week-view to use <a href="https://developer.gnome.org/gtk3/3.9/GtkOverlay.html">GtkOverlay</a> instead of my own solution</li>
+</ol>
+
+
+<p>So far 1, 2 and 3 has been accomplished. Point number 4 is going well since I manage to
+craft a day-view with the same requirements of week-view that does not need to
+use <strong>GtkOverlay</strong>.</p>
+
+<p>Some of the work done is showcased below</p>
+
+<p><a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-day-view.png" rel="shadowbox" title="calendar-day-view"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-day-view.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-new-menu.png" rel="shadowbox" title="calendar-new-menu"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-new-menu.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-search.png" rel="shadowbox" title="calendar-search"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-search.png" /></a>
+<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-updated.png" rel="shadowbox" title="calendar-updated"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-updated.png" /></a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-25T21:19:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/calendar/'>Calendar</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="/blog/2013/06/25/june-update-on-calendar/#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -523,74 +602,6 @@ pretty happy with it.</p>
 </div>
 	
 	<div class="comments"><a href="/blog/2012/08/21/moving-to-fedora/#disqus_thread">Comments</a></div>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/07/03/updates-to-gnome-calendar/">
-		
-			Updates to Gnome-calendar</a>
-	</h2>
-	<div class="entry-content">
-		<p>It&#8217;s been long time since I published any stuff, errr. I&#8217;ve
-been busy. So, to the point.</p>
-
-<p>Calendar is moving forward, slower than I would like, but is moving. From the
-last time, I&#8217;ve started the implementation of the event-view, and I say started
-cause there&#8217;s missing functionality yet, but the widgets part is almost done.
-For now, it deletes your events, so be careful, that&#8217;s the only button that
-really works. I&#8217;ve set in-place some code to enable notifications, but that will
-have to wait a little yet. The toolbar has got some changes,
-mostly added behavior to the change between views, and some internal
-refactoring.</p>
-
-<p>The most important stuff is: the screenshots you&#8217;ll see below will
-show you one thing, the event-view need some redesign to occupy all that empty
-space. There&#8217;s host/guest part still missing implementation, but I know it won&#8217;t
-fill all the space. On the other hand, I&#8217;ll need some symbolic icon for the
-reminders, to show in the views (monthly, daily, etc.). There&#8217;s still the issue
-of the navigation controls presentation, which I don&#8217;t like been shown by
-pressing <Ctrl>, but that will come eventually.</p>
-
-<p>This work is pretty skeleton-like, there&#8217;s a bunch of stuff that needs to be
-retouched, so, any thing you find, feel free to reach me.</p>
-
-<p>Now the shots:
-The first one is the month-view, the only one working right now, and the others
-are of the event-view.</p>
-
-<p><a class="fancybox" href="/images/galleries/calendar_aug_2012/edit-event.png" rel="shadowbox" title="edit-event"><img src="/images/galleries/calendar_aug_2012/thumbs/edit-event.png" /></a>
-<a class="fancybox" href="/images/galleries/calendar_aug_2012/month-view-showing-sources.png" rel="shadowbox" title="month-view-showing-sources"><img src="/images/galleries/calendar_aug_2012/thumbs/month-view-showing-sources.png" /></a>
-<a class="fancybox" href="/images/galleries/calendar_aug_2012/view-event.png" rel="shadowbox" title="view-event"><img src="/images/galleries/calendar_aug_2012/thumbs/view-event.png" /></a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-03T16:00:00-04:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-	<div class="comments"><a href="/blog/2012/07/03/updates-to-gnome-calendar/#disqus_thread">Comments</a></div>
 	
 </div>
 </article>

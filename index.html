@@ -7,7 +7,7 @@
 	<meta name="author" content="Erick Pérez Castellanos">
 
 	
-	<meta name="description" content="It&#8217;s been almost seven months since my last post and much have happened. Across the next posts I&#8217;ll be telling you some of what&#8217;s &hellip;">
+	<meta name="description" content="Last week GNOME 3.14 was released. I&#8217;ve been using my jhbuild copy since last Wednesday, and have to say I&#8217;m most happy with the &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -94,6 +94,71 @@
 
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/10/01/gnome-3-dot-14/">
+		
+			GNOME 3.14</a>
+	</h2>
+	<div class="entry-content">
+		<p>Last week GNOME 3.14 <a href="http://www.gnome.org/news/2014/09/gnome-3-14-released">was released</a>. I&#8217;ve been using my jhbuild copy since last Wednesday, and have to say I&#8217;m most happy with the improvements this cycle brought. I wanted to talk a bit about it, and this is one of the reason of this post.</p>
+
+<p>As you can see in <a href="https://help.gnome.org/misc/release-notes/3.14/">the release notes</a> this version includes improvements around the whole stack: the network and sharing settings; the input system, with support for gestures and improved touchscreen support; the shell and a bunch of updated applications.</p>
+
+<p>I&#8217;m most happy with the updates on GNOME Shell, this time the developers bring some pretty nifty animations to the Activities overview and windows. There&#8217;s also a whole set of changes for the developers using and targeting GNOME as platform. I&#8217;ll be talking a bit more on this latter.</p>
+
+<h4>GNOME Shell</h4>
+
+<p>I thought at first on describing you the animations added to latest iteration of the shell, but since an image is worth a thousands words. I guess a video will be worth 30 times per second the same, so <a href="https://www.youtube.com/watch?v=cHtKkud6_is">here</a> it is this video showing you exactly that (Note: this is screencast was not made by me).</p>
+
+<p>At first I thought I will be rapidly tired of those animations, usually, animations on the user interface looks good initially but over time just gets in the way of user daily activities. In this case it&#8217;s different, as in the case of those well thought features, I&#8217;ve been using the new shell for a over week a now, and I&#8217;m great surprised of how the animations don&#8217;t get in my way. Without being a magical thing, sometimes I realize of it when closing a window, or when opening one, but most of time I don&#8217;t even think of it. This speaks very highly on the craft of those designers and developers who accomplish so subtle change. Thanks.</p>
+
+<h4>Developers improvements</h4>
+
+<p>Now, this is the main reason of the post, even when I have left it to the end.</p>
+
+<p>Life for the developers in GNOME has been improving steady over the last few cycles. GNOME hackers has come up with a DX hackfest, the interest in having a SDK for developing GNOME software has risen in the community, and projects like Christian&#8217;s <a href="https:///git.gnome.org/browse/gnome-builder">gnome-builder</a> are actively working towards this.</p>
+
+<p>With GNOME 3.14, the awesome design team has come up with an updated version of <a href="https://developer.gnome.org/hig/stable/">GNOME Human Interface Guidelines</a>. I can&#8217;t stress enough the importance of this. Having a published and updated HIG provides uniformity and organization through the whole set of GNOME applications. I have it for around 4 days, and I have found myself going over to review a pattern, recheck a convention, etc. From simple things like margin, alignment and visual layout to others more detailed like how best use specific widgets available in Gtk+ and the contents of menus are explained there. The work done in getting those HIG ready is really impressive and we should be grateful as a platform of having this guidance for developers, either old ones and newcomers. I think is in order to thank great <a href="http://blogs.gnome.org/aday">Allan Day</a> and all the others for their work on this.</p>
+
+<p>Finally, I want to mention Gtk+ improvements as a toolkit. First, the rewrite of Adwaita theme and its inclusion in Gtk+ will provide better experience for the user across different platforms and better looking in general. Second, and most important, the inclusion in Gtk+ of a new Gtk+ Inspector thanks to the work of <a href="http://blogs.gnome.org/mclasen">Matthias Clasen</a>. I won&#8217;t be talking much about Gtk+ Inspector since there have been already some post on it. I just wanted to mention it here because with the release of stable versions of Gtk+ and GNOME this is accessible to much more people than the selected team working on GNOME.</p>
+
+<p>As before, I hope you enjoy GNOME 3.14 and its perks. See you around.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-01T10:30:00-04:00" pubdate data-updated="true">Oct 1<span>st</span>, 2014</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="/blog/2014/10/01/gnome-3-dot-14/#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -375,85 +440,6 @@ would like to work on it.</p>
 </div>
 	
 	<div class="comments"><a href="/blog/2013/07/16/a-week-for-releasing/#disqus_thread">Comments</a></div>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/06/25/june-update-on-calendar/">
-		
-			June Update on Calendar</a>
-	</h2>
-	<div class="entry-content">
-		<p>I&#8217;ve made a commitment with myself of posting updates of the stuff I&#8217;m working
-once a week. This one is the first, and I expected to be out by Monday, but an
-<a href="https://github.com/imathis/octopress">octopress</a> update and a plugin installation for handling image galleries
-kept me from doing it.</p>
-
-<p>By now, I&#8217;m a little tired of writing, therefore I&#8217;ll be quick about it.</p>
-
-<p>A few weeks ago I restarted the work on <a href="https://live.gnome.org/Design/Apps/Calendar">Calendar</a> with the hope of adding a
-bunch of new features in <strong>Gtk+</strong> to the project. I started by creating a
-new branch, since I was sure the build would break a lot times in between, and
-didn&#8217;t want to spoil <strong>master</strong></p>
-
-<p>I&#8217;d set for myself a bunch of points I want to accomplish by rewriting the UI and
-some of them has been done, some others, not yet. That&#8217;s the main reason why I keep
-the branch still around. As soon as I feel the work is done, I&#8217;ll come back to work
-on <strong>master</strong></p>
-
-<p>I wanted to:</p>
-
-<ol>
-<li>Ditch <strong>clutter</strong> dependency. Use only Gtk+ widgets.</li>
-<li>Include <a href="https://developer.gnome.org/gtk3/3.9/GtkSearchBar.html">GtkSearchBar</a>, <a href="https://developer.gnome.org/gtk3/3.9/GtkStack.html">GtkStack</a> and some of the latest Gnome UI guidelines</li>
-<li>Use <a href="https://developer.gnome.org/gtk3/3.9/GtkBuilder.html">GtkBuilder</a>&#8217;s ui files as much as I can</li>
-<li>Rework week-view to use <a href="https://developer.gnome.org/gtk3/3.9/GtkOverlay.html">GtkOverlay</a> instead of my own solution</li>
-</ol>
-
-
-<p>So far 1, 2 and 3 has been accomplished. Point number 4 is going well since I manage to
-craft a day-view with the same requirements of week-view that does not need to
-use <strong>GtkOverlay</strong>.</p>
-
-<p>Some of the work done is showcased below</p>
-
-<p><a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-day-view.png" rel="shadowbox" title="calendar-day-view"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-day-view.png" /></a>
-<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-new-menu.png" rel="shadowbox" title="calendar-new-menu"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-new-menu.png" /></a>
-<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-search.png" rel="shadowbox" title="calendar-search"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-search.png" /></a>
-<a class="fancybox" href="/images/galleries/calendar_june_2013/calendar-updated.png" rel="shadowbox" title="calendar-updated"><img src="/images/galleries/calendar_june_2013/thumbs/calendar-updated.png" /></a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-25T21:19:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/calendar/'>Calendar</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
-
-
-</div>
-	
-	<div class="comments"><a href="/blog/2013/06/25/june-update-on-calendar/#disqus_thread">Comments</a></div>
 	
 </div>
 </article>

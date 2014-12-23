@@ -1,0 +1,223 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calendar update - Builder's notes</title>
+	<meta name="author" content="Erick Pérez Castellanos">
+
+	
+	<meta name="description" content="This cycle I&#8217;ve been hard at work with Calendar. The idea is to get it in beta shape for GNOME 3.16 which is coming on march (or April, I never &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Builder's notes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Builder's notes</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:erick2red.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/111653970154711735047?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/erick2red" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/erick2red" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:erick2red.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/erick2red">erick2red</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('erick2red', 4, false);
+	})(jQuery);
+</script>
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Calendar Update</h2>
+	<div class="entry-content"><p>This cycle I&#8217;ve been hard at work with <a href="https://wiki.gnome.org/Apps/Calendar">Calendar</a>. The idea is to get it in beta shape for GNOME 3.16 which is coming on march (or April, I never know, since it ends for developers before). I&#8217;ve being says these for two or three GNOME releases but this one is true. The bad about it, is that Contacts might get little love this time.</p>
+
+<p>When I restarted work on Calendar this cycle it had been almost a year since my last commit. I got help this time. I have to thank every one involved in Calendar development, starting with <a href="http://www.hadess.net">Bastien Nocera</a>, and <a href="https://plus.google.com/+LapoCalamandrei">Lapo Calamandrei</a> whose design work has been amazing and last, but in anyway least, <a href="https://feaneron.wordpress.com/">Georges Basile Stavracas Neto</a>, who has offer us his coding skills and is the responsible for a bunch of new features in Calendar.</p>
+
+<p>I would put here some mock-ups, and I know a more longer post is needed in order to let you know of some the stuff I&#8217;ve learned while developing the new features, but this going to be short one.</p>
+
+<p>I&#8217;m about to make a 3.15.3 release of Calendar, even when I know is late, the release was last week. But I think is better to get it rolling, also there&#8217;s bunch of new features and I want people to be able to test it and comment on it.</p>
+
+<p>Calendar new features:</p>
+
+<ul>
+<li>Initial search. This one is in very early stages, just search, and do nothing else.</li>
+<li>Month-view reworked. We got a mock-up from Lapo with almost every issue the view had solved
+
+<ul>
+<li>Overflow of events on day cell is indicated and the events are shown on a popover</li>
+<li>View has support for RTL locales</li>
+<li>View has support for multiday events</li>
+</ul>
+</li>
+<li>Edit/new dialog reworked. George got to work on this and fixed almost every issue the previous dialog had.
+
+<ul>
+<li>Moved the widget to use <code>GtkBuilder</code> UI files</li>
+<li>Added new <strong>working</strong> time and date selectors</li>
+<li>Added proper <code>GtkHeaderBar</code></li>
+<li>Added calendar selector popover for when the dialog is used on event creation</li>
+</ul>
+</li>
+<li>Calendar got the ability of hide/show calendars</li>
+<li>Navigation buttons were relocated and <strong>jump to today</strong> was added</li>
+<li>Calendar got a new 3d icon courtesy of <a href="http://jimmac.musichall.cz/">Jakub Steiner</a></li>
+</ul>
+
+
+<p>As you can see, Calendar has moved a lot forward. Hope you enjoy it.</p>
+
+<p>To get you moving I posted <a href="https://twitter.com/erick2red/status/547087718904504320">these</a> <a href="https://twitter.com/erick2red/status/546360848147820547">screenshots</a> and little <a href="https://www.youtube.com/watch?v=6kRKYLZYzl8">video</a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-23T10:51:00-05:00" pubdate data-updated="true">Dec 23<span>rd</span>, 2014</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/calendar/'>Calendar</a>, <a class='category' href='/blog/categories/gnome/'>Gnome</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Erick Pérez Castellanos
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'github-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://erick2red.github.com/blog/2014/12/23/calendar-update/';
+        var disqus_url = 'http://erick2red.github.com/blog/2014/12/23/calendar-update/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

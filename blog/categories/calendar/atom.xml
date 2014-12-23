@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Calendar | Builder's notes]]></title>
   <link href="http://erick2red.github.com/blog/categories/calendar/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2014-10-01T11:48:11-04:00</updated>
+  <updated>2014-12-23T12:15:44-05:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -12,6 +12,52 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Calendar update]]></title>
+    <link href="http://erick2red.github.com/blog/2014/12/23/calendar-update/"/>
+    <updated>2014-12-23T10:51:00-05:00</updated>
+    <id>http://erick2red.github.com/blog/2014/12/23/calendar-update</id>
+    <content type="html"><![CDATA[<p>This cycle I've been hard at work with <a href="https://wiki.gnome.org/Apps/Calendar">Calendar</a>. The idea is to get it in beta shape for GNOME 3.16 which is coming on march (or April, I never know, since it ends for developers before). I've being says these for two or three GNOME releases but this one is true. The bad about it, is that Contacts might get little love this time.</p>
+
+<p>When I restarted work on Calendar this cycle it had been almost a year since my last commit. I got help this time. I have to thank every one involved in Calendar development, starting with <a href="http://www.hadess.net">Bastien Nocera</a>, and <a href="https://plus.google.com/+LapoCalamandrei">Lapo Calamandrei</a> whose design work has been amazing and last, but in anyway least, <a href="https://feaneron.wordpress.com/">Georges Basile Stavracas Neto</a>, who has offer us his coding skills and is the responsible for a bunch of new features in Calendar.</p>
+
+<p>I would put here some mock-ups, and I know a more longer post is needed in order to let you know of some the stuff I've learned while developing the new features, but this going to be short one.</p>
+
+<p>I'm about to make a 3.15.3 release of Calendar, even when I know is late, the release was last week. But I think is better to get it rolling, also there's bunch of new features and I want people to be able to test it and comment on it.</p>
+
+<p>Calendar new features:</p>
+
+<ul>
+<li>Initial search. This one is in very early stages, just search, and do nothing else.</li>
+<li>Month-view reworked. We got a mock-up from Lapo with almost every issue the view had solved
+
+<ul>
+<li>Overflow of events on day cell is indicated and the events are shown on a popover</li>
+<li>View has support for RTL locales</li>
+<li>View has support for multiday events</li>
+</ul>
+</li>
+<li>Edit/new dialog reworked. George got to work on this and fixed almost every issue the previous dialog had.
+
+<ul>
+<li>Moved the widget to use <code>GtkBuilder</code> UI files</li>
+<li>Added new <strong>working</strong> time and date selectors</li>
+<li>Added proper <code>GtkHeaderBar</code></li>
+<li>Added calendar selector popover for when the dialog is used on event creation</li>
+</ul>
+</li>
+<li>Calendar got the ability of hide/show calendars</li>
+<li>Navigation buttons were relocated and <strong>jump to today</strong> was added</li>
+<li>Calendar got a new 3d icon courtesy of <a href="http://jimmac.musichall.cz/">Jakub Steiner</a></li>
+</ul>
+
+
+<p>As you can see, Calendar has moved a lot forward. Hope you enjoy it.</p>
+
+<p>To get you moving I posted <a href="https://twitter.com/erick2red/status/547087718904504320">these</a> <a href="https://twitter.com/erick2red/status/546360848147820547">screenshots</a> and little <a href="https://www.youtube.com/watch?v=6kRKYLZYzl8">video</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[June update on Calendar]]></title>

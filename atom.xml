@@ -4,7 +4,7 @@
   <title><![CDATA[Builder's notes]]></title>
   <link href="http://erick2red.github.com/atom.xml" rel="self"/>
   <link href="http://erick2red.github.com/"/>
-  <updated>2014-10-01T11:48:11-04:00</updated>
+  <updated>2014-12-23T12:15:44-05:00</updated>
   <id>http://erick2red.github.com/</id>
   <author>
     <name><![CDATA[Erick Pérez Castellanos]]></name>
@@ -12,6 +12,52 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Calendar update]]></title>
+    <link href="http://erick2red.github.com/blog/2014/12/23/calendar-update/"/>
+    <updated>2014-12-23T10:51:00-05:00</updated>
+    <id>http://erick2red.github.com/blog/2014/12/23/calendar-update</id>
+    <content type="html"><![CDATA[<p>This cycle I&#8217;ve been hard at work with <a href="https://wiki.gnome.org/Apps/Calendar">Calendar</a>. The idea is to get it in beta shape for GNOME 3.16 which is coming on march (or April, I never know, since it ends for developers before). I&#8217;ve being says these for two or three GNOME releases but this one is true. The bad about it, is that Contacts might get little love this time.</p>
+
+<p>When I restarted work on Calendar this cycle it had been almost a year since my last commit. I got help this time. I have to thank every one involved in Calendar development, starting with <a href="http://www.hadess.net">Bastien Nocera</a>, and <a href="https://plus.google.com/+LapoCalamandrei">Lapo Calamandrei</a> whose design work has been amazing and last, but in anyway least, <a href="https://feaneron.wordpress.com/">Georges Basile Stavracas Neto</a>, who has offer us his coding skills and is the responsible for a bunch of new features in Calendar.</p>
+
+<p>I would put here some mock-ups, and I know a more longer post is needed in order to let you know of some the stuff I&#8217;ve learned while developing the new features, but this going to be short one.</p>
+
+<p>I&#8217;m about to make a 3.15.3 release of Calendar, even when I know is late, the release was last week. But I think is better to get it rolling, also there&#8217;s bunch of new features and I want people to be able to test it and comment on it.</p>
+
+<p>Calendar new features:</p>
+
+<ul>
+<li>Initial search. This one is in very early stages, just search, and do nothing else.</li>
+<li>Month-view reworked. We got a mock-up from Lapo with almost every issue the view had solved
+
+<ul>
+<li>Overflow of events on day cell is indicated and the events are shown on a popover</li>
+<li>View has support for RTL locales</li>
+<li>View has support for multiday events</li>
+</ul>
+</li>
+<li>Edit/new dialog reworked. George got to work on this and fixed almost every issue the previous dialog had.
+
+<ul>
+<li>Moved the widget to use <code>GtkBuilder</code> UI files</li>
+<li>Added new <strong>working</strong> time and date selectors</li>
+<li>Added proper <code>GtkHeaderBar</code></li>
+<li>Added calendar selector popover for when the dialog is used on event creation</li>
+</ul>
+</li>
+<li>Calendar got the ability of hide/show calendars</li>
+<li>Navigation buttons were relocated and <strong>jump to today</strong> was added</li>
+<li>Calendar got a new 3d icon courtesy of <a href="http://jimmac.musichall.cz/">Jakub Steiner</a></li>
+</ul>
+
+
+<p>As you can see, Calendar has moved a lot forward. Hope you enjoy it.</p>
+
+<p>To get you moving I posted <a href="https://twitter.com/erick2red/status/547087718904504320">these</a> <a href="https://twitter.com/erick2red/status/546360848147820547">screenshots</a> and little <a href="https://www.youtube.com/watch?v=6kRKYLZYzl8">video</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GNOME 3.14]]></title>
@@ -758,16 +804,6 @@ advance there. Well after all that I think is pretty logic to try this move.</p>
     <content type="html"><![CDATA[<p>Yesterday, while I was talking with the Gnome Contacts developer came up the issue of me having an account. I wasn&#8217;t familiar with the process, he point me to the <a href="https://live.gnome.org/NewAccounts">page in question</a>, and I filled the application for the account. The process took a day, this morning while I was solving another bug in Gnome Contact the mails reached my inbox telling me about the new account being setup in an hour or so. I finished the work in the patch. Went right to the instruction for using Git as the Gnome standards requires and <a href="http://git.gnome.org/browse/gnome-contacts/commit/?id=3eae3e0501539c1d3de7c062abaaa591f79ba1d9">pushed the patch</a> by my own. Now I have a few commits already in <a href="http://git.gnome.org/browse/gnome-contacts">git.gnome.org/gnome-contacts</a> but this one is the first one I make myself.</p>
 
 <p>Now I&#8217;m still waiting for the Gnome Foundation decision on my application to be a member yet, this is huge joy. I&#8217;m looking forward to contribue more to Gnome, it&#8217;s an amazing world with amazing people and great programmers, and I&#8217;m pretty happy to be prt of it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Applying for Gnome Foundation Membership]]></title>
-    <link href="http://erick2red.github.com/blog/2012/02/27/applying-for-gnome-foundation-membership/"/>
-    <updated>2012-02-27T12:34:48-05:00</updated>
-    <id>http://erick2red.github.com/blog/2012/02/27/applying-for-gnome-foundation-membership</id>
-    <content type="html"><![CDATA[<p>Today, I fill my application for a <a href="http://www.gnome.org/foundation/membership/apply/">Gnome Foundation Membership</a>, since they&#8217;re not adding blogs to<a href="http://planet.gnome.org"> Planet Gnome</a> without a membership, it&#8217;s kinda forced. My point is not that I don&#8217;t want, is that sometimes I think I&#8217;m not worthy of a membership yet. I&#8217;ve done too little in my opinion.<br/>
-So, let&#8217;s see how it goes.</p>
 ]]></content>
   </entry>
   
